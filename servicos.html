@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serviços — Baken Construtora</title>
+  <meta name="description" content="Instalações elétricas, hidráulicas e sistemas de combate a incêndio para o segmento vertical em Goiânia. Conheça os serviços da Baken Construtora.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <style>
+    .page-hero {
+      position: relative;
+      background: #0F0F0F;
+      padding: 10rem 0 5rem;
+      overflow: hidden;
+    }
+    .page-hero__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.15;
+    }
+    .page-hero__line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #C8102E 40%, transparent);
+    }
+    .page-hero__content { position: relative; z-index: 1; }
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 1.25rem;
+    }
+    .kicker::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: #C8102E;
+      display: block;
+    }
+
+    /* SERVIÇO BLOCO */
+    .svc-block {
+      padding: 6rem 0;
+    }
+    .svc-block:nth-child(odd) { background: #fff; }
+    .svc-block:nth-child(even) { background: #F7F7F5; }
+
+    .svc-block__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .svc-block__grid.reverse {
+      direction: rtl;
+    }
+    .svc-block__grid.reverse > * {
+      direction: ltr;
+    }
+
+    .svc-block__num {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      color: rgba(200,16,46,0.08);
+      line-height: 1;
+      margin-bottom: -1rem;
+      display: block;
+    }
+
+    .svc-block__kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #C8102E;
+      margin-bottom: 1rem;
+    }
+    .svc-block__kicker::before {
+      content: '';
+      width: 20px;
+      height: 1.5px;
+      background: #C8102E;
+      display: block;
+    }
+
+    .svc-block__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 2.5rem);
+      color: #0F0F0F;
+      font-weight: 400;
+      margin-bottom: 1.25rem;
+      line-height: 1.25;
+    }
+
+    .svc-block__text {
+      font-size: 1.0625rem;
+      font-weight: 300;
+      color: #737373;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .svc-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .svc-spec {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: #3D3D3D;
+    }
+
+    .svc-spec::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #C8102E;
+      flex-shrink: 0;
+    }
+
+    .svc-block__visual {
+      position: relative;
+    }
+
+    .svc-block__img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .svc-block__badge {
+      position: absolute;
+      top: 2rem;
+      right: -1.5rem;
+      background: #C8102E;
+      color: #fff;
+      padding: 1.25rem 1.75rem;
+      border-radius: 6px;
+      box-shadow: 0 10px 30px rgba(200,16,46,0.3);
+      text-align: center;
+    }
+
+    .svc-block__badge-icon svg {
+      width: 32px;
+      height: 32px;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .svc-block__badge-label {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      display: block;
+    }
+
+    /* NORMAS */
+    .svc-normas {
+      background: #0F0F0F;
+      padding: 4rem 0;
+    }
+
+    .normas-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .norma-item {
+      text-align: center;
+      padding: 2rem 1rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 6px;
+    }
+
+    .norma-item__code {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: #C8102E;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .norma-item__label {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 1024px) {
+      .svc-block__grid { grid-template-columns: 1fr; gap: 3rem; }
+      .svc-block__grid.reverse { direction: ltr; }
+      .svc-block__img { height: 360px; }
+      .svc-block__badge { display: none; }
+      .normas-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .svc-specs { grid-template-columns: 1fr; }
+      .normas-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header scrolled" id="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="site-logo">
+          <div class="site-logo__mark">
+            <svg viewBox="0 0 22 22"><path d="M3 19V8l8-6 8 6v11H3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><rect x="8" y="12" width="6" height="7" fill="currentColor" opacity="0.9"/></svg>
+          </div>
+          <div class="site-logo__text">
+            <span class="site-logo__name">Baken</span>
+            <span class="site-logo__sub">Construtora</span>
+          </div>
+        </a>
+        <nav class="site-nav">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">Início</a></li>
+            <li><a href="/sobre.html" class="nav-link">Sobre</a></li>
+            <li><a href="/servicos.html" class="nav-link active">Serviços</a></li>
+            <li><a href="/obras.html" class="nav-link">Obras</a></li>
+            <li><a href="/contato.html" class="nav-link">Contato</a></li>
+          </ul>
+          <a href="/cliente.html" class="nav-cta">Portal do Cliente</a>
+        </nav>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav">
+    <ul class="mobile-nav-links">
+      <li><a href="/" class="mobile-nav-link">Início</a></li>
+      <li><a href="/sobre.html" class="mobile-nav-link">Sobre</a></li>
+      <li><a href="/servicos.html" class="mobile-nav-link">Serviços</a></li>
+      <li><a href="/obras.html" class="mobile-nav-link">Obras</a></li>
+      <li><a href="/contato.html" class="mobile-nav-link">Contato</a></li>
+    </ul>
+    <a href="/cliente.html" class="btn btn--primary" style="width:100%;justify-content:center;">Portal do Cliente</a>
+  </nav>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <img class="page-hero__img" src="/img/obra-02.png" alt="">
+      <div class="page-hero__line"></div>
+      <div class="container">
+        <div class="page-hero__content">
+          <div class="kicker">Especialidades</div>
+          <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);color:#fff;font-weight:400;margin-bottom:1.25rem;line-height:1.15;">
+            O que a Baken<br><em style="font-style:italic;color:rgba(255,255,255,0.55);">entrega</em>
+          </h1>
+          <p style="font-size:1.0625rem;font-weight:300;color:rgba(255,255,255,0.55);max-width:520px;line-height:1.7;">
+            Três especialidades, uma única excelência. Instalações técnicas para o segmento vertical executadas com rigor e responsabilidade.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVIÇO 1: ELÉTRICA -->
+    <section class="svc-block" id="eletrica">
+      <div class="container">
+        <div class="svc-block__grid">
+          <div class="fade-up">
+            <span class="svc-block__num">01</span>
+            <div class="svc-block__kicker">Instalações Elétricas</div>
+            <h2 class="svc-block__title">Potência e segurança em cada circuito</h2>
+            <p class="svc-block__text">
+              Projetamos e executamos instalações elétricas de baixa e média tensão para edificações residenciais e comerciais do segmento vertical. Nossos projetos seguem rigorosamente as normas ABNT, com foco em segurança, eficiência energética e facilidade de manutenção.
+            </p>
+            <div class="svc-specs">
+              <div class="svc-spec">Instalações de baixa tensão</div>
+              <div class="svc-spec">Cabeamento estruturado</div>
+              <div class="svc-spec">SPDA (para-raios)</div>
+              <div class="svc-spec">Automação predial</div>
+              <div class="svc-spec">Subestações</div>
+              <div class="svc-spec">Quadros de distribuição</div>
+              <div class="svc-spec">Iluminação de emergência</div>
+              <div class="svc-spec">CFTV e dados</div>
+            </div>
+            <a href="/contato.html" class="btn btn--primary">
+              Solicitar orçamento
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
+          <div class="svc-block__visual fade-up delay-2">
+            <img class="svc-block__img" src="/img/obra-02.png" alt="Instalações Elétricas" loading="lazy">
+            <div class="svc-block__badge">
+              <div class="svc-block__badge-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
+              <span class="svc-block__badge-label">ABNT NBR 5410</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIÇO 2: HIDRÁULICA -->
+    <section class="svc-block" id="hidraulica">
+      <div class="container">
+        <div class="svc-block__grid reverse">
+          <div class="fade-up">
+            <span class="svc-block__num">02</span>
+            <div class="svc-block__kicker">Instalações Hidráulicas</div>
+            <h2 class="svc-block__title">Fluxo perfeito, durabilidade garantida</h2>
+            <p class="svc-block__text">
+              Executamos sistemas hidrossanitários completos, desde o projeto até o comissionamento. Utilizamos materiais de alta durabilidade e técnicas que garantem estanqueidade, baixa manutenção e conformidade com as normas vigentes.
+            </p>
+            <div class="svc-specs">
+              <div class="svc-spec">Água fria e água quente</div>
+              <div class="svc-spec">Esgoto sanitário</div>
+              <div class="svc-spec">Águas pluviais</div>
+              <div class="svc-spec">Reuso de água</div>
+              <div class="svc-spec">Bombeamento hidráulico</div>
+              <div class="svc-spec">Reservatórios e cisternas</div>
+              <div class="svc-spec">Irrigação</div>
+              <div class="svc-spec">Piscinas e SPAs</div>
+            </div>
+            <a href="/contato.html" class="btn btn--primary">
+              Solicitar orçamento
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
+          <div class="svc-block__visual fade-up delay-2">
+            <img class="svc-block__img" src="/img/obra-01.png" alt="Instalações Hidráulicas" loading="lazy">
+            <div class="svc-block__badge">
+              <div class="svc-block__badge-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+              </div>
+              <span class="svc-block__badge-label">ABNT NBR 5626</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIÇO 3: INCÊNDIO -->
+    <section class="svc-block" id="incendio">
+      <div class="container">
+        <div class="svc-block__grid">
+          <div class="fade-up">
+            <span class="svc-block__num">03</span>
+            <div class="svc-block__kicker">Combate a Incêndio</div>
+            <h2 class="svc-block__title">Segurança que protege vidas e patrimônio</h2>
+            <p class="svc-block__text">
+              Projetamos e instalamos sistemas completos de prevenção e combate a incêndio, em conformidade com as normas ABNT e com as instruções técnicas do Corpo de Bombeiros do Estado de Goiás. Garantimos aprovação e a segurança que cada edificação merece.
+            </p>
+            <div class="svc-specs">
+              <div class="svc-spec">Detecção e alarme</div>
+              <div class="svc-spec">Chuveiros automáticos (sprinklers)</div>
+              <div class="svc-spec">Hidrantes e mangotinhos</div>
+              <div class="svc-spec">Extintores (projeto e recarga)</div>
+              <div class="svc-spec">Pressurizações de escadas</div>
+              <div class="svc-spec">Iluminação de emergência</div>
+              <div class="svc-spec">Sinalização de segurança</div>
+              <div class="svc-spec">Gases especiais (supressão)</div>
+            </div>
+            <a href="/contato.html" class="btn btn--primary">
+              Solicitar orçamento
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+          </div>
+          <div class="svc-block__visual fade-up delay-2">
+            <img class="svc-block__img" src="/img/obra-03.png" alt="Combate a Incêndio" loading="lazy">
+            <div class="svc-block__badge">
+              <div class="svc-block__badge-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+              </div>
+              <span class="svc-block__badge-label">ABNT NBR 17240</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NORMAS -->
+    <section class="svc-normas">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:3rem;">
+          <p style="font-size:0.6875rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:0.75rem;">CONFORMIDADE TÉCNICA</p>
+          <h2 style="font-family:'Playfair Display',serif;font-size:1.75rem;color:#fff;font-weight:400;">Trabalhamos conforme as normas</h2>
+        </div>
+        <div class="normas-grid">
+          <div class="norma-item fade-up delay-1">
+            <span class="norma-item__code">NBR 5410</span>
+            <div class="norma-item__label">Instalações Elétricas de Baixa Tensão</div>
+          </div>
+          <div class="norma-item fade-up delay-2">
+            <span class="norma-item__code">NBR 5626</span>
+            <div class="norma-item__label">Sistemas Prediais de Água Fria e Água Quente</div>
+          </div>
+          <div class="norma-item fade-up delay-3">
+            <span class="norma-item__code">NBR 17240</span>
+            <div class="norma-item__label">Sistemas de Detecção e Alarme de Incêndio</div>
+          </div>
+          <div class="norma-item fade-up delay-4">
+            <span class="norma-item__code">CBMGO</span>
+            <div class="norma-item__label">Instruções Técnicas do Corpo de Bombeiros de Goiás</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background:#fff;padding:5rem 0;text-align:center;border-top:1px solid #E8E8E8;">
+      <div class="container">
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3vw,2.5rem);color:#0F0F0F;font-weight:400;margin-bottom:0.75rem;">Pronto para começar?</h2>
+        <p style="font-size:1.0625rem;font-weight:300;color:#737373;margin-bottom:2rem;">Entre em contato e receba um orçamento personalizado em até 24 horas.</p>
+        <a href="/contato.html" class="btn btn--primary" style="margin:0 auto;">
+          Solicitar orçamento
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" style="background:#080808;border-top:1px solid rgba(255,255,255,0.04);padding:2rem 0;">
+    <div class="container">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <span style="font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.2);">© 2026 Baken Construtora LTDA — CNPJ 01.763.579/0001-07</span>
+        <div style="display:flex;gap:1.5rem;">
+          <a href="/" style="font-size:0.8125rem;color:rgba(255,255,255,0.35);font-weight:300;">Início</a>
+          <a href="/sobre.html" style="font-size:0.8125rem;color:rgba(255,255,255,0.35);font-weight:300;">Sobre</a>
+          <a href="/contato.html" style="font-size:0.8125rem;color:rgba(255,255,255,0.35);font-weight:300;">Contato</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baken Construtora — Engenharia com Propósito</title>
+  <meta name="description" content="A Baken Construtora atua no segmento vertical, com excelência em instalações elétricas, hidráulicas e sistemas de combate a incêndio em Goiânia/GO.">
+  <meta property="og:title" content="Baken Construtora — Engenharia com Propósito">
+  <meta property="og:description" content="Transparência, eficiência e responsabilidade em cada projeto.">
+  <meta property="og:image" content="/img/hero.png">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <style>
+    /* ── PAGE-SPECIFIC: INDEX ─────────────────────────────── */
+
+    /* HERO VIDEO */
+    .hero-video {
+      position: relative;
+      width: 100%;
+      height: 100svh;
+      min-height: 640px;
+      overflow: hidden;
+      background-color: #0a0a0a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-video__vid {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+    }
+
+    .hero-video__vid.playing {
+      opacity: 1;
+    }
+
+    .hero-video__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 5, 5, 0.55) 0%,
+        rgba(5, 5, 5, 0.40) 40%,
+        rgba(5, 5, 5, 0.65) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-video__content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 0 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-video__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 2rem;
+    }
+
+    .hero-video__tag::before,
+    .hero-video__tag::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background-color: rgba(255,255,255,0.3);
+    }
+
+    .hero-video__title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.75rem, 7vw, 5.5rem);
+      font-weight: 400;
+      color: #ffffff;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-video__title em {
+      font-style: italic;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .hero-video__subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.0625rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .hero-video__actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-video__scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      animation: scrollFloat 2.8s ease-in-out infinite;
+    }
+
+    .hero-video__scroll-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .hero-video__scroll-line {
+      width: 1px;
+      height: 56px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+    }
+
+    @keyframes scrollFloat {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.6; }
+      50% { transform: translateX(-50%) translateY(10px); opacity: 1; }
+    }
+
+    /* SOBRE HOME */
+    .home-sobre {
+      padding: 7rem 0;
+      background: #fff;
+    }
+
+    .home-sobre__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .home-sobre__kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #C8102E;
+      margin-bottom: 1.5rem;
+    }
+
+    .home-sobre__kicker::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1.5px;
+      background-color: #C8102E;
+    }
+
+    .home-sobre__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      font-weight: 400;
+      color: #0F0F0F;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .home-sobre__text {
+      font-size: 1.0625rem;
+      font-weight: 300;
+      color: #737373;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .home-sobre__values {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .hval {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: #F7F7F5;
+      border-radius: 4px;
+      border-left: 2px solid #C8102E;
+    }
+
+    .hval__icon {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #C8102E;
+    }
+
+    .hval__label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: #0F0F0F;
+      margin-bottom: 2px;
+    }
+
+    .hval__desc {
+      font-size: 0.75rem;
+      color: #737373;
+      font-weight: 300;
+      line-height: 1.4;
+    }
+
+    /* IMAGEM LADO DIREITO */
+    .home-sobre__visual {
+      position: relative;
+    }
+
+    .home-sobre__img {
+      width: 100%;
+      height: 580px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .home-sobre__badge {
+      position: absolute;
+      bottom: -1.5rem;
+      left: -1.5rem;
+      background: #C8102E;
+      color: #fff;
+      padding: 1.5rem 2rem;
+      border-radius: 6px;
+      box-shadow: 0 20px 60px rgba(200,16,46,0.3);
+    }
+
+    .home-sobre__badge-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.75rem;
+      font-weight: 700;
+      line-height: 1;
+      display: block;
+    }
+
+    .home-sobre__badge-txt {
+      font-size: 0.6875rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* SERVICES */
+    .home-servicos {
+      padding: 7rem 0;
+      background: #F7F7F5;
+    }
+
+    .sec-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .sec-header__kicker {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #C8102E;
+      margin-bottom: 1rem;
+    }
+
+    .sec-header__kicker::before,
+    .sec-header__kicker::after {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1.5px;
+      background-color: #C8102E;
+    }
+
+    .sec-header__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 400;
+      color: #0F0F0F;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+    }
+
+    .sec-header__sub {
+      font-size: 1.0625rem;
+      font-weight: 300;
+      color: #737373;
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .svc-card {
+      background: #fff;
+      border-radius: 6px;
+      padding: 2.5rem 2rem;
+      border: 1px solid #E8E8E8;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94),
+                  box-shadow 0.35s cubic-bezier(0.25,0.46,0.45,0.94),
+                  border-color 0.35s ease;
+      cursor: default;
+    }
+
+    .svc-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: #C8102E;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+
+    .svc-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      border-color: transparent;
+    }
+
+    .svc-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .svc-card__num {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.6875rem;
+      color: #D4D4D4;
+      display: block;
+      margin-bottom: 1.25rem;
+    }
+
+    .svc-card__icon {
+      width: 56px;
+      height: 56px;
+      background: #F5E6E9;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      transition: background 0.3s ease;
+    }
+
+    .svc-card:hover .svc-card__icon {
+      background: #C8102E;
+    }
+
+    .svc-card__icon svg {
+      width: 26px;
+      height: 26px;
+      color: #C8102E;
+      transition: color 0.3s ease;
+    }
+
+    .svc-card:hover .svc-card__icon svg {
+      color: #fff;
+    }
+
+    .svc-card__title {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.1875rem;
+      font-weight: 600;
+      color: #0F0F0F;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .svc-card__text {
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: #737373;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+
+    .svc-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #C8102E;
+      transition: gap 0.25s ease;
+    }
+
+    .svc-link:hover {
+      gap: 10px;
+    }
+
+    .svc-link svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* STATS */
+    .home-stats {
+      background: #C8102E;
+      padding: 5rem 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stat {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      border-right: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat__num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat__label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* OBRAS PREVIEW */
+    .home-obras {
+      padding: 7rem 0;
+      background: #fff;
+    }
+
+    .obras-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+
+    .obra-card {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #0F0F0F;
+      aspect-ratio: 4/3;
+    }
+
+    .obra-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94),
+                  opacity 0.5s ease;
+    }
+
+    .obra-card:hover .obra-card__img {
+      transform: scale(1.07);
+      opacity: 0.65;
+    }
+
+    .obra-card__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(10,10,10,0.88) 0%,
+        rgba(10,10,10,0.1) 55%,
+        transparent 100%
+      );
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+    }
+
+    .obra-card__tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #C8102E;
+      background: rgba(200,16,46,0.15);
+      backdrop-filter: blur(6px);
+      padding: 4px 10px;
+      border-radius: 20px;
+      width: fit-content;
+      margin-bottom: 0.5rem;
+    }
+
+    .obra-card__name {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.25rem;
+    }
+
+    .obra-card__city {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .obra-card__arrow {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      width: 38px;
+      height: 38px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: scale(0.7) rotate(-45deg);
+      transition: all 0.3s ease;
+    }
+
+    .obra-card:hover .obra-card__arrow {
+      opacity: 1;
+      transform: scale(1) rotate(0);
+    }
+
+    .obra-card__arrow svg {
+      width: 16px;
+      height: 16px;
+      color: #C8102E;
+    }
+
+    .obras-footer {
+      text-align: center;
+    }
+
+    /* CTA BANNER */
+    .home-cta {
+      background: #0F0F0F;
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .home-cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle at center, rgba(200,16,46,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .home-cta__inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+    }
+
+    .home-cta__kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 1.25rem;
+    }
+
+    .home-cta__kicker::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: #C8102E;
+    }
+
+    .home-cta__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .home-cta__actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1rem;
+      flex-shrink: 0;
+    }
+
+    .home-cta__actions .btn--primary {
+      white-space: nowrap;
+      padding: 1.125rem 2.5rem;
+      font-size: 0.8125rem;
+    }
+
+    .home-cta__note {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.3);
+      text-align: right;
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: #080808;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .footer-main {
+      padding: 5rem 0 3rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.8fr 1fr 1fr 1.3fr;
+      gap: 3rem;
+    }
+
+    .footer-logo-wrap {
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-logo__mark {
+      width: 34px;
+      height: 34px;
+      background: #C8102E;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .footer-logo__mark svg {
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+    }
+
+    .footer-logo__name {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+
+    .footer-logo__sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: block;
+    }
+
+    .footer-tagline {
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .footer-social {
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.35);
+      transition: all 0.25s ease;
+    }
+
+    .footer-social:hover {
+      background: #C8102E;
+      border-color: #C8102E;
+      color: #fff;
+    }
+
+    .footer-social svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    .footer-col-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+    }
+
+    .footer-link {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.45);
+      transition: color 0.2s ease;
+    }
+
+    .footer-link:hover {
+      color: #fff;
+    }
+
+    .footer-contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.625rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-contact-icon {
+      width: 16px;
+      height: 16px;
+      color: #C8102E;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .footer-contact-txt {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.55;
+    }
+
+    .footer-contact-txt a {
+      color: rgba(255,255,255,0.45);
+      transition: color 0.2s ease;
+    }
+
+    .footer-contact-txt a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 1.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .footer-legal {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.18);
+    }
+
+    .footer-cnpj {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.15);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .home-sobre__grid { grid-template-columns: 1fr; gap: 3rem; }
+      .home-sobre__img { height: 380px; }
+      .home-sobre__badge { display: none; }
+      .home-sobre__values { grid-template-columns: 1fr 1fr; }
+      .svc-grid { grid-template-columns: 1fr 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); }
+      .stat:nth-child(3), .stat:nth-child(4) { border-bottom: none; }
+      .obras-grid { grid-template-columns: 1fr 1fr; }
+      .home-cta__inner { flex-direction: column; text-align: center; }
+      .home-cta__actions { align-items: center; }
+      .home-cta__note { text-align: center; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 768px) {
+      .home-sobre { padding: 4.5rem 0; }
+      .home-servicos, .home-obras { padding: 4.5rem 0; }
+      .home-stats { padding: 3rem 0; }
+      .svc-grid { grid-template-columns: 1fr; }
+      .obras-grid { grid-template-columns: 1fr; }
+      .home-sobre__values { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .hero-video__actions { flex-direction: column; }
+    }
+
+    @media (max-width: 480px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══════════════════════════════════════════════ -->
+  <header class="site-header transparent" id="site-header">
+    <div class="container">
+      <div class="header-inner">
+
+        <!-- Logo -->
+        <a href="/" class="site-logo">
+          <div class="site-logo__mark">
+            <svg viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 19V8l8-6 8 6v11H3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+              <rect x="8" y="12" width="6" height="7" fill="currentColor" opacity="0.9"/>
+            </svg>
+          </div>
+          <div class="site-logo__text">
+            <span class="site-logo__name">Baken</span>
+            <span class="site-logo__sub">Construtora</span>
+          </div>
+        </a>
+
+        <!-- Nav Desktop -->
+        <nav class="site-nav" aria-label="Navegação principal">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link active" id="nav-inicio">Início</a></li>
+            <li><a href="/sobre.html" class="nav-link" id="nav-sobre">Sobre</a></li>
+            <li><a href="/servicos.html" class="nav-link" id="nav-servicos">Serviços</a></li>
+            <li><a href="/obras.html" class="nav-link" id="nav-obras">Obras</a></li>
+            <li><a href="/contato.html" class="nav-link" id="nav-contato">Contato</a></li>
+          </ul>
+          <a href="/cliente.html" class="nav-cta">Portal do Cliente</a>
+        </nav>
+
+        <!-- Hamburger -->
+        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
+    <ul class="mobile-nav-links">
+      <li><a href="/" class="mobile-nav-link">Início</a></li>
+      <li><a href="/sobre.html" class="mobile-nav-link">Sobre</a></li>
+      <li><a href="/servicos.html" class="mobile-nav-link">Serviços</a></li>
+      <li><a href="/obras.html" class="mobile-nav-link">Obras</a></li>
+      <li><a href="/contato.html" class="mobile-nav-link">Contato</a></li>
+    </ul>
+    <a href="/cliente.html" class="btn btn--primary" style="width:100%;justify-content:center;">Portal do Cliente</a>
+  </nav>
+
+  <main>
+
+    <!-- ═══ HERO VIDEO ════════════════════════════════════════ -->
+    <section class="hero-video" id="hero">
+      <video
+        class="hero-video__vid"
+        id="hero-vid"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster="/img/hero.png"
+      >
+        <!-- Vídeo de construção/engenharia de alta qualidade — substituir por vídeo real da Baken -->
+        <source src="https://videos.pexels.com/video-files/3209828/3209828-uhd_2560_1440_25fps.mp4" type="video/mp4">
+        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video__overlay"></div>
+
+      <div class="hero-video__content">
+        <div class="hero-video__tag">Goiânia · Goiás · Brasil</div>
+        <h1 class="hero-video__title">
+          Engenharia com<br><em>transparência</em> e propósito
+        </h1>
+        <p class="hero-video__subtitle">
+          Especialistas em instalações elétricas, hidráulicas e sistemas
+          de combate a incêndio no segmento vertical.
+        </p>
+        <div class="hero-video__actions">
+          <a href="/servicos.html" class="btn btn--primary">
+            Nossos serviços
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <a href="/contato.html" class="btn btn--outline">Fale conosco</a>
+        </div>
+      </div>
+
+      <div class="hero-video__scroll" id="hero-scroll">
+        <span class="hero-video__scroll-text">Explorar</span>
+        <div class="hero-video__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- ═══ SOBRE ══════════════════════════════════════════════ -->
+    <section class="home-sobre" id="sobre">
+      <div class="container">
+        <div class="home-sobre__grid">
+
+          <!-- Texto -->
+          <div class="fade-up">
+            <div class="home-sobre__kicker">Sobre a Baken</div>
+            <h2 class="home-sobre__title">
+              Eficiência inteligente em cada detalhe da obra
+            </h2>
+            <p class="home-sobre__text">
+              A Baken Construtora é uma empresa focada em resultados concretos: 
+              instalações de alta performance, execução no prazo e total transparência 
+              com o cliente em cada etapa do projeto.
+            </p>
+
+            <div class="home-sobre__values">
+              <div class="hval">
+                <div class="hval__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                  <div class="hval__label">Transparência</div>
+                  <div class="hval__desc">Relatórios claros e comunicação direta em todo o projeto</div>
+                </div>
+              </div>
+              <div class="hval">
+                <div class="hval__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div>
+                  <div class="hval__label">Pontualidade</div>
+                  <div class="hval__desc">Cumprimos prazos com planejamento rigoroso</div>
+                </div>
+              </div>
+              <div class="hval">
+                <div class="hval__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div>
+                  <div class="hval__label">Qualidade</div>
+                  <div class="hval__desc">Materiais certificados e mão de obra qualificada</div>
+                </div>
+              </div>
+              <div class="hval">
+                <div class="hval__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div>
+                  <div class="hval__label">Responsabilidade</div>
+                  <div class="hval__desc">Assistência técnica pós-obra para sua tranquilidade</div>
+                </div>
+              </div>
+            </div>
+
+            <a href="/sobre.html" class="btn btn--outline-dark">
+              Conheça a empresa
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+          <!-- Imagem -->
+          <div class="home-sobre__visual fade-up delay-2">
+            <img
+              class="home-sobre__img"
+              src="/img/sobre.png"
+              alt="Equipe Baken Construtora"
+              loading="lazy"
+            >
+            <div class="home-sobre__badge">
+              <span class="home-sobre__badge-num">+15</span>
+              <span class="home-sobre__badge-txt">Anos de experiência</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ SERVIÇOS ══════════════════════════════════════════ -->
+    <section class="home-servicos" id="servicos">
+      <div class="container">
+        <div class="sec-header fade-up">
+          <div class="sec-header__kicker">O que fazemos</div>
+          <h2 class="sec-header__title">Nossas especialidades</h2>
+          <p class="sec-header__sub">
+            Atuamos nas principais instalações do segmento vertical,
+            com equipe técnica certificada e processos auditáveis.
+          </p>
+        </div>
+
+        <div class="svc-grid">
+
+          <!-- Elétrica -->
+          <div class="svc-card fade-up delay-1">
+            <span class="svc-card__num">01</span>
+            <div class="svc-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3 class="svc-card__title">Instalações Elétricas</h3>
+            <p class="svc-card__text">
+              Projetos elétricos residenciais e comerciais de alta complexidade, 
+              com cabeamento estruturado, SPDA e automação predial conforme ABNT.
+            </p>
+            <a href="/servicos.html#eletrica" class="svc-link">
+              Saiba mais
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+          <!-- Hidráulica -->
+          <div class="svc-card fade-up delay-2">
+            <span class="svc-card__num">02</span>
+            <div class="svc-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+            </div>
+            <h3 class="svc-card__title">Instalações Hidráulicas</h3>
+            <p class="svc-card__text">
+              Sistemas hidrossanitários completos: água fria, água quente, esgoto 
+              e drenagem pluvial com materiais de alta durabilidade.
+            </p>
+            <a href="/servicos.html#hidraulica" class="svc-link">
+              Saiba mais
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+          <!-- Incêndio -->
+          <div class="svc-card fade-up delay-3">
+            <span class="svc-card__num">03</span>
+            <div class="svc-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+            </div>
+            <h3 class="svc-card__title">Combate a Incêndio</h3>
+            <p class="svc-card__text">
+              Sistemas de detecção, alarme e supressão de incêndio conforme 
+              normas ABNT e regulamentos do Corpo de Bombeiros de Goiás.
+            </p>
+            <a href="/servicos.html#incendio" class="svc-link">
+              Saiba mais
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ STATS ══════════════════════════════════════════════ -->
+    <section class="home-stats" id="stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat fade-up delay-1">
+            <span class="stat__num" data-target="15">0</span>
+            <span class="stat__label">Anos de experiência</span>
+          </div>
+          <div class="stat fade-up delay-2">
+            <span class="stat__num" data-target="200">0</span>
+            <span class="stat__label">Obras concluídas</span>
+          </div>
+          <div class="stat fade-up delay-3">
+            <span class="stat__num" data-target="85000">0</span>
+            <span class="stat__label">m² executados</span>
+          </div>
+          <div class="stat fade-up delay-4">
+            <span class="stat__num" data-target="120">0</span>
+            <span class="stat__label">Clientes atendidos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ OBRAS ═══════════════════════════════════════════════ -->
+    <section class="home-obras" id="obras">
+      <div class="container">
+        <div class="sec-header fade-up">
+          <div class="sec-header__kicker">Portfólio</div>
+          <h2 class="sec-header__title">Nossas obras</h2>
+          <p class="sec-header__sub">
+            Projetos que refletem nossa capacidade técnica 
+            e comprometimento com a excelência na entrega.
+          </p>
+        </div>
+
+        <div class="obras-grid">
+
+          <div class="obra-card fade-up delay-1">
+            <img class="obra-card__img" src="/img/obra-01.png" alt="Residencial Villagio" loading="lazy">
+            <div class="obra-card__overlay">
+              <span class="obra-card__tag">Elétrica · Hidráulica</span>
+              <div class="obra-card__name">Residencial Villagio</div>
+              <div class="obra-card__city">Goiânia, GO</div>
+            </div>
+            <div class="obra-card__arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </div>
+
+          <div class="obra-card fade-up delay-2">
+            <img class="obra-card__img" src="/img/obra-02.png" alt="Torre Empresarial Central" loading="lazy">
+            <div class="obra-card__overlay">
+              <span class="obra-card__tag">Incêndio · Elétrica</span>
+              <div class="obra-card__name">Torre Empresarial Central</div>
+              <div class="obra-card__city">Goiânia, GO</div>
+            </div>
+            <div class="obra-card__arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </div>
+
+          <div class="obra-card fade-up delay-3">
+            <img class="obra-card__img" src="/img/obra-03.png" alt="Grand Boulevard Hotel" loading="lazy">
+            <div class="obra-card__overlay">
+              <span class="obra-card__tag">Completo</span>
+              <div class="obra-card__name">Grand Boulevard Hotel</div>
+              <div class="obra-card__city">Goiânia, GO</div>
+            </div>
+            <div class="obra-card__arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="obras-footer fade-up">
+          <a href="/obras.html" class="btn btn--outline-dark">
+            Ver todas as obras
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══ CTA FINAL ═════════════════════════════════════════ -->
+    <section class="home-cta">
+      <div class="container">
+        <div class="home-cta__inner">
+          <div class="fade-up">
+            <div class="home-cta__kicker">Próximo passo</div>
+            <h2 class="home-cta__title">
+              Pronto para iniciar<br>o seu projeto?
+            </h2>
+          </div>
+          <div class="home-cta__actions fade-up delay-2">
+            <a href="/contato.html" class="btn btn--primary">
+              Solicitar orçamento
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+            <span class="home-cta__note">Retorno em até 24 horas úteis</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-grid">
+
+          <!-- Col 1: Marca -->
+          <div>
+            <div class="footer-logo-wrap">
+              <div class="footer-logo">
+                <div class="footer-logo__mark">
+                  <svg viewBox="0 0 22 22" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 19V8l8-6 8 6v11H3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                    <rect x="8" y="12" width="6" height="7" fill="currentColor" opacity="0.9"/>
+                  </svg>
+                </div>
+                <div>
+                  <span class="footer-logo__name">Baken</span>
+                  <span class="footer-logo__sub">Construtora</span>
+                </div>
+              </div>
+            </div>
+            <p class="footer-tagline">
+              Eficiência, transparência e<br>responsabilidade em cada projeto.
+            </p>
+            <div class="footer-socials">
+              <a href="#" class="footer-social" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+              <a href="#" class="footer-social" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="https://wa.me/5562999509148" class="footer-social" aria-label="WhatsApp">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Col 2: Links -->
+          <div>
+            <div class="footer-col-title">Navegação</div>
+            <ul class="footer-links">
+              <li><a href="/" class="footer-link">Início</a></li>
+              <li><a href="/sobre.html" class="footer-link">Sobre a Empresa</a></li>
+              <li><a href="/servicos.html" class="footer-link">Serviços</a></li>
+              <li><a href="/obras.html" class="footer-link">Portfólio de Obras</a></li>
+              <li><a href="/contato.html" class="footer-link">Contato</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Serviços -->
+          <div>
+            <div class="footer-col-title">Serviços</div>
+            <ul class="footer-links">
+              <li><a href="/servicos.html#eletrica" class="footer-link">Instalações Elétricas</a></li>
+              <li><a href="/servicos.html#hidraulica" class="footer-link">Instalações Hidráulicas</a></li>
+              <li><a href="/servicos.html#incendio" class="footer-link">Combate a Incêndio</a></li>
+              <li><a href="/cliente.html" class="footer-link">Assistência Técnica</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Contato -->
+          <div>
+            <div class="footer-col-title">Contato</div>
+            <div class="footer-contact-row">
+              <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.61 5.61l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <div class="footer-contact-txt">
+                <a href="tel:+5562999509148">(62) 99950-9148</a>
+              </div>
+            </div>
+            <div class="footer-contact-row">
+              <svg class="footer-contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div class="footer-contact-txt">
+                Av. Ville, 2891 — Moinho dos Ventos<br>Goiânia, GO · CEP 74.371-580
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-legal">© 2026 Baken Construtora LTDA. Todos os direitos reservados.</span>
+        <span class="footer-cnpj">CNPJ 01.763.579/0001-07</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

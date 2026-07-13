@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato — Baken Construtora</title>
+  <meta name="description" content="Entre em contato com a Baken Construtora. Solicite um orçamento para instalações elétricas, hidráulicas ou combate a incêndio em Goiânia.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <style>
+    .page-hero {
+      position: relative;
+      background: #0F0F0F;
+      padding: 10rem 0 5rem;
+    }
+    .page-hero__line {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #C8102E 40%, transparent);
+    }
+    .page-hero__content { position: relative; z-index: 1; }
+    .kicker {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(255,255,255,0.4); margin-bottom: 1.25rem;
+    }
+    .kicker::before {
+      content: ''; width: 24px; height: 1px;
+      background: #C8102E; display: block;
+    }
+
+    /* CONTATO LAYOUT */
+    .contato-section {
+      padding: 6rem 0;
+      background: #fff;
+    }
+
+    .contato-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    /* SIDEBAR INFO */
+    .contato-info__title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 3vw, 2.25rem);
+      font-weight: 400;
+      color: #0F0F0F;
+      margin-bottom: 1.25rem;
+      line-height: 1.25;
+    }
+
+    .contato-info__text {
+      font-size: 1.0625rem;
+      font-weight: 300;
+      color: #737373;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .contato-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .contato-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .contato-item__icon {
+      width: 44px;
+      height: 44px;
+      background: #F5E6E9;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contato-item__icon svg {
+      width: 20px;
+      height: 20px;
+      color: #C8102E;
+    }
+
+    .contato-item__label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #A3A3A3;
+      margin-bottom: 4px;
+    }
+
+    .contato-item__value {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #0F0F0F;
+      line-height: 1.5;
+    }
+
+    .contato-item__value a {
+      color: #0F0F0F;
+      transition: color 0.2s ease;
+    }
+
+    .contato-item__value a:hover { color: #C8102E; }
+
+    .contato-divider {
+      width: 100%;
+      height: 1px;
+      background: #E8E8E8;
+      margin: 2rem 0;
+    }
+
+    .contato-horario__label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #A3A3A3;
+      margin-bottom: 0.5rem;
+    }
+
+    .contato-horario__value {
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: #3D3D3D;
+      line-height: 1.6;
+    }
+
+    /* FORM */
+    .contato-form {
+      background: #F7F7F5;
+      border-radius: 10px;
+      padding: 2.5rem;
+    }
+
+    .contato-form__title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #0F0F0F;
+      margin-bottom: 0.5rem;
+    }
+
+    .contato-form__subtitle {
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: #737373;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-label {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #737373;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: #0F0F0F;
+      background: #fff;
+      border: 1.5px solid #E8E8E8;
+      border-radius: 4px;
+      outline: none;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+      appearance: none;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      border-color: #C8102E;
+      box-shadow: 0 0 0 3px rgba(200,16,46,0.08);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23737373' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 1rem 2rem;
+      background: #C8102E;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+      margin-top: 0.5rem;
+    }
+
+    .form-submit:hover {
+      background: #8B0A1E;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(200,16,46,0.3);
+    }
+
+    .form-privacy {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: #A3A3A3;
+      text-align: center;
+      margin-top: 1rem;
+      line-height: 1.5;
+    }
+
+    /* SUCCESS STATE */
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    .form-success__icon {
+      width: 64px;
+      height: 64px;
+      background: #F5E6E9;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+
+    .form-success__icon svg {
+      width: 28px;
+      height: 28px;
+      color: #C8102E;
+    }
+
+    .form-success__title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #0F0F0F;
+      margin-bottom: 0.75rem;
+    }
+
+    .form-success__text {
+      font-size: 1rem;
+      font-weight: 300;
+      color: #737373;
+      line-height: 1.7;
+    }
+
+    /* MAPA */
+    .contato-mapa {
+      background: #0F0F0F;
+      padding: 0;
+      height: 380px;
+      overflow: hidden;
+    }
+
+    .contato-mapa iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(60%) brightness(0.8);
+    }
+
+    @media (max-width: 1024px) {
+      .contato-grid { grid-template-columns: 1fr; gap: 3rem; }
+    }
+
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+      .contato-form { padding: 1.75rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header scrolled" id="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="site-logo">
+          <div class="site-logo__mark">
+            <svg viewBox="0 0 22 22"><path d="M3 19V8l8-6 8 6v11H3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><rect x="8" y="12" width="6" height="7" fill="currentColor" opacity="0.9"/></svg>
+          </div>
+          <div class="site-logo__text">
+            <span class="site-logo__name">Baken</span>
+            <span class="site-logo__sub">Construtora</span>
+          </div>
+        </a>
+        <nav class="site-nav">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">Início</a></li>
+            <li><a href="/sobre.html" class="nav-link">Sobre</a></li>
+            <li><a href="/servicos.html" class="nav-link">Serviços</a></li>
+            <li><a href="/obras.html" class="nav-link">Obras</a></li>
+            <li><a href="/contato.html" class="nav-link active">Contato</a></li>
+          </ul>
+          <a href="/cliente.html" class="nav-cta">Portal do Cliente</a>
+        </nav>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav">
+    <ul class="mobile-nav-links">
+      <li><a href="/" class="mobile-nav-link">Início</a></li>
+      <li><a href="/sobre.html" class="mobile-nav-link">Sobre</a></li>
+      <li><a href="/servicos.html" class="mobile-nav-link">Serviços</a></li>
+      <li><a href="/obras.html" class="mobile-nav-link">Obras</a></li>
+      <li><a href="/contato.html" class="mobile-nav-link">Contato</a></li>
+    </ul>
+    <a href="/cliente.html" class="btn btn--primary" style="width:100%;justify-content:center;">Portal do Cliente</a>
+  </nav>
+
+  <main>
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="page-hero__line"></div>
+      <div class="container">
+        <div class="page-hero__content">
+          <div class="kicker">Fale conosco</div>
+          <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);color:#fff;font-weight:400;margin-bottom:1.25rem;line-height:1.15;">
+            Vamos conversar<br><em style="font-style:italic;color:rgba(255,255,255,0.55);">sobre seu projeto</em>
+          </h1>
+          <p style="font-size:1.0625rem;font-weight:300;color:rgba(255,255,255,0.55);max-width:500px;line-height:1.7;">
+            Resposta em até 24 horas úteis. Conheça as melhores soluções para o seu empreendimento.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTATO -->
+    <section class="contato-section">
+      <div class="container">
+        <div class="contato-grid">
+
+          <!-- Info -->
+          <div class="fade-up">
+            <h2 class="contato-info__title">Como podemos te ajudar?</h2>
+            <p class="contato-info__text">
+              Seja para um orçamento, esclarecimento técnico ou parceria comercial, nossa equipe está pronta para atender.
+            </p>
+
+            <div class="contato-items">
+              <div class="contato-item">
+                <div class="contato-item__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.61 5.61l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div>
+                  <div class="contato-item__label">Telefone / WhatsApp</div>
+                  <div class="contato-item__value">
+                    <a href="tel:+5562999509148">(62) 99950-9148</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contato-item">
+                <div class="contato-item__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <div>
+                  <div class="contato-item__label">E-mail</div>
+                  <div class="contato-item__value">
+                    <a href="mailto:contato@baken.com.br">contato@baken.com.br</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contato-item">
+                <div class="contato-item__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <div>
+                  <div class="contato-item__label">Endereço</div>
+                  <div class="contato-item__value">
+                    Av. Ville, 2891 — Quadra 43, Lote 03<br>
+                    Moinho dos Ventos — Goiânia, GO<br>
+                    CEP: 74.371-580
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="contato-divider"></div>
+
+            <div class="contato-horario__label">Horário de atendimento</div>
+            <div class="contato-horario__value">
+              Segunda a Sexta: 08h às 18h<br>
+              Sábado: 08h às 12h
+            </div>
+          </div>
+
+          <!-- Formulário -->
+          <div class="fade-up delay-2">
+            <div class="contato-form">
+              <h3 class="contato-form__title">Solicite um orçamento</h3>
+              <p class="contato-form__subtitle">Preencha o formulário e entraremos em contato em até 24 horas úteis.</p>
+
+              <form id="contato-form" action="mailto:contato@baken.com.br" method="post" enctype="text/plain" novalidate>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="nome">Nome *</label>
+                    <input class="form-input" type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="empresa">Empresa</label>
+                    <input class="form-input" type="text" id="empresa" name="empresa" placeholder="Nome da empresa">
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="email">E-mail *</label>
+                    <input class="form-input" type="email" id="email" name="email" placeholder="seu@email.com.br" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="telefone">Telefone *</label>
+                    <input class="form-input" type="tel" id="telefone" name="telefone" placeholder="(62) 9 9999-9999" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="servico">Serviço de interesse *</label>
+                  <select class="form-select" id="servico" name="servico" required>
+                    <option value="" disabled selected>Selecione um serviço</option>
+                    <option value="eletrica">Instalações Elétricas</option>
+                    <option value="hidraulica">Instalações Hidráulicas</option>
+                    <option value="incendio">Combate a Incêndio</option>
+                    <option value="completo">Todos os Serviços</option>
+                    <option value="outro">Outro</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="mensagem">Descrição do projeto</label>
+                  <textarea class="form-textarea" id="mensagem" name="mensagem" placeholder="Descreva brevemente seu projeto: tipo de edificação, metragem, localização..."></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">Enviar mensagem</button>
+                <p class="form-privacy">Seus dados são usados apenas para responder sua solicitação.</p>
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MAPA -->
+    <div class="contato-mapa">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3822.8!2d-49.2808!3d-16.6869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDQxJzEyLjgiUyA0OcKwMTYnNTAuOSJX!5e0!3m2!1spt!2sbr!4v1234567890"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Localização Baken Construtora — Goiânia"
+      ></iframe>
+    </div>
+
+  </main>
+
+  <footer class="site-footer" style="background:#080808;border-top:1px solid rgba(255,255,255,0.04);padding:2rem 0;">
+    <div class="container">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <span style="font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.2);">© 2026 Baken Construtora LTDA — CNPJ 01.763.579/0001-07</span>
+        <div style="display:flex;gap:1.5rem;">
+          <a href="/" style="font-size:0.8125rem;color:rgba(255,255,255,0.35);font-weight:300;">Início</a>
+          <a href="/servicos.html" style="font-size:0.8125rem;color:rgba(255,255,255,0.35);font-weight:300;">Serviços</a>
+          <a href="/cliente.html" style="font-size:0.8125rem;color:rgba(255,255,255,0.35);font-weight:300;">Portal do Cliente</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

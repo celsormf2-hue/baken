@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obras — Baken Construtora</title>
+  <meta name="description" content="Portfólio de obras da Baken Construtora — instalações elétricas, hidráulicas e combate a incêndio em Goiânia e região.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <style>
+    .page-hero {
+      position: relative;
+      background: #0F0F0F;
+      padding: 10rem 0 5rem;
+      overflow: hidden;
+    }
+    .page-hero__img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; opacity: 0.18;
+    }
+    .page-hero__line {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #C8102E 40%, transparent);
+    }
+    .page-hero__content { position: relative; z-index: 1; }
+    .kicker {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(255,255,255,0.4); margin-bottom: 1.25rem;
+    }
+    .kicker::before {
+      content: ''; width: 24px; height: 1px;
+      background: #C8102E; display: block;
+    }
+
+    /* FILTROS */
+    .obras-section { padding: 5rem 0; background: #fff; }
+
+    .obras-filters {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1.25rem;
+      border-radius: 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: #737373;
+      background: #F7F7F5;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #C8102E;
+      color: #fff;
+      border-color: #C8102E;
+    }
+
+    /* GRID */
+    .obras-masonry {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .obra-item {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #0F0F0F;
+      cursor: pointer;
+      transition: opacity 0.35s ease;
+    }
+
+    .obra-item.hidden { display: none; }
+
+    .obra-item:nth-child(1) { grid-row: span 2; aspect-ratio: 3/4; }
+    .obra-item:not(:nth-child(1)) { aspect-ratio: 4/3; }
+
+    .obra-item__img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.4s ease;
+    }
+
+    .obra-item:hover .obra-item__img {
+      transform: scale(1.06);
+      opacity: 0.65;
+    }
+
+    .obra-item__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, transparent 55%);
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.75rem;
+    }
+
+    .obra-item__tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+
+    .obra-item__tag {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #C8102E;
+      background: rgba(200,16,46,0.15);
+      backdrop-filter: blur(4px);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    .obra-item__name {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.375rem;
+      line-height: 1.3;
+    }
+
+    .obra-item__meta {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .obra-item__btn {
+      position: absolute;
+      top: 1.25rem; right: 1.25rem;
+      width: 40px; height: 40px;
+      background: rgba(255,255,255,0.92);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0;
+      transform: scale(0.7) rotate(-45deg);
+      transition: all 0.3s ease;
+    }
+
+    .obra-item:hover .obra-item__btn {
+      opacity: 1;
+      transform: scale(1) rotate(0);
+    }
+
+    .obra-item__btn svg {
+      width: 16px; height: 16px;
+      color: #C8102E;
+    }
+
+    /* LIGHTBOX SIMPLES */
+    .lightbox {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 500;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .lightbox.open { display: flex; }
+
+    .lightbox__img {
+      max-width: 900px;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .lightbox__close {
+      position: absolute;
+      top: 2rem; right: 2rem;
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .lightbox__close:hover { background: rgba(255,255,255,0.2); }
+
+    /* CTA OBRAS */
+    .obras-cta {
+      background: #0F0F0F;
+      padding: 5rem 0;
+      text-align: center;
+    }
+
+    @media (max-width: 1024px) {
+      .obras-masonry { grid-template-columns: 1fr 1fr; }
+      .obra-item:nth-child(1) { grid-row: auto; aspect-ratio: 4/3; }
+    }
+    @media (max-width: 640px) {
+      .obras-masonry { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header scrolled" id="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="site-logo">
+          <div class="site-logo__mark">
+            <svg viewBox="0 0 22 22"><path d="M3 19V8l8-6 8 6v11H3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><rect x="8" y="12" width="6" height="7" fill="currentColor" opacity="0.9"/></svg>
+          </div>
+          <div class="site-logo__text">
+            <span class="site-logo__name">Baken</span>
+            <span class="site-logo__sub">Construtora</span>
+          </div>
+        </a>
+        <nav class="site-nav">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">Início</a></li>
+            <li><a href="/sobre.html" class="nav-link">Sobre</a></li>
+            <li><a href="/servicos.html" class="nav-link">Serviços</a></li>
+            <li><a href="/obras.html" class="nav-link active">Obras</a></li>
+            <li><a href="/contato.html" class="nav-link">Contato</a></li>
+          </ul>
+          <a href="/cliente.html" class="nav-cta">Portal do Cliente</a>
+        </nav>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobile-nav">
+    <ul class="mobile-nav-links">
+      <li><a href="/" class="mobile-nav-link">Início</a></li>
+      <li><a href="/sobre.html" class="mobile-nav-link">Sobre</a></li>
+      <li><a href="/servicos.html" class="mobile-nav-link">Serviços</a></li>
+      <li><a href="/obras.html" class="mobile-nav-link">Obras</a></li>
+      <li><a href="/contato.html" class="mobile-nav-link">Contato</a></li>
+    </ul>
+    <a href="/cliente.html" class="btn btn--primary" style="width:100%;justify-content:center;">Portal do Cliente</a>
+  </nav>
+
+  <main>
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <img class="page-hero__img" src="/img/obra-01.png" alt="">
+      <div class="page-hero__line"></div>
+      <div class="container">
+        <div class="page-hero__content">
+          <div class="kicker">Portfólio</div>
+          <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);color:#fff;font-weight:400;margin-bottom:1.25rem;line-height:1.15;">
+            Cada obra, uma<br><em style="font-style:italic;color:rgba(255,255,255,0.55);">história de entrega</em>
+          </h1>
+          <p style="font-size:1.0625rem;font-weight:300;color:rgba(255,255,255,0.55);max-width:500px;line-height:1.7;">
+            Projetos concluídos que refletem nosso comprometimento com a excelência técnica e a satisfação dos clientes.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- OBRAS GRID -->
+    <section class="obras-section">
+      <div class="container">
+
+        <!-- Filtros -->
+        <div class="obras-filters">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="eletrica">Elétrica</button>
+          <button class="filter-btn" data-filter="hidraulica">Hidráulica</button>
+          <button class="filter-btn" data-filter="incendio">Incêndio</button>
+          <button class="filter-btn" data-filter="completo">Completo</button>
+        </div>
+
+        <!-- Grid -->
+        <div class="obras-masonry" id="obras-grid">
+
+          <div class="obra-item fade-up" data-category="eletrica hidraulica" data-img="/img/obra-01.png">
+            <img class="obra-item__img" src="/img/obra-01.png" alt="Residencial Villagio" loading="lazy">
+            <div class="obra-item__overlay">
+              <div class="obra-item__tags">
+                <span class="obra-item__tag">Elétrica</span>
+                <span class="obra-item__tag">Hidráulica</span>
+              </div>
+              <div class="obra-item__name">Residencial Villagio</div>
+              <div class="obra-item__meta">Goiânia, GO · 2024</div>
+            </div>
+            <div class="obra-item__btn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </div>
+
+          <div class="obra-item fade-up delay-1" data-category="incendio eletrica" data-img="/img/obra-02.png">
+            <img class="obra-item__img" src="/img/obra-02.png" alt="Torre Empresarial Central" loading="lazy">
+            <div class="obra-item__overlay">
+              <div class="obra-item__tags">
+                <span class="obra-item__tag">Incêndio</span>
+                <span class="obra-item__tag">Elétrica</span>
+              </div>
+              <div class="obra-item__name">Torre Empresarial Central</div>
+              <div class="obra-item__meta">Goiânia, GO · 2023</div>
+            </div>
+            <div class="obra-item__btn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </div>
+
+          <div class="obra-item fade-up delay-2" data-category="completo" data-img="/img/obra-03.png">
+            <img class="obra-item__img" src="/img/obra-03.png" alt="Grand Boulevard Hotel" loading="lazy">
+            <div class="obra-item__overlay">
+              <div class="obra-item__tags">
+                <span class="obra-item__tag">Completo</span>
+              </div>
+              <div class="obra-item__name">Grand Boulevard Hotel</div>
+              <div class="obra-item__meta">Goiânia, GO · 2023</div>
+            </div>
+            <div class="obra-item__btn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </div>
+
+          <div class="obra-item fade-up delay-1" data-category="hidraulica" data-img="/img/obra-01.png">
+            <img class="obra-item__img" src="/img/obra-02.png" alt="Condomínio Park View" loading="lazy">
+            <div class="obra-item__overlay">
+              <div class="obra-item__tags">
+                <span class="obra-item__tag">Hidráulica</span>
+              </div>
+              <div class="obra-item__name">Condomínio Park View</div>
+              <div class="obra-item__meta">Aparecida de Goiânia, GO · 2022</div>
+            </div>
+            <div class="obra-item__btn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </div>
+
+          <div class="obra-item fade-up delay-2" data-category="eletrica" data-img="/img/obra-03.png">
+            <img class="obra-item__img" src="/img/obra-03.png" alt="Edifício Empresarial Jardins" loading="lazy">
+            <div class="obra-item__overlay">
+              <div class="obra-item__tags">
+                <span class="obra-item__tag">Elétrica</span>
+              </div>
+              <div class="obra-item__name">Edifício Empresarial Jardins</div>
+              <div class="obra-item__meta">Goiânia, GO · 2022</div>
+            </div>
+            <div class="obra-item__btn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </div>
+
+          <div class="obra-item fade-up delay-3" data-category="incendio" data-img="/img/obra-01.png">
+            <img class="obra-item__img" src="/img/obra-01.png" alt="Hospital São Lucas" loading="lazy">
+            <div class="obra-item__overlay">
+              <div class="obra-item__tags">
+                <span class="obra-item__tag">Incêndio</span>
+              </div>
+              <div class="obra-item__name">Hospital São Lucas</div>
+              <div class="obra-item__meta">Goiânia, GO · 2021</div>
+            </div>
+            <div class="obra-item__btn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="obras-cta">
+      <div class="container">
+        <p style="font-size:0.6875rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-bottom:1rem;">Próximo projeto</p>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3vw,2.5rem);color:#fff;font-weight:400;margin-bottom:1.5rem;">
+          Quer a Baken no seu projeto?
+        </h2>
+        <a href="/contato.html" class="btn btn--primary" style="margin:0 auto;">
+          Fale com nossa equipe
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox__close" id="lightbox-close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <img class="lightbox__img" id="lightbox-img" src="" alt="">
+  </div>
+
+  <footer class="site-footer" style="background:#080808;border-top:1px solid rgba(255,255,255,0.04);padding:2rem 0;">
+    <div class="container">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <span style="font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.2);">© 2026 Baken Construtora LTDA — CNPJ 01.763.579/0001-07</span>
+        <div style="display:flex;gap:1.5rem;">
+          <a href="/" style="font-size:0.8125rem;color:rgba(255,255,255,0.35);font-weight:300;">Início</a>
+          <a href="/servicos.html" style="font-size:0.8125rem;color:rgba(255,255,255,0.35);font-weight:300;">Serviços</a>
+          <a href="/contato.html" style="font-size:0.8125rem;color:rgba(255,255,255,0.35);font-weight:300;">Contato</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+    // FILTER
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const obraItems  = document.querySelectorAll('.obra-item');
+
+    filterBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        obraItems.forEach(function(item) {
+          if (filter === 'all' || item.dataset.category.includes(filter)) {
+            item.classList.remove('hidden');
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // LIGHTBOX
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    obraItems.forEach(function(item) {
+      item.addEventListener('click', function() {
+        lightboxImg.src = item.dataset.img || item.querySelector('img').src;
+        lightboxImg.alt = item.querySelector('.obra-item__name').textContent;
+        lightbox.classList.add('open');
+      });
+    });
+
+    document.getElementById('lightbox-close').addEventListener('click', function() {
+      lightbox.classList.remove('open');
+    });
+
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) lightbox.classList.remove('open');
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') lightbox.classList.remove('open');
+    });
+  </script>
+</body>
+</html>

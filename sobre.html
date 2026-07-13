@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre — Baken Construtora</title>
+  <meta name="description" content="Conheça a Baken Construtora: história, valores, missão e a equipe por trás de cada projeto de instalações em Goiânia.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <style>
+    .page-hero {
+      position: relative;
+      background: #0F0F0F;
+      padding: 10rem 0 5rem;
+      overflow: hidden;
+    }
+    .page-hero__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.18;
+    }
+    .page-hero__line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #C8102E 40%, transparent);
+    }
+    .page-hero__content { position: relative; z-index: 1; }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 1.25rem;
+    }
+    .kicker::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: #C8102E;
+      display: block;
+    }
+
+    /* TIMELINE / HISTORIA */
+    .sobre-historia { padding: 6rem 0; background: #fff; }
+    .historia-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .historia-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      color: #0F0F0F;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    .historia-text {
+      font-size: 1.0625rem;
+      font-weight: 300;
+      color: #737373;
+      line-height: 1.85;
+      margin-bottom: 1.25rem;
+    }
+    .historia-img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    /* VALORES */
+    .sobre-valores { padding: 6rem 0; background: #F7F7F5; }
+    .valores-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .valor-card {
+      background: #fff;
+      border-radius: 6px;
+      padding: 2.5rem 2rem;
+      border: 1px solid #E8E8E8;
+      border-top: 3px solid #C8102E;
+    }
+    .valor-card__icon {
+      width: 48px;
+      height: 48px;
+      background: #F5E6E9;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .valor-card__icon svg {
+      width: 22px;
+      height: 22px;
+      color: #C8102E;
+    }
+    .valor-card__title {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: #0F0F0F;
+      margin-bottom: 0.75rem;
+    }
+    .valor-card__text {
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: #737373;
+      line-height: 1.7;
+    }
+
+    /* DIFERENCIAIS */
+    .sobre-diferenciais { padding: 6rem 0; background: #0F0F0F; }
+    .diferenciais-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    .diff-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 6px;
+      transition: border-color 0.3s ease;
+    }
+    .diff-item:hover { border-color: rgba(200,16,46,0.4); }
+    .diff-item__num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      color: rgba(200,16,46,0.3);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 36px;
+    }
+    .diff-item__title {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .diff-item__text {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.45);
+      line-height: 1.7;
+    }
+
+    .sec-kicker {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #C8102E;
+      margin-bottom: 1rem;
+    }
+    .sec-kicker::before, .sec-kicker::after {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 1.5px;
+      background-color: #C8102E;
+    }
+
+    @media (max-width: 1024px) {
+      .historia-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .historia-img { height: 360px; }
+      .valores-grid { grid-template-columns: 1fr 1fr; }
+      .diferenciais-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .valores-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header scrolled" id="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="site-logo">
+          <div class="site-logo__mark">
+            <svg viewBox="0 0 22 22"><path d="M3 19V8l8-6 8 6v11H3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><rect x="8" y="12" width="6" height="7" fill="currentColor" opacity="0.9"/></svg>
+          </div>
+          <div class="site-logo__text">
+            <span class="site-logo__name">Baken</span>
+            <span class="site-logo__sub">Construtora</span>
+          </div>
+        </a>
+        <nav class="site-nav">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">Início</a></li>
+            <li><a href="/sobre.html" class="nav-link active">Sobre</a></li>
+            <li><a href="/servicos.html" class="nav-link">Serviços</a></li>
+            <li><a href="/obras.html" class="nav-link">Obras</a></li>
+            <li><a href="/contato.html" class="nav-link">Contato</a></li>
+          </ul>
+          <a href="/cliente.html" class="nav-cta">Portal do Cliente</a>
+        </nav>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav">
+    <ul class="mobile-nav-links">
+      <li><a href="/" class="mobile-nav-link">Início</a></li>
+      <li><a href="/sobre.html" class="mobile-nav-link">Sobre</a></li>
+      <li><a href="/servicos.html" class="mobile-nav-link">Serviços</a></li>
+      <li><a href="/obras.html" class="mobile-nav-link">Obras</a></li>
+      <li><a href="/contato.html" class="mobile-nav-link">Contato</a></li>
+    </ul>
+    <a href="/cliente.html" class="btn btn--primary" style="width:100%;justify-content:center;">Portal do Cliente</a>
+  </nav>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <img class="page-hero__img" src="/img/sobre.png" alt="">
+      <div class="page-hero__line"></div>
+      <div class="container">
+        <div class="page-hero__content">
+          <div class="kicker">Quem somos</div>
+          <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);color:#fff;font-weight:400;margin-bottom:1.25rem;line-height:1.15;">
+            Engenharia que gera<br><em style="font-style:italic;color:rgba(255,255,255,0.55);">confiança</em>
+          </h1>
+          <p style="font-size:1.0625rem;font-weight:300;color:rgba(255,255,255,0.55);max-width:520px;line-height:1.7;">
+            Mais de 15 anos construindo relações sólidas, entregando projetos de instalações com eficiência e total transparência.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- HISTÓRIA -->
+    <section class="sobre-historia">
+      <div class="container">
+        <div class="historia-grid">
+          <div class="fade-up">
+            <span class="sec-kicker" style="justify-content:flex-start;">Nossa história</span>
+            <h2 class="historia-title">Uma empresa construída sobre valores sólidos</h2>
+            <p class="historia-text">
+              A Baken Construtora nasceu com um propósito claro: entregar instalações de alta performance com a transparência que o mercado precisava. Desde o início, priorizamos a qualidade técnica e a honestidade em cada relacionamento.
+            </p>
+            <p class="historia-text">
+              Ao longo dos anos, consolidamos nossa expertise no segmento vertical, atuando em empreendimentos residenciais e comerciais de médio e alto padrão em Goiânia e região. Nossa operação é estruturada, eficiente e praticamente autossuficiente — o que nos permite escalar sem perder a qualidade.
+            </p>
+            <p class="historia-text">
+              Hoje, a Baken é sinônimo de responsabilidade técnica, cumprimento de prazos e relacionamento honesto com construtoras, incorporadoras e engenheiros.
+            </p>
+          </div>
+          <div class="fade-up delay-2">
+            <img class="historia-img" src="/img/sobre.png" alt="Baken Construtora — ambiente de trabalho" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALORES -->
+    <section class="sobre-valores">
+      <div class="container">
+        <div class="text-center" style="margin-bottom:3.5rem;" class="fade-up">
+          <div class="sec-kicker">Nossos valores</div>
+          <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.5rem);color:#0F0F0F;font-weight:400;margin-bottom:1rem;">O que nos guia</h2>
+          <p style="font-size:1.0625rem;font-weight:300;color:#737373;max-width:480px;margin:0 auto;line-height:1.7;">
+            Mais do que competências técnicas, somos movidos por princípios que constroem relações duradouras.
+          </p>
+        </div>
+        <div class="valores-grid">
+          <div class="valor-card fade-up delay-1">
+            <div class="valor-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="valor-card__title">Transparência</h3>
+            <p class="valor-card__text">Compartilhamos o progresso da obra de forma clara, com relatórios periódicos e comunicação aberta em todas as etapas.</p>
+          </div>
+          <div class="valor-card fade-up delay-2">
+            <div class="valor-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 class="valor-card__title">Responsabilidade</h3>
+            <p class="valor-card__text">Assumimos nossos compromissos e respondemos por cada entrega. A responsabilidade técnica é nossa assinatura em cada projeto.</p>
+          </div>
+          <div class="valor-card fade-up delay-3">
+            <div class="valor-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3 class="valor-card__title">Eficiência</h3>
+            <p class="valor-card__text">Processos bem definidos, equipe treinada e planejamento rigoroso garantem entregas no prazo com o menor desperdício possível.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section class="sobre-diferenciais">
+      <div class="container">
+        <div class="text-center" style="margin-bottom:3.5rem;">
+          <div class="sec-kicker" style="color:rgba(255,255,255,0.35);">Por que a Baken</div>
+          <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.5rem);color:#fff;font-weight:400;margin-bottom:1rem;">Nossos diferenciais</h2>
+        </div>
+        <div class="diferenciais-grid">
+          <div class="diff-item fade-up delay-1">
+            <div class="diff-item__num">01</div>
+            <div>
+              <div class="diff-item__title">Equipe técnica certificada</div>
+              <p class="diff-item__text">Profissionais com formação técnica e treinamentos contínuos nas normas ABNT vigentes.</p>
+            </div>
+          </div>
+          <div class="diff-item fade-up delay-2">
+            <div class="diff-item__num">02</div>
+            <div>
+              <div class="diff-item__title">Processos auditáveis</div>
+              <p class="diff-item__text">Documentação completa de cada etapa — do projeto executivo ao as-built final.</p>
+            </div>
+          </div>
+          <div class="diff-item fade-up delay-3">
+            <div class="diff-item__num">03</div>
+            <div>
+              <div class="diff-item__title">Assistência técnica pós-obra</div>
+              <p class="diff-item__text">Nosso relacionamento não termina na entrega. Oferecemos suporte técnico para o que precisar.</p>
+            </div>
+          </div>
+          <div class="diff-item fade-up delay-4">
+            <div class="diff-item__num">04</div>
+            <div>
+              <div class="diff-item__title">Materiais de primeira linha</div>
+              <p class="diff-item__text">Trabalhamos apenas com fornecedores certificados para garantir durabilidade e segurança nas instalações.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section style="background:#C8102E;padding:4rem 0;">
+      <div class="container" style="text-align:center;">
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3vw,2.5rem);color:#fff;font-weight:400;margin-bottom:1.5rem;">
+          Conheça nossos serviços
+        </h2>
+        <a href="/servicos.html" class="btn btn--outline" style="margin:0 auto;">
+          Ver especialidades
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (simplificado — igual ao index) -->
+  <footer class="site-footer" style="background:#080808;border-top:1px solid rgba(255,255,255,0.04);padding:2rem 0;">
+    <div class="container">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+        <span style="font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.2);">© 2026 Baken Construtora LTDA — CNPJ 01.763.579/0001-07</span>
+        <div style="display:flex;gap:1.5rem;">
+          <a href="/" style="font-size:0.8125rem;color:rgba(255,255,255,0.35);font-weight:300;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Início</a>
+          <a href="/servicos.html" style="font-size:0.8125rem;color:rgba(255,255,255,0.35);font-weight:300;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Serviços</a>
+          <a href="/contato.html" style="font-size:0.8125rem;color:rgba(255,255,255,0.35);font-weight:300;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.35)'">Contato</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
