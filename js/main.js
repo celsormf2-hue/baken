@@ -121,11 +121,10 @@
       }
     }
 
-    // Controle da Animação do Bloco 2 (surge a partir de 30%, permanece e some no final do scroll)
+    // Controle da Animação do Bloco 2 (surge a partir de 30% e permanece visível)
     if (block2) {
       const startFade2 = 0.30;
       const endFade2 = 0.50;
-      const exitStart2 = 0.93;
 
       if (progress < startFade2) {
         // Antes de surgir
@@ -138,40 +137,39 @@
         block2.style.opacity = p2.toFixed(3);
         block2.style.transform = `translateY(${50 * (1 - p2)}px)`;
         block2.style.pointerEvents = p2 > 0.15 ? 'auto' : 'none';
-      } else if (progress > endFade2 && progress <= exitStart2) {
-        // Estável (permanece fixo)
+      } else {
+        // Permanece estável até o final (vai subir junto com o scroll da página)
         block2.style.opacity = '1';
         block2.style.transform = 'translateY(0)';
         block2.style.pointerEvents = 'auto';
-      } else {
-        // Sumindo no final (ao sair da seção sticky)
-        const p3 = (progress - exitStart2) / (1 - exitStart2);
-        const opacity = 1 - p3;
-        block2.style.opacity = opacity.toFixed(3);
-        block2.style.transform = `translateY(${-p3 * 50}px)`;
-        block2.style.pointerEvents = opacity > 0.15 ? 'auto' : 'none';
       }
     }
 
-    // Controle da Opacidade do Overlay Branco (aparece apenas para ler o Texto 2)
+    // Controle da Opacidade do Overlay Branco (escala até 100% de branco no final do vídeo)
     if (overlay) {
-      const startFade2 = 0.30;
-      const endFade2 = 0.50;
-      const exitStart2 = 0.93;
-      const maxOverlayOpacity = 0.28; // Muito suave, mantendo o vídeo 100% visível por trás
+      const startFade = 0.30;
+      const midFade = 0.50;
+      const rampFade = 0.85;
+      
+      let opacity = 0;
 
-      if (progress < startFade2) {
-        overlay.style.opacity = '0';
-      } else if (progress >= startFade2 && progress <= endFade2) {
-        const p2 = (progress - startFade2) / (endFade2 - startFade2);
-        overlay.style.opacity = (p2 * maxOverlayOpacity).toFixed(3);
-      } else if (progress > endFade2 && progress <= exitStart2) {
-        overlay.style.opacity = maxOverlayOpacity.toString();
+      if (progress < startFade) {
+        opacity = 0;
+      } else if (progress >= startFade && progress <= midFade) {
+        // Rampa inicial suave de leitura
+        const p = (progress - startFade) / (midFade - startFade);
+        opacity = p * 0.28;
+      } else if (progress > midFade && progress <= rampFade) {
+        // Mantém suave para leitura confortável do texto
+        const p = (progress - midFade) / (rampFade - midFade);
+        opacity = 0.28 + p * 0.12; // De 28% a 40%
       } else {
-        const p3 = (progress - exitStart2) / (1 - exitStart2);
-        const op = (1 - p3) * maxOverlayOpacity;
-        overlay.style.opacity = Math.max(0, op).toFixed(3);
+        // Transição final escalando até 100% branco sólido
+        const p = (progress - rampFade) / (1.0 - rampFade);
+        opacity = 0.40 + p * 0.60;
       }
+
+      overlay.style.opacity = Math.max(0, Math.min(1, opacity)).toFixed(3);
     }
 
     // Efeito de fade-out rápido do scroll indicator ("Explorar") nos primeiros 10%
