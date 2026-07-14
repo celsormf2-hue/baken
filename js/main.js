@@ -74,8 +74,13 @@
       handleVideoScroll();
     });
 
+    video.addEventListener('loadeddata', function () {
+      video.currentTime = 0.001; // Força a renderização do primeiro frame
+    });
+
     if (video.readyState >= 1) {
       videoDuration = video.duration;
+      video.currentTime = 0.001;
     }
   }
 
@@ -96,18 +101,54 @@
     // Mapeia o progresso (0 a 1) para o tempo do vídeo (0 a duration)
     targetTime = progress * videoDuration;
 
-    // Efeito de fade-out do conteúdo central da Hero (título, subtítulo, botões)
-    if (heroContent) {
-      const fadeEnd = 0.25; // Conclui o fade nos primeiros 25% de rolagem
-      if (progress <= fadeEnd) {
-        const opacity = 1 - (progress / fadeEnd);
-        heroContent.style.opacity = opacity.toFixed(3);
-        heroContent.style.transform = `translateY(${-progress * 60}px)`;
-        heroContent.style.pointerEvents = 'auto';
+    const block1 = document.querySelector('.hero-video__block--1');
+    const block2 = document.querySelector('.hero-video__block--2');
+
+    // Controle da Animação do Bloco 1 (some nos primeiros 30%)
+    if (block1) {
+      const fadeEnd1 = 0.30;
+      if (progress <= fadeEnd1) {
+        const p1 = progress / fadeEnd1;
+        const opacity = 1 - p1;
+        block1.style.opacity = opacity.toFixed(3);
+        block1.style.transform = `translateY(${-p1 * 50}px)`;
+        block1.style.pointerEvents = opacity > 0.15 ? 'auto' : 'none';
       } else {
-        heroContent.style.opacity = '0';
-        heroContent.style.transform = 'translateY(-60px)';
-        heroContent.style.pointerEvents = 'none';
+        block1.style.opacity = '0';
+        block1.style.transform = 'translateY(-50px)';
+        block1.style.pointerEvents = 'none';
+      }
+    }
+
+    // Controle da Animação do Bloco 2 (surge a partir de 30%, permanece e some no final do scroll)
+    if (block2) {
+      const startFade2 = 0.30;
+      const endFade2 = 0.50;
+      const exitStart2 = 0.93;
+
+      if (progress < startFade2) {
+        // Antes de surgir
+        block2.style.opacity = '0';
+        block2.style.transform = 'translateY(50px)';
+        block2.style.pointerEvents = 'none';
+      } else if (progress >= startFade2 && progress <= endFade2) {
+        // Surgindo (fade-in + slide-up)
+        const p2 = (progress - startFade2) / (endFade2 - startFade2);
+        block2.style.opacity = p2.toFixed(3);
+        block2.style.transform = `translateY(${50 * (1 - p2)}px)`;
+        block2.style.pointerEvents = p2 > 0.15 ? 'auto' : 'none';
+      } else if (progress > endFade2 && progress <= exitStart2) {
+        // Estável (permanece fixo)
+        block2.style.opacity = '1';
+        block2.style.transform = 'translateY(0)';
+        block2.style.pointerEvents = 'auto';
+      } else {
+        // Sumindo no final (ao sair da seção sticky)
+        const p3 = (progress - exitStart2) / (1 - exitStart2);
+        const opacity = 1 - p3;
+        block2.style.opacity = opacity.toFixed(3);
+        block2.style.transform = `translateY(${-p3 * 50}px)`;
+        block2.style.pointerEvents = opacity > 0.15 ? 'auto' : 'none';
       }
     }
 

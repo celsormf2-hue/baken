@@ -66,6 +66,26 @@
       padding: 0 1.5rem;
       max-width: 1200px;
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .hero-video__block {
+      grid-column: 1;
+      grid-row: 1;
+      width: 100%;
+      opacity: 0;
+      transform: translateY(40px);
+      pointer-events: none;
+    }
+
+    .hero-video__block--1 {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
     }
 
     .hero-video__tag {
@@ -970,7 +990,6 @@
           muted
           playsinline
           preload="auto"
-          poster="/img/hero.png"
         >
           <!-- Vídeo de construção/engenharia de alta qualidade local -->
           <source src="/video/hero.mp4" type="video/mp4">
@@ -984,20 +1003,41 @@
         <div class="hero-video__overlay"></div>
 
         <div class="hero-video__content">
-          <div class="hero-video__tag">Goiânia · Goiás · Brasil</div>
-          <h1 class="hero-video__title">
-            Engenharia com<br class="hero-br"><em>transparência</em> e propósito
-          </h1>
-          <p class="hero-video__subtitle">
-            Especialistas em instalações elétricas, hidráulicas e sistemas
-            de combate a incêndio no segmento vertical.
-          </p>
-          <div class="hero-video__actions">
-            <a href="/servicos.html" class="btn btn--primary">
-              Nossos serviços
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-            </a>
-            <a href="/contato.html" class="btn btn--outline">Fale conosco</a>
+          <!-- Bloco 1 (Texto Principal Inicial) -->
+          <div class="hero-video__block hero-video__block--1">
+            <div class="hero-video__tag">Goiânia · Goiás · Brasil</div>
+            <h1 class="hero-video__title">
+              Engenharia com<br class="hero-br"><em>transparência</em> e propósito
+            </h1>
+            <p class="hero-video__subtitle">
+              Especialistas em instalações elétricas, hidráulicas e sistemas
+              de combate a incêndio no segmento vertical.
+            </p>
+            <div class="hero-video__actions">
+              <a href="/servicos.html" class="btn btn--primary">
+                Nossos serviços
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </a>
+              <a href="/contato.html" class="btn btn--outline">Fale conosco</a>
+            </div>
+          </div>
+
+          <!-- Bloco 2 (Texto que surge no scroll e permanece) -->
+          <div class="hero-video__block hero-video__block--2">
+            <div class="hero-video__tag">Alto Padrão e Rigor Técnico</div>
+            <h2 class="hero-video__title">
+              Tecnologia e solidez<br class="hero-br">para o <em>segmento vertical</em>
+            </h2>
+            <p class="hero-video__subtitle">
+              Instalações elétricas, hidráulicas e de combate a incêndio com excelência operacional.
+            </p>
+            <div class="hero-video__actions">
+              <a href="/obras.html" class="btn btn--primary">
+                Ver portfólio
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </a>
+              <a href="/contato.html" class="btn btn--outline">Solicitar contato</a>
+            </div>
           </div>
         </div>
 
