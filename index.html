@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
   <style>
     /* ── PAGE-SPECIFIC: INDEX ─────────────────────────────── */
 
@@ -151,6 +152,22 @@
     @keyframes scrollFloat {
       0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.6; }
       50% { transform: translateX(-50%) translateY(10px); opacity: 1; }
+    }
+
+    .hero-br {
+      display: none;
+    }
+
+    @media (min-width: 992px) {
+      .hero-br {
+        display: inline;
+      }
+    }
+
+    @media (max-height: 768px) {
+      .hero-video__scroll {
+        display: none !important;
+      }
     }
 
     /* SOBRE HOME */
@@ -953,9 +970,8 @@
         preload="auto"
         poster="/img/hero.png"
       >
-        <!-- Vídeo de construção/engenharia de alta qualidade — substituir por vídeo real da Baken -->
-        <!-- Novo vídeo principal: Edifício comercial em construção (parecido com imagem de serviços) -->
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-building-under-construction-in-a-city-40766-large.mp4" type="video/mp4">
+        <!-- Vídeo de construção/engenharia de alta qualidade local -->
+        <source src="/video/hero.mp4" type="video/mp4">
         <!-- Standby 1: Guindaste operando em canteiro de obras vertical -->
         <source src="https://assets.mixkit.co/videos/preview/mixkit-crane-operating-on-a-construction-site-41584-large.mp4" type="video/mp4">
         <!-- Standby 2: Canteiro com trabalhadores -->
@@ -968,7 +984,7 @@
       <div class="hero-video__content">
         <div class="hero-video__tag">Goiânia · Goiás · Brasil</div>
         <h1 class="hero-video__title">
-          Engenharia com<br><em>transparência</em> e propósito
+          Engenharia com<br class="hero-br"><em>transparência</em> e propósito
         </h1>
         <p class="hero-video__subtitle">
           Especialistas em instalações elétricas, hidráulicas e sistemas
