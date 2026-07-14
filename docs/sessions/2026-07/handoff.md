@@ -7,12 +7,16 @@ Esta sessão focou em realizar ajustes finos de design, corrigir inconsistência
 
 ## Realizações
 
-1. **Vídeo Local da Hero (Elegante, Sofisticado e Otimizado)**:
+1. **Vídeo Local da Hero Controlado por Scroll (Elegante & Fluido)**:
    - Identificada a causa raiz de falha no carregamento dos vídeos de fundo externos (bloqueio por hotlinking CORS/403).
-   - Extraídos e inspecionados frames de múltiplos candidatos via script automatizado com OpenCV para garantir a adequação temática.
-   - Selecionado um vídeo ultra-sofisticado em contra-plongée (olhando para cima) de **duas imponentes torres/arranha-céus corporativos modernos com fachada de vidro espelhado refletindo nuvens e céu azul** (Pexels ID `8477689`).
-   - Cortado o vídeo para uma duração ideal de looping de 15 segundos e comprimido via **FFmpeg** utilizando o codec H.264 com `CRF 27` e `faststart` (moov atom no início), reduzindo o tamanho de 43.2MB para apenas **4.6MB** para carregamento instantâneo.
-   - Gerado um novo pôster estático [img/hero.png](file:///c:/xampp/htdocs/baken/img/hero.png) que condiz perfeitamente com a sofisticação do novo vídeo corporativo de vidro de alto padrão.
+   - Extraídos e inspecionados frames de múltiplos candidatos via OpenCV para garantir a adequação ao briefing de alto padrão.
+   - Selecionado um vídeo em contra-plongée (olhando para cima) de **duas imponentes torres/arranha-céus corporativos modernos com fachada de vidro espelhado refletindo nuvens** (Pexels ID `8477689`).
+   - Cortado o vídeo e codificado com **FFmpeg** utilizando frames do tipo **Intra-only (todas os frames são keyframes/-g 1)** com `CRF 28` e `faststart`, garantindo que o navegador possa retroceder e avançar o vídeo instantaneamente sem engasgos ou carregamentos (seek 100% fluido).
+   - Removido o atributo `poster` da tag `<video>` e implementada inicialização forçando o `currentTime` para `0.001` no evento `loadeddata`, eliminando a imagem estática de poster que bloqueava a exibição do vídeo em alguns navegadores.
+   - Implementado o controle de reprodução baseado na rolagem da página: o vídeo avança e retrocede conforme o usuário rola a página pela seção `.hero-scroll-container` (`250vh` de rolagem), e ao atingir 100% do vídeo, a página segue o fluxo natural.
+   - Criada transição animada entre dois blocos de conteúdo no centro da Hero:
+     - **Bloco 1 (Engenharia com transparência e propósito)**: Slides-up e esmaece (fade-out) nos primeiros 30% do scroll.
+     - **Bloco 2 (Tecnologia e solidez para o segmento vertical)**: Desliza de baixo para cima e surge com fade-in a partir de 30% do scroll, permanecendo estável até o final da rolagem da Hero.
 
 2. **Favicon Vetorial (SVG)**:
    - Extraído o monograma "BA" com o fundo quadrado vermelho de cantos arredondados das curvas do PDF original do manual de identidade visual.
