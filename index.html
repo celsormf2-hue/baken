@@ -48,15 +48,7 @@
     }
 
     .hero-video__overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(5, 5, 5, 0.55) 0%,
-        rgba(5, 5, 5, 0.40) 40%,
-        rgba(5, 5, 5, 0.65) 100%
-      );
-      z-index: 1;
+      display: none;
     }
 
     .hero-video__content {
@@ -97,8 +89,9 @@
       font-weight: 600;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
+      color: rgba(255,255,255,0.9);
       margin-bottom: 2rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.8);
     }
 
     .hero-video__tag::before,
@@ -107,7 +100,7 @@
       display: block;
       width: 32px;
       height: 1px;
-      background-color: rgba(255,255,255,0.3);
+      background-color: rgba(255,255,255,0.4);
     }
 
     .hero-video__title {
@@ -118,21 +111,24 @@
       line-height: 1.08;
       letter-spacing: -0.02em;
       margin-bottom: 1.75rem;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.75), 0 2px 4px rgba(0, 0, 0, 0.6);
     }
 
     .hero-video__title em {
       font-style: italic;
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.9);
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.75);
     }
 
     .hero-video__subtitle {
       font-family: 'Inter', sans-serif;
       font-size: 1.0625rem;
       font-weight: 300;
-      color: rgba(255,255,255,0.65);
+      color: rgba(255,255,255,0.92);
       line-height: 1.75;
       max-width: 560px;
       margin: 0 auto 2.5rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.8);
     }
 
     .hero-video__actions {
