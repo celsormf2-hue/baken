@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 105" width="400" height="105" role="img" aria-label="Baken Construtora">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- ══════════════════════════════════════════
+       ÍCONE — variante BRANCO (fundo claro, ícone em branco)
+       ══════════════════════════════════════════ -->
+  <g id="icon-mark">
+
+    <!-- Fundo quadrado branco -->
+    <rect x="2" y="2" width="101" height="101" rx="11" ry="11" fill="#FFFFFF"/>
+
+    <!-- Frame interno vermelho -->
+    <rect x="12" y="12" width="81" height="81" rx="7" ry="7"
+          fill="none" stroke="#EF3340" stroke-width="4"/>
+
+    <!-- Letra B (vermelho) -->
+    <rect x="20" y="21" width="7" height="63" rx="2" ry="2" fill="#EF3340"/>
+    <path d="M27,21 H41 C56,21 56,52 41,52 H27 Z" fill="#EF3340"/>
+    <path d="M27,52 H43 C60,52 60,84 43,84 H27 Z" fill="#EF3340"/>
+
+    <!-- Letra A (vermelho) -->
+    <polygon points="60,84 66,84 78,21 72,21" fill="#EF3340"/>
+    <polygon points="72,21 78,21 90,84 84,84" fill="#EF3340"/>
+    <rect x="65" y="56" width="20" height="5" rx="1" fill="#EF3340"/>
+
+  </g>
+
+  <!-- LOGOTIPO vermelho -->
+  <g id="logotype" transform="translate(116, 0)">
+    <text x="0" y="74"
+      font-family="'Montserrat', 'Arial Black', sans-serif"
+      font-weight="900" font-size="68" fill="#EF3340" letter-spacing="1">BAKEN</text>
+    <text x="2" y="96"
+      font-family="'Montserrat', Arial, sans-serif"
+      font-weight="500" font-size="15.5" fill="#EF3340" letter-spacing="6">CONSTRUTORA</text>
+  </g>
+</svg>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preview Logo — Baken</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;900&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; background: #f0f0f0; }
+
+    .row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 40px;
+      gap: 80px;
+      flex-wrap: wrap;
+    }
+
+    .row--dark { background: #0F0F0F; }
+    .row--red  { background: #EF3340; }
+    .row--mid  { background: #444; }
+    .row--light { background: #fff; border-bottom: 1px solid #ddd; }
+    .row--gray  { background: #f7f7f5; border-bottom: 1px solid #eee; }
+
+    .label {
+      position: absolute;
+      top: 10px; left: 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      opacity: .4;
+    }
+
+    .row { position: relative; }
+    .row--dark .label, .row--red .label, .row--mid .label { color: #fff; }
+    .row--light .label, .row--gray .label { color: #000; }
+
+    .logo-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+    }
+
+    .logo-box span {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .row--dark .logo-box span, .row--red .logo-box span, .row--mid .logo-box span { color: rgba(255,255,255,.4); }
+    .row--light .logo-box span, .row--gray .logo-box span { color: rgba(0,0,0,.35); }
+
+    img.logo { height: 52px; width: auto; }
+
+    .divider {
+      padding: 16px 40px;
+      background: #222;
+      color: rgba(255,255,255,.2);
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    /* Tamanhos */
+    .logo-xs { height: 28px; }
+    .logo-sm { height: 40px; }
+    .logo-md { height: 52px; }
+    .logo-lg { height: 70px; }
+    .logo-xl { height: 100px; }
+  </style>
+</head>
+<body>
+
+  <div class="divider">LOGO BAKEN — Preview de variantes e tamanhos</div>
+
+  <!-- SOBRE FUNDO BRANCO -->
+  <div class="row row--light">
+    <div class="label">Fundo branco</div>
+    <div class="logo-box">
+      <img class="logo logo-xs" src="/img/logo.svg" alt="Baken xs">
+      <span>XS — 28px</span>
+    </div>
+    <div class="logo-box">
+      <img class="logo logo-sm" src="/img/logo.svg" alt="Baken sm">
+      <span>SM — 40px</span>
+    </div>
+    <div class="logo-box">
+      <img class="logo logo-md" src="/img/logo.svg" alt="Baken md">
+      <span>MD — 52px (default)</span>
+    </div>
+    <div class="logo-box">
+      <img class="logo logo-lg" src="/img/logo.svg" alt="Baken lg">
+      <span>LG — 70px</span>
+    </div>
+    <div class="logo-box">
+      <img class="logo logo-xl" src="/img/logo.svg" alt="Baken xl">
+      <span>XL — 100px</span>
+    </div>
+  </div>
+
+  <!-- SOBRE FUNDO CINZA -->
+  <div class="row row--gray">
+    <div class="label">Fundo cinza claro</div>
+    <div class="logo-box">
+      <img class="logo logo-lg" src="/img/logo.svg" alt="Baken">
+      <span>logo.svg (padrão)</span>
+    </div>
+  </div>
+
+  <!-- SOBRE FUNDO ESCURO -->
+  <div class="row row--dark">
+    <div class="label">Fundo escuro (#0F0F0F)</div>
+    <div class="logo-box">
+      <img class="logo logo-lg" src="/img/logo-white.svg" alt="Baken white">
+      <span>logo-white.svg</span>
+    </div>
+    <div class="logo-box">
+      <img class="logo logo-lg" src="/img/logo.svg" alt="Baken vermelho">
+      <span>logo.svg (vermelho)</span>
+    </div>
+  </div>
+
+  <!-- SOBRE FUNDO CINZA MÉDIO -->
+  <div class="row row--mid">
+    <div class="label">Fundo médio</div>
+    <div class="logo-box">
+      <img class="logo logo-lg" src="/img/logo-white.svg" alt="Baken white">
+      <span>logo-white.svg</span>
+    </div>
+  </div>
+
+  <!-- SOBRE FUNDO VERMELHO -->
+  <div class="row row--red">
+    <div class="label">Fundo vermelho (não recomendado — apenas referência)</div>
+    <div class="logo-box">
+      <img class="logo logo-lg" src="/img/logo-white.svg" alt="Baken white on red">
+      <span>logo-white.svg sobre vermelho</span>
+    </div>
+  </div>
+
+  <div class="divider">Arquivos gerados: /img/logo.svg · /img/logo-white.svg · /img/logo-light.svg</div>
+
+</body>
+</html>
