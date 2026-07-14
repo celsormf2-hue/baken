@@ -52,18 +52,97 @@
     });
   }
 
-  /* ── 3. HERO VIDEO ─────────────────────────────────────── */
-  const heroVid = document.getElementById('hero-vid');
+  /* ── 3. HERO VIDEO SCROLL CONTROL ───────────────────────── */
+  const scrollContainer = document.querySelector('.hero-scroll-container');
+  const video = document.getElementById('hero-vid');
+  const heroContent = document.querySelector('.hero-video__content');
+  const scrollIndicator = document.querySelector('.hero-video__scroll');
 
-  if (heroVid) {
-    heroVid.addEventListener('canplay', function () {
-      heroVid.classList.add('playing');
+  let videoDuration = 0;
+  let targetTime = 0;
+  let currentTime = 0;
+  const lerpFactor = 0.08; // Suavização (lerp) do tempo do vídeo ao rolar
+
+  if (video) {
+    // Garante que o vídeo não comece tocando sozinho
+    video.removeAttribute('autoplay');
+    video.removeAttribute('loop');
+    video.pause();
+
+    video.addEventListener('loadedmetadata', function () {
+      videoDuration = video.duration;
+      handleVideoScroll();
     });
 
-    // Fallback: show after 2s even if video hasn't loaded
-    setTimeout(function () {
-      heroVid.classList.add('playing');
-    }, 2000);
+    if (video.readyState >= 1) {
+      videoDuration = video.duration;
+    }
+  }
+
+  function handleVideoScroll() {
+    if (!scrollContainer || !video || !videoDuration) return;
+
+    const rect = scrollContainer.getBoundingClientRect();
+    const containerHeight = rect.height;
+    const viewportHeight = window.innerHeight;
+
+    // Distância percorrida desde o topo do contêiner
+    const scrolled = -rect.top;
+    const maxScroll = containerHeight - viewportHeight;
+
+    let progress = scrolled / maxScroll;
+    progress = Math.max(0, Math.min(1, progress));
+
+    // Mapeia o progresso (0 a 1) para o tempo do vídeo (0 a duration)
+    targetTime = progress * videoDuration;
+
+    // Efeito de fade-out do conteúdo central da Hero (título, subtítulo, botões)
+    if (heroContent) {
+      const fadeEnd = 0.25; // Conclui o fade nos primeiros 25% de rolagem
+      if (progress <= fadeEnd) {
+        const opacity = 1 - (progress / fadeEnd);
+        heroContent.style.opacity = opacity.toFixed(3);
+        heroContent.style.transform = `translateY(${-progress * 60}px)`;
+        heroContent.style.pointerEvents = 'auto';
+      } else {
+        heroContent.style.opacity = '0';
+        heroContent.style.transform = 'translateY(-60px)';
+        heroContent.style.pointerEvents = 'none';
+      }
+    }
+
+    // Efeito de fade-out rápido do scroll indicator ("Explorar") nos primeiros 10%
+    if (scrollIndicator) {
+      const indicatorFadeEnd = 0.10;
+      if (progress <= indicatorFadeEnd) {
+        const opacity = 1 - (progress / indicatorFadeEnd);
+        scrollIndicator.style.opacity = opacity.toFixed(3);
+      } else {
+        scrollIndicator.style.opacity = '0';
+      }
+    }
+  }
+
+  // Loop requestAnimationFrame para seeking interpolado e fluido
+  function smoothSeekLoop() {
+    if (video && videoDuration) {
+      // Interpolação linear suave (lerp)
+      currentTime += (targetTime - currentTime) * lerpFactor;
+      currentTime = Math.max(0, Math.min(videoDuration, currentTime));
+
+      // seek apenas se a diferença for relevante para otimizar desempenho
+      if (Math.abs(targetTime - currentTime) > 0.005) {
+        video.currentTime = currentTime;
+      }
+    }
+    requestAnimationFrame(smoothSeekLoop);
+  }
+
+  if (scrollContainer && video) {
+    window.addEventListener('scroll', handleVideoScroll, { passive: true });
+    window.addEventListener('resize', handleVideoScroll, { passive: true });
+    requestAnimationFrame(smoothSeekLoop);
+    handleVideoScroll();
   }
 
   /* ── 4. HERO SCROLL CTA ────────────────────────────────── */

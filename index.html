@@ -17,9 +17,17 @@
   <style>
     /* ── PAGE-SPECIFIC: INDEX ─────────────────────────────── */
 
+    /* HERO VIDEO SCROLL CONTAINER */
+    .hero-scroll-container {
+      position: relative;
+      height: 250vh;
+      background-color: #0a0a0a;
+    }
+
     /* HERO VIDEO */
     .hero-video {
-      position: relative;
+      position: sticky;
+      top: 0;
       width: 100%;
       height: 100svh;
       min-height: 640px;
@@ -36,11 +44,6 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0;
-      transition: opacity 1.2s ease;
-    }
-
-    .hero-video__vid.playing {
       opacity: 1;
     }
 
@@ -958,52 +961,52 @@
 
   <main>
 
-    <!-- ═══ HERO VIDEO ════════════════════════════════════════ -->
-    <section class="hero-video" id="hero">
-      <video
-        class="hero-video__vid"
-        id="hero-vid"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto"
-        poster="/img/hero.png"
-      >
-        <!-- Vídeo de construção/engenharia de alta qualidade local -->
-        <source src="/video/hero.mp4" type="video/mp4">
-        <!-- Standby 1: Guindaste operando em canteiro de obras vertical -->
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-crane-operating-on-a-construction-site-41584-large.mp4" type="video/mp4">
-        <!-- Standby 2: Canteiro com trabalhadores -->
-        <source src="https://assets.mixkit.co/videos/preview/mixkit-construction-site-with-workers-and-cranes-40765-large.mp4" type="video/mp4">
-        <!-- Standby 3: Drone B-Roll -->
-        <source src="https://videos.pexels.com/video-files/3209828/3209828-uhd_2560_1440_25fps.mp4" type="video/mp4">
-      </video>
-      <div class="hero-video__overlay"></div>
+    <!-- Contêiner de Scroll para Pinar a Hero e controlar o vídeo -->
+    <div class="hero-scroll-container">
+      <section class="hero-video" id="hero">
+        <video
+          class="hero-video__vid"
+          id="hero-vid"
+          muted
+          playsinline
+          preload="auto"
+          poster="/img/hero.png"
+        >
+          <!-- Vídeo de construção/engenharia de alta qualidade local -->
+          <source src="/video/hero.mp4" type="video/mp4">
+          <!-- Standby 1: Guindaste operando em canteiro de obras vertical -->
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-crane-operating-on-a-construction-site-41584-large.mp4" type="video/mp4">
+          <!-- Standby 2: Canteiro com trabalhadores -->
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-construction-site-with-workers-and-cranes-40765-large.mp4" type="video/mp4">
+          <!-- Standby 3: Drone B-Roll -->
+          <source src="https://videos.pexels.com/video-files/3209828/3209828-uhd_2560_1440_25fps.mp4" type="video/mp4">
+        </video>
+        <div class="hero-video__overlay"></div>
 
-      <div class="hero-video__content">
-        <div class="hero-video__tag">Goiânia · Goiás · Brasil</div>
-        <h1 class="hero-video__title">
-          Engenharia com<br class="hero-br"><em>transparência</em> e propósito
-        </h1>
-        <p class="hero-video__subtitle">
-          Especialistas em instalações elétricas, hidráulicas e sistemas
-          de combate a incêndio no segmento vertical.
-        </p>
-        <div class="hero-video__actions">
-          <a href="/servicos.html" class="btn btn--primary">
-            Nossos serviços
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-          </a>
-          <a href="/contato.html" class="btn btn--outline">Fale conosco</a>
+        <div class="hero-video__content">
+          <div class="hero-video__tag">Goiânia · Goiás · Brasil</div>
+          <h1 class="hero-video__title">
+            Engenharia com<br class="hero-br"><em>transparência</em> e propósito
+          </h1>
+          <p class="hero-video__subtitle">
+            Especialistas em instalações elétricas, hidráulicas e sistemas
+            de combate a incêndio no segmento vertical.
+          </p>
+          <div class="hero-video__actions">
+            <a href="/servicos.html" class="btn btn--primary">
+              Nossos serviços
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+            </a>
+            <a href="/contato.html" class="btn btn--outline">Fale conosco</a>
+          </div>
         </div>
-      </div>
 
-      <div class="hero-video__scroll" id="hero-scroll">
-        <span class="hero-video__scroll-text">Explorar</span>
-        <div class="hero-video__scroll-line"></div>
-      </div>
-    </section>
+        <div class="hero-video__scroll" id="hero-scroll">
+          <span class="hero-video__scroll-text">Explorar</span>
+          <div class="hero-video__scroll-line"></div>
+        </div>
+      </section>
+    </div>
 
     <!-- ═══ SOBRE ══════════════════════════════════════════════ -->
     <section class="home-sobre" id="sobre">
