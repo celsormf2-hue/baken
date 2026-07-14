@@ -39,11 +39,25 @@ Esta sessão focou em realizar ajustes finos de design, corrigir inconsistência
    - Criada barra de navegação com dot-indicators interativos (clicáveis com scroll suave para o slide correspondente) e contadores dinâmicos.
    - Garantida **responsividade total**: desativada a pinagem e translação em telas menores (`< 992px`), exibindo os painéis empilhados de forma vertical nativa e amigável para toque.
 
+6. **Carrossel de Logos Infinito (Parcerias & Clientes)**:
+   - Coletadas as 19 logos de clientes do site oficial `baken.com.br` pré-redimensionadas para `265x150px` e baixadas para [img/clientes](file:///c:/xampp/htdocs/baken/img/clientes).
+   - Implementado um contêiner marquee com lista duplicada de logos no [index.html](file:///c:/xampp/htdocs/baken/index.html) para criar um carrossel de rolagem infinita.
+   - Criada animação CSS fluida (`marqueeRun`) a 60fps constantes que não para no mouse hover.
+   - Aplicado filtro elegante de grayscale e opacidade que revela as cores e nitidez originais apenas ao passar o mouse.
+   - Redimensionados os slides (`320px` de largura por `150px` de altura) e imagens (`max-height: 120px`) para aumentar o tamanho visual das marcas em mais de 150%, compensando a margem interna das fotos.
+
+7. **Ajuste Fino de Legibilidade e Animação de Transição na Hero**:
+   - Removido o overlay escuro permanente sobre a Hero para expor o vídeo brilhante de céu azul.
+   - Adicionado overlay branco dinâmico controlado por JavaScript em [js/main.js](file:///c:/xampp/htdocs/baken/js/main.js): tem opacidade `0` no primeiro texto, sobe suavemente até `40%` durante a leitura do segundo texto e escala até no máximo **`95%` de branco** no fim do vídeo.
+   - Corrigida a animação do segundo texto para permanecer 100% visível no final do scroll, subindo de forma nativa e fluida com a página.
+   - Alterada a cor da palavra *"transparência"* e a cor da borda/texto dos botões de outline (`Fale conosco` e `Solicitar contato`) para o vermelho oficial da marca (`#C8102E`), com efeito de preenchimento hover.
+   - Configurado o fundo padrão da Hero para cinza claro off-white (`#f7f7f5`) garantindo a legibilidade imediata das fontes escuras mesmo antes do vídeo ser carregado.
+
 ---
 
 ## Arquivos Alterados
-* [index.html](file:///c:/xampp/htdocs/baken/index.html)
-* [js/main.js](file:///c:/xampp/htdocs/baken/js/main.js)
+* [index.html](file:///c:/xampp/htdocs/baken/index.html) *(Novos botões vermelhos, overlay branco, carrossel de parceiros e estilos)*
+* [js/main.js](file:///c:/xampp/htdocs/baken/js/main.js) *(Lógica de opacidade gradual de 0% a 95% do overlay e fixação de texto)*
 * [sobre.html](file:///c:/xampp/htdocs/baken/sobre.html)
 * [servicos.html](file:///c:/xampp/htdocs/baken/servicos.html)
 * [obras.html](file:///c:/xampp/htdocs/baken/obras.html)
@@ -52,11 +66,12 @@ Esta sessão focou em realizar ajustes finos de design, corrigir inconsistência
 * [img/favicon.svg](file:///c:/xampp/htdocs/baken/img/favicon.svg) (Novo)
 * [img/hero.png](file:///c:/xampp/htdocs/baken/img/hero.png) (Atualizado)
 * [img/obra-04.png](file:///c:/xampp/htdocs/baken/img/obra-04.png) (Novo)
+* [img/clientes/](file:///c:/xampp/htdocs/baken/img/clientes) (Nova pasta com 19 logos de clientes e parceiros)
 * [video/hero.mp4](file:///c:/xampp/htdocs/baken/video/hero.mp4) (Atualizado)
 
 ---
 
 ## Próximos Passos Recomendados
-1. Validar e coletar feedback do cliente a respeito do novo slider de obras e da suavidade de transição horizontal.
-2. Iniciar a substituição de textos e números fictícios (na home e obras) pelos dados reais e depoimentos quando fornecidos pelo cliente.
-3. Configurar caminhos e scripts de deploy de produção quando autorizado.
+1. **Validar Deploy**: Monitorar a build no repositório GitHub (`https://github.com/celsormf2-hue/baken.git`) após o push bem-sucedido na branch `main`.
+2. **Coletar Feedback**: Apresentar ao cliente o resultado final do carrossel infinito e a suavidade da iluminação branca no scroll da Hero.
+3. **Dados Reais**: Substituir as informações fictícias e fotos residuais conforme as planilhas oficiais de escopo e imagens forem entregues.
