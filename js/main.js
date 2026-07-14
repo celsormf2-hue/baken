@@ -103,6 +103,7 @@
 
     const block1 = document.querySelector('.hero-video__block--1');
     const block2 = document.querySelector('.hero-video__block--2');
+    const overlay = document.querySelector('.hero-video__overlay');
 
     // Controle da Animação do Bloco 1 (some nos primeiros 30%)
     if (block1) {
@@ -149,6 +150,27 @@
         block2.style.opacity = opacity.toFixed(3);
         block2.style.transform = `translateY(${-p3 * 50}px)`;
         block2.style.pointerEvents = opacity > 0.15 ? 'auto' : 'none';
+      }
+    }
+
+    // Controle da Opacidade do Overlay Branco (aparece apenas para ler o Texto 2)
+    if (overlay) {
+      const startFade2 = 0.30;
+      const endFade2 = 0.50;
+      const exitStart2 = 0.93;
+      const maxOverlayOpacity = 0.28; // Muito suave, mantendo o vídeo 100% visível por trás
+
+      if (progress < startFade2) {
+        overlay.style.opacity = '0';
+      } else if (progress >= startFade2 && progress <= endFade2) {
+        const p2 = (progress - startFade2) / (endFade2 - startFade2);
+        overlay.style.opacity = (p2 * maxOverlayOpacity).toFixed(3);
+      } else if (progress > endFade2 && progress <= exitStart2) {
+        overlay.style.opacity = maxOverlayOpacity.toString();
+      } else {
+        const p3 = (progress - exitStart2) / (1 - exitStart2);
+        const op = (1 - p3) * maxOverlayOpacity;
+        overlay.style.opacity = Math.max(0, op).toFixed(3);
       }
     }
 
