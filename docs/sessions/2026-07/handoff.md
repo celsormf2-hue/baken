@@ -31,10 +31,19 @@ Esta sessão focou em realizar ajustes finos de design, corrigir inconsistência
    - Adicionada regra CSS para ocultar a quebra no mobile (permitindo fluxo contínuo do texto) e ativá-la (`display: inline`) a partir do breakpoint desktop (`min-width: 992px`).
    - Aumentada a largura máxima da div `.hero-video__content` de `900px` para `1200px` no desktop. Isso evita que o título comprido ("transparência e propósito") quebre após a palavra "e" devido ao limite do container, forçando o título a permanecer em exatamente 2 linhas no desktop, conforme solicitado.
 
+5. **Slider Horizontal de Obras no Scroll (Homepage)**:
+   - Gerada imagem fotorrealista premium [img/obra-04.png](file:///c:/xampp/htdocs/baken/img/obra-04.png) de edifício moderno para compor o portfólio de 4 obras exibido na Home.
+   - Reconfigurado o layout da seção no [index.html](file:///c:/xampp/htdocs/baken/index.html) para suportar fixação sticky (`100vh`) em um contêiner de rolagem de `350vh`.
+   - Desenvolvido design de slides em tela cheia com imagens de fundo expansíveis e cards laterais de conteúdo com efeito **glassmorphism** de alto padrão visual.
+   - Implementada lógica em [js/main.js](file:///c:/xampp/htdocs/baken/js/main.js) usando **LERP** (interpolação) no `requestAnimationFrame` para transladar a track horizontal (`translateX`) com máxima fluidez e suavidade.
+   - Criada barra de navegação com dot-indicators interativos (clicáveis com scroll suave para o slide correspondente) e contadores dinâmicos.
+   - Garantida **responsividade total**: desativada a pinagem e translação em telas menores (`< 992px`), exibindo os painéis empilhados de forma vertical nativa e amigável para toque.
+
 ---
 
 ## Arquivos Alterados
 * [index.html](file:///c:/xampp/htdocs/baken/index.html)
+* [js/main.js](file:///c:/xampp/htdocs/baken/js/main.js)
 * [sobre.html](file:///c:/xampp/htdocs/baken/sobre.html)
 * [servicos.html](file:///c:/xampp/htdocs/baken/servicos.html)
 * [obras.html](file:///c:/xampp/htdocs/baken/obras.html)
@@ -42,11 +51,12 @@ Esta sessão focou em realizar ajustes finos de design, corrigir inconsistência
 * [cliente.html](file:///c:/xampp/htdocs/baken/cliente.html)
 * [img/favicon.svg](file:///c:/xampp/htdocs/baken/img/favicon.svg) (Novo)
 * [img/hero.png](file:///c:/xampp/htdocs/baken/img/hero.png) (Atualizado)
+* [img/obra-04.png](file:///c:/xampp/htdocs/baken/img/obra-04.png) (Novo)
 * [video/hero.mp4](file:///c:/xampp/htdocs/baken/video/hero.mp4) (Atualizado)
 
 ---
 
 ## Próximos Passos Recomendados
-1. Validar e coletar feedback do cliente a respeito do novo vídeo corporativo elegante de fachada de vidro e da quebra de linha.
+1. Validar e coletar feedback do cliente a respeito do novo slider de obras e da suavidade de transição horizontal.
 2. Iniciar a substituição de textos e números fictícios (na home e obras) pelos dados reais e depoimentos quando fornecidos pelo cliente.
 3. Configurar caminhos e scripts de deploy de produção quando autorizado.
