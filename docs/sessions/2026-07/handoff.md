@@ -7,10 +7,11 @@ Esta sessão focou em realizar ajustes finos de design, corrigir inconsistência
 
 ## Realizações
 
-1. **Vídeo Local da Hero (Elegante & Sofisticado)**:
+1. **Vídeo Local da Hero (Elegante, Sofisticado e Otimizado)**:
    - Identificada a causa raiz de falha no carregamento dos vídeos de fundo externos (bloqueio por hotlinking CORS/403).
-   - Substituído o vídeo anterior (canteiro de obras bruto de alvenaria estrutural, que não condizia com o briefing de sofisticação) por um vídeo premium e refinado de um **arranha-céu corporativo com fachada de vidro espelhado refletindo nuvens e céu azul** (Pexels ID `3105031`), muito mais condizente com o padrão visual "nobre" exigido no [briefing.md](file:///c:/xampp/htdocs/baken/docs/briefing.md).
-   - O arquivo foi salvo localmente em [video/hero.mp4](file:///c:/xampp/htdocs/baken/video/hero.mp4) (com tamanho otimizado de apenas 3.2MB para carregamento instantâneo) e configurado como primeira fonte de mídia no [index.html](file:///c:/xampp/htdocs/baken/index.html).
+   - Extraídos e inspecionados frames de múltiplos candidatos via script automatizado com OpenCV para garantir a adequação temática.
+   - Selecionado um vídeo ultra-sofisticado em contra-plongée (olhando para cima) de **duas imponentes torres/arranha-céus corporativos modernos com fachada de vidro espelhado refletindo nuvens e céu azul** (Pexels ID `8477689`).
+   - Cortado o vídeo para uma duração ideal de looping de 15 segundos e comprimido via **FFmpeg** utilizando o codec H.264 com `CRF 27` e `faststart` (moov atom no início), reduzindo o tamanho de 43.2MB para apenas **4.6MB** para carregamento instantâneo.
    - Gerado um novo pôster estático [img/hero.png](file:///c:/xampp/htdocs/baken/img/hero.png) que condiz perfeitamente com a sofisticação do novo vídeo corporativo de vidro de alto padrão.
 
 2. **Favicon Vetorial (SVG)**:
