@@ -537,113 +537,296 @@
       text-transform: uppercase;
     }
 
-    /* OBRAS PREVIEW */
-    .home-obras {
-      padding: 7rem 0;
-      background: #fff;
-    }
-
-    .obras-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-      margin-bottom: 3rem;
-    }
-
-    .obra-card {
+    /* OBRAS SLIDER HORIZONTAL */
+    .obras-scroll-container {
       position: relative;
-      border-radius: 6px;
-      overflow: hidden;
-      background: #0F0F0F;
-      aspect-ratio: 4/3;
+      height: auto;
+      background-color: #0b0b0b;
+      padding: 6rem 0;
     }
-
-    .obra-card__img {
+    
+    .obras-sticky {
+      position: relative;
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94),
-                  opacity 0.5s ease;
+      height: auto;
+      overflow: visible;
+      background-color: #0b0b0b;
     }
-
-    .obra-card:hover .obra-card__img {
-      transform: scale(1.07);
-      opacity: 0.65;
-    }
-
-    .obra-card__overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(10,10,10,0.88) 0%,
-        rgba(10,10,10,0.1) 55%,
-        transparent 100%
-      );
+    
+    .obras-track {
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      padding: 1.5rem;
+      gap: 3rem;
+      width: 100%;
+      height: auto;
+      will-change: transform;
     }
-
-    .obra-card__tag {
+    
+    .obra-slide {
+      position: relative;
+      width: 100%;
+      height: auto;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      padding: 3rem 1.5rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    }
+    
+    .obra-slide__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .obra-slide__overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.60) 100%);
+    }
+    
+    .obra-slide__content {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .obra-slide__card {
+      width: 100%;
+      max-width: 520px;
+      padding: 2.5rem;
+      background: rgba(18, 18, 18, 0.70);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      color: #fff;
+      opacity: 1;
+      transform: none;
+    }
+    
+    .obra-slide__tag {
       font-family: 'Inter', sans-serif;
       font-size: 0.6875rem;
       font-weight: 600;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #C8102E;
-      background: rgba(200,16,46,0.15);
-      backdrop-filter: blur(6px);
-      padding: 4px 10px;
+      color: var(--color-primary);
+      background: rgba(200, 16, 46, 0.12);
+      padding: 4px 12px;
       border-radius: 20px;
       width: fit-content;
-      margin-bottom: 0.5rem;
+      border: 1px solid rgba(200, 16, 46, 0.2);
     }
-
-    .obra-card__name {
-      font-family: 'Inter', sans-serif;
-      font-size: 1.0625rem;
-      font-weight: 600;
+    
+    .obra-slide__title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.25rem;
+      font-weight: 700;
       color: #fff;
-      margin-bottom: 0.25rem;
+      line-height: 1.2;
+      margin: 0;
     }
-
-    .obra-card__city {
+    
+    .obra-slide__city {
+      font-family: 'Inter', sans-serif;
       font-size: 0.875rem;
       font-weight: 300;
-      color: rgba(255,255,255,0.5);
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: -0.75rem;
     }
-
-    .obra-card__arrow {
-      position: absolute;
-      top: 1.25rem;
-      right: 1.25rem;
-      width: 38px;
-      height: 38px;
-      background: rgba(255,255,255,0.95);
-      border-radius: 50%;
+    
+    .obra-slide__desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+      margin: 0;
+    }
+    
+    .obra-slide__details {
       display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 1.25rem;
+      margin-top: 0.5rem;
+    }
+    
+    .obra-slide__detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    
+    .obra-slide__detail-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: rgba(255, 255, 255, 0.4);
+    }
+    
+    .obra-slide__detail-val {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .obras-sticky__header {
+      padding: 0 1.5rem;
+      margin-bottom: 2.5rem;
+      color: #fff;
+    }
+    
+    .obras-sticky__kicker {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      margin-bottom: 0.25rem;
+    }
+    
+    .obras-sticky__title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0;
+    }
+    
+    .obras-nav {
+      display: none;
+      position: absolute;
+      bottom: 3.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      gap: 1.5rem;
       align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transform: scale(0.7) rotate(-45deg);
-      transition: all 0.3s ease;
+      background: rgba(10, 10, 10, 0.45);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 10px 24px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    
+    .obras-nav__dot {
+      width: 24px;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.3s ease, width 0.3s ease;
+    }
+    
+    .obras-nav__dot.active {
+      background: var(--color-primary);
+      width: 48px;
+    }
+    
+    .obras-nav__num {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.4);
+      transition: color 0.3s ease;
+    }
+    
+    .obras-nav__num.active {
+      color: #fff;
     }
 
-    .obra-card:hover .obra-card__arrow {
-      opacity: 1;
-      transform: scale(1) rotate(0);
-    }
-
-    .obra-card__arrow svg {
-      width: 16px;
-      height: 16px;
-      color: #C8102E;
-    }
-
-    .obras-footer {
-      text-align: center;
+    /* Responsivo para desktop (slider horizontal com pin) */
+    @media (min-width: 992px) {
+      .obras-scroll-container {
+        height: 350vh;
+        padding: 0;
+      }
+      
+      .obras-sticky {
+        position: sticky;
+        top: 0;
+        height: 100svh;
+        overflow: hidden;
+      }
+      
+      .obras-track {
+        flex-direction: row;
+        gap: 0;
+        width: 400vw;
+        height: 100%;
+      }
+      
+      .obra-slide {
+        width: 100vw;
+        height: 100%;
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+      
+      .obra-slide__bg {
+        transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+      
+      .obra-slide__overlay {
+        background: radial-gradient(circle at 25% 50%, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.40) 50%, rgba(10,10,10,0.85) 100%);
+      }
+      
+      .obra-slide__content {
+        padding: 0 6rem;
+        justify-content: flex-start;
+      }
+      
+      .obra-slide__card {
+        padding: 3rem;
+        opacity: 0;
+        transform: translateY(45px);
+        transition: opacity 0.7s cubic-bezier(0.25, 1, 0.5, 1), transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+      
+      .obra-slide.active .obra-slide__card {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      .obra-slide.active .obra-slide__bg {
+        transform: scale(1.04);
+      }
+      
+      .obras-sticky__header {
+        position: absolute;
+        top: 4.5rem;
+        left: 6rem;
+        z-index: 10;
+        padding: 0;
+        margin-bottom: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+      }
+      
+      .obras-nav {
+        display: flex;
+      }
     }
 
     /* CTA BANNER */
@@ -1221,53 +1404,169 @@
       </div>
     </section>
 
-    <!-- ═══ OBRAS ═══════════════════════════════════════════════ -->
-    <section class="home-obras" id="obras">
-      <div class="container">
-        <div class="sec-header fade-up">
-          <div class="sec-header__kicker">Portfólio</div>
-          <h2 class="sec-header__title">Nossas obras</h2>
-          <p class="sec-header__sub">
-            Projetos que refletem nossa capacidade técnica 
-            e comprometimento com a excelência na entrega.
-          </p>
+    <!-- Contêiner de Scroll para Pinar e Deslizar Obras Horizontais -->
+    <div class="obras-scroll-container" id="obras">
+      <div class="obras-sticky">
+        
+        <!-- Header Fixo da Seção (visível no desktop sobreposto) -->
+        <div class="obras-sticky__header">
+          <div class="obras-sticky__kicker">Portfólio</div>
+          <h2 class="obras-sticky__title">Nossas obras</h2>
         </div>
 
-        <div class="obras-grid">
+        <!-- Track Horizontal que será transladado via JS -->
+        <div class="obras-track">
 
-          <div class="obra-card fade-up delay-1">
-            <img class="obra-card__img" src="/img/obra-01.png" alt="Residencial Villagio" loading="lazy">
-            <div class="obra-card__overlay">
-              <span class="obra-card__tag">Elétrica · Hidráulica</span>
-              <div class="obra-card__name">Residencial Villagio</div>
-              <div class="obra-card__city">Goiânia, GO</div>
-            </div>
-            <div class="obra-card__arrow">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          <!-- SLIDE 1 -->
+          <div class="obra-slide active" data-index="0">
+            <div class="obra-slide__bg" style="background-image: url('/img/obra-01.png');"></div>
+            <div class="obra-slide__overlay"></div>
+            <div class="obra-slide__content">
+              <div class="obra-slide__card">
+                <span class="obra-slide__tag">Elétrica · Hidráulica</span>
+                <h3 class="obra-slide__title">Residencial Villagio</h3>
+                <div class="obra-slide__city">Goiânia, GO</div>
+                <p class="obra-slide__desc">
+                  Projeto completo de infraestrutura elétrica e sistemas de distribuição hidráulica inteligente em torre residencial de alto padrão.
+                </p>
+                <div class="obra-slide__details">
+                  <div class="obra-slide__detail-item">
+                    <span class="obra-slide__detail-label">Área</span>
+                    <span class="obra-slide__detail-val">28.400 m²</span>
+                  </div>
+                  <div class="obra-slide__detail-item">
+                    <span class="obra-slide__detail-label">Ano</span>
+                    <span class="obra-slide__detail-val">2024</span>
+                  </div>
+                  <div class="obra-slide__detail-item">
+                    <span class="obra-slide__detail-label">Status</span>
+                    <span class="obra-slide__detail-val">Concluído</span>
+                  </div>
+                </div>
+                <a href="/obras.html" class="btn btn--primary" style="margin-top: 0.5rem; justify-content: center;">
+                  Saber mais
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </a>
+              </div>
             </div>
           </div>
 
-          <div class="obra-card fade-up delay-2">
-            <img class="obra-card__img" src="/img/obra-02.png" alt="Torre Empresarial Central" loading="lazy">
-            <div class="obra-card__overlay">
-              <span class="obra-card__tag">Incêndio · Elétrica</span>
-              <div class="obra-card__name">Torre Empresarial Central</div>
-              <div class="obra-card__city">Goiânia, GO</div>
-            </div>
-            <div class="obra-card__arrow">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          <!-- SLIDE 2 -->
+          <div class="obra-slide" data-index="1">
+            <div class="obra-slide__bg" style="background-image: url('/img/obra-02.png');"></div>
+            <div class="obra-slide__overlay"></div>
+            <div class="obra-slide__content">
+              <div class="obra-slide__card">
+                <span class="obra-slide__tag">Incêndio · Elétrica</span>
+                <h3 class="obra-slide__title">Torre Empresarial Central</h3>
+                <div class="obra-slide__city">Goiânia, GO</div>
+                <p class="obra-slide__desc">
+                  Sistemas complexos de combate a incêndio (sprinklers, escada pressurizada) e subestação elétrica de alta confiabilidade para empreendimento corporativo.
+                </p>
+                <div class="obra-slide__details">
+                  <div class="obra-slide__detail-item">
+                    <span class="obra-slide__detail-label">Área</span>
+                    <span class="obra-slide__detail-val">35.600 m²</span>
+                  </div>
+                  <div class="obra-slide__detail-item">
+                    <span class="obra-slide__detail-label">Ano</span>
+                    <span class="obra-slide__detail-val">2025</span>
+                  </div>
+                  <div class="obra-slide__detail-item">
+                    <span class="obra-slide__detail-label">Status</span>
+                    <span class="obra-slide__detail-val">Concluído</span>
+                  </div>
+                </div>
+                <a href="/obras.html" class="btn btn--primary" style="margin-top: 0.5rem; justify-content: center;">
+                  Saber mais
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </a>
+              </div>
             </div>
           </div>
 
-          <div class="obra-card fade-up delay-3">
-            <img class="obra-card__img" src="/img/obra-03.png" alt="Grand Boulevard Hotel" loading="lazy">
-            <div class="obra-card__overlay">
-              <span class="obra-card__tag">Completo</span>
-              <div class="obra-card__name">Grand Boulevard Hotel</div>
-              <div class="obra-card__city">Goiânia, GO</div>
+          <!-- SLIDE 3 -->
+          <div class="obra-slide" data-index="2">
+            <div class="obra-slide__bg" style="background-image: url('/img/obra-03.png');"></div>
+            <div class="obra-slide__overlay"></div>
+            <div class="obra-slide__content">
+              <div class="obra-slide__card">
+                <span class="obra-slide__tag">Engenharia Completa</span>
+                <h3 class="obra-slide__title">Grand Boulevard Hotel</h3>
+                <div class="obra-slide__city">Goiânia, GO</div>
+                <p class="obra-slide__desc">
+                  Execução de engenharia integrada de sistemas de energia, água, incêndio e cabeamento estruturado com automação predial total.
+                </p>
+                <div class="obra-slide__details">
+                  <div class="obra-slide__detail-item">
+                    <span class="obra-slide__detail-label">Área</span>
+                    <span class="obra-slide__detail-val">19.200 m²</span>
+                  </div>
+                  <div class="obra-slide__detail-item">
+                    <span class="obra-slide__detail-label">Ano</span>
+                    <span class="obra-slide__detail-val">2025</span>
+                  </div>
+                  <div class="obra-slide__detail-item">
+                    <span class="obra-slide__detail-label">Status</span>
+                    <span class="obra-slide__detail-val">Concluído</span>
+                  </div>
+                </div>
+                <a href="/obras.html" class="btn btn--primary" style="margin-top: 0.5rem; justify-content: center;">
+                  Saber mais
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </a>
+              </div>
             </div>
-            <div class="obra-card__arrow">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </div>
+
+          <!-- SLIDE 4 -->
+          <div class="obra-slide" data-index="3">
+            <div class="obra-slide__bg" style="background-image: url('/img/obra-04.png');"></div>
+            <div class="obra-slide__overlay"></div>
+            <div class="obra-slide__content">
+              <div class="obra-slide__card">
+                <span class="obra-slide__tag">Elétrica · Climatização</span>
+                <h3 class="obra-slide__title">Corporate Plaza</h3>
+                <div class="obra-slide__city">Goiânia, GO</div>
+                <p class="obra-slide__desc">
+                  Infraestrutura hidráulica complexa, cabeamento de dados de alta performance e sistemas de climatização central de alta eficiência energética para torre corporativa Triple-A.
+                </p>
+                <div class="obra-slide__details">
+                  <div class="obra-slide__detail-item">
+                    <span class="obra-slide__detail-label">Área</span>
+                    <span class="obra-slide__detail-val">42.000 m²</span>
+                  </div>
+                  <div class="obra-slide__detail-item">
+                    <span class="obra-slide__detail-label">Ano</span>
+                    <span class="obra-slide__detail-val">2026</span>
+                  </div>
+                  <div class="obra-slide__detail-item">
+                    <span class="obra-slide__detail-label">Status</span>
+                    <span class="obra-slide__detail-val">Em Andamento</span>
+                  </div>
+                </div>
+                <a href="/obras.html" class="btn btn--primary" style="margin-top: 0.5rem; justify-content: center;">
+                  Saber mais
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 8px;"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Indicador de Navegação (Dots e números) -->
+        <div class="obras-nav">
+          <span class="obras-nav__num active" id="obras-nav-num-start">01</span>
+          <div class="obras-nav__dot active" data-slide="0"></div>
+          <div class="obras-nav__dot" data-slide="1"></div>
+          <div class="obras-nav__dot" data-slide="2"></div>
+          <div class="obras-nav__dot" data-slide="3"></div>
+          <span class="obras-nav__num" id="obras-nav-num-end">04</span>
+        </div>
+
+      </div>
+    </div>h="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
             </div>
           </div>
 

@@ -186,6 +186,141 @@
     handleVideoScroll();
   }
 
+  /* ── 3.1 OBRAS HORIZONTAL SCROLL SLIDER ─────────────────── */
+  const obrasContainer = document.querySelector('.obras-scroll-container');
+  const obrasSticky = document.querySelector('.obras-sticky');
+  const obrasTrack = document.querySelector('.obras-track');
+  const slides = document.querySelectorAll('.obra-slide');
+  const dotIndicators = document.querySelectorAll('.obras-nav__dot');
+  const navNumStart = document.getElementById('obras-nav-num-start');
+  const obrasHeader = document.querySelector('.obras-sticky__header');
+
+  let targetX = 0;
+  let currentX = 0;
+  const obrasLerpFactor = 0.08; // Interpolação suave para a track horizontal
+  let isDesktop = window.innerWidth >= 992;
+
+  function handleResize() {
+    isDesktop = window.innerWidth >= 992;
+    if (!isDesktop && obrasTrack) {
+      // Limpa transformações e garante visibilidade no mobile
+      obrasTrack.style.transform = 'none';
+      slides.forEach(function (slide) {
+        slide.classList.add('active');
+      });
+    }
+  }
+
+  function handleObrasScroll() {
+    if (!obrasContainer || !obrasTrack || !isDesktop) return;
+
+    const rect = obrasContainer.getBoundingClientRect();
+    const containerHeight = rect.height;
+    const viewportHeight = window.innerHeight;
+
+    // Distância de scroll percorrida dentro do contêiner
+    const scrolled = -rect.top;
+    const maxScroll = containerHeight - viewportHeight;
+
+    let progress = scrolled / maxScroll;
+    progress = Math.max(0, Math.min(1, progress));
+
+    // Translação máxima de 300vw para 4 slides (0vw a -300vw)
+    const maxTranslation = 300;
+    targetX = -progress * maxTranslation;
+
+    // Determina o índice do slide ativo
+    const numSlides = 4;
+    const activeIndex = Math.min(
+      numSlides - 1,
+      Math.floor(progress * numSlides)
+    );
+
+    // Ativa/Desativa classes nos slides para animar os cards
+    slides.forEach(function (slide, idx) {
+      if (idx === activeIndex) {
+        slide.classList.add('active');
+      } else {
+        slide.classList.remove('active');
+      }
+    });
+
+    // Atualiza os dots de navegação
+    if (dotIndicators.length > 0) {
+      dotIndicators.forEach(function (dot, idx) {
+        if (idx === activeIndex) {
+          dot.classList.add('active');
+        } else {
+          dot.classList.remove('active');
+        }
+      });
+    }
+
+    if (navNumStart) {
+      navNumStart.textContent = '0' + (activeIndex + 1);
+    }
+
+    // Fade-out sutil do header fixo "Nossas Obras" após o primeiro slide
+    if (obrasHeader) {
+      if (progress > 0.22) {
+        obrasHeader.style.opacity = '0';
+        obrasHeader.style.pointerEvents = 'none';
+      } else {
+        const headerOpacity = 1 - (progress / 0.22);
+        obrasHeader.style.opacity = headerOpacity.toFixed(3);
+        obrasHeader.style.pointerEvents = 'auto';
+      }
+    }
+  }
+
+  // Loop requestAnimationFrame para translação horizontal suave
+  function smoothObrasLoop() {
+    if (obrasTrack && isDesktop && obrasContainer) {
+      currentX += (targetX - currentX) * obrasLerpFactor;
+
+      // seek apenas se a diferença for relevante para otimizar desempenho
+      if (Math.abs(targetX - currentX) > 0.01) {
+        obrasTrack.style.transform = `translateX(${currentX.toFixed(2)}vw)`;
+      }
+    }
+    requestAnimationFrame(smoothObrasLoop);
+  }
+
+  if (obrasContainer && obrasTrack) {
+    window.addEventListener('scroll', handleObrasScroll, { passive: true });
+    window.addEventListener('resize', function () {
+      handleResize();
+      handleObrasScroll();
+    }, { passive: true });
+
+    // Habilita navegação clicável nos dots
+    if (dotIndicators.length > 0) {
+      dotIndicators.forEach(function (dot) {
+        dot.addEventListener('click', function () {
+          const slideIdx = parseInt(this.getAttribute('data-slide'), 10);
+          if (!isNaN(slideIdx) && obrasContainer) {
+            const containerHeight = obrasContainer.getBoundingClientRect().height;
+            const viewportHeight = window.innerHeight;
+            const maxScroll = containerHeight - viewportHeight;
+            
+            // Mapeamento proporcional de scroll vertical
+            const targetProgress = slideIdx / 3;
+            const targetScrollTop = window.scrollY + obrasContainer.getBoundingClientRect().top + (targetProgress * maxScroll);
+            
+            window.scrollTo({
+              top: targetScrollTop,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    }
+
+    requestAnimationFrame(smoothObrasLoop);
+    handleResize();
+    handleObrasScroll();
+  }
+
   /* ── 4. HERO SCROLL CTA ────────────────────────────────── */
   const heroScroll = document.getElementById('hero-scroll');
 
