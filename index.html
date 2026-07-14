@@ -829,6 +829,87 @@
       }
     }
 
+    /* CLIENTS PARCERIA SECTION */
+    .home-parceria {
+      padding: 6rem 0;
+      background: #fafafa;
+      overflow: hidden;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .sec-header--center {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .marquee-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding: 0.5rem 0;
+    }
+
+    .marquee-container::before,
+    .marquee-container::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .marquee-container::before {
+      left: 0;
+      background: linear-gradient(to right, #fafafa 0%, transparent 100%);
+    }
+
+    .marquee-container::after {
+      right: 0;
+      background: linear-gradient(to left, #fafafa 0%, transparent 100%);
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeRun 35s linear infinite;
+    }
+
+    .marquee-slide {
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 280px;
+      height: 110px;
+      flex-shrink: 0;
+    }
+
+    .marquee-slide img {
+      max-width: 100%;
+      max-height: 80px;
+      object-fit: contain;
+      filter: grayscale(1) opacity(0.5);
+      transition: filter 0.3s ease, opacity 0.3s ease;
+    }
+
+    .marquee-slide img:hover {
+      filter: grayscale(0) opacity(0.95);
+    }
+
+    @keyframes marqueeRun {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
     /* CTA BANNER */
     .home-cta {
       background: #0F0F0F;
@@ -1567,6 +1648,63 @@
 
       </div>
     </div>
+
+    <!-- ═══ PARCERIA E CONFIANÇA (CLIENTES) ════════════════════ -->
+    <section class="home-parceria" id="parceria">
+      <div class="container">
+        <div class="sec-header sec-header--center fade-up">
+          <div class="sec-header__kicker">Parceiros</div>
+          <h2 class="sec-header__title">Parceria e Confiança</h2>
+        </div>
+      </div>
+      
+      <!-- Carrossel Marquee Infinito -->
+      <div class="marquee-container fade-up">
+        <div class="marquee-track">
+          <!-- Bloco 1 (19 Logos de Clientes) -->
+          <div class="marquee-slide"><img src="/img/clientes/toctao.png" alt="Grupo Toctao" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/ebm.png" alt="EBM Desenvolvimento Imobiliário" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/top.png" alt="TOP Construtora" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/mac.png" alt="MAC Consultoria" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/opus.jpg" alt="Opus" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/terral.jpg" alt="Terral" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/jbs.png" alt="JBS" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/flamboyant.jpg" alt="Flamboyant" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/passeio-das-aguas.jpg" alt="Passeio das Águas Shopping" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/golden-tulip.jpg" alt="Golden Tulip" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/san-marino.jpg" alt="Hotel San Marino" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/newinc.jpg" alt="Newinc" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/mega-moda.png" alt="Mega Moda Park" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/dream-park.png" alt="Dream Park" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/mega-polo.png" alt="Mega Polo" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/adress-west-side.jpg" alt="Adress West Side" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/sun-pharma.jpg" alt="Sun Pharma" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/jose-alves.jpg" alt="Grupo José Alves" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/refrescos-bandeirantes.jpg" alt="Refrescos Bandeirantes" loading="lazy"></div>
+
+          <!-- Bloco 2 (Duplicado para efeito infinito contínuo e sem emendas) -->
+          <div class="marquee-slide"><img src="/img/clientes/toctao.png" alt="Grupo Toctao" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/ebm.png" alt="EBM Desenvolvimento Imobiliário" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/top.png" alt="TOP Construtora" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/mac.png" alt="MAC Consultoria" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/opus.jpg" alt="Opus" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/terral.jpg" alt="Terral" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/jbs.png" alt="JBS" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/flamboyant.jpg" alt="Flamboyant" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/passeio-das-aguas.jpg" alt="Passeio das Águas Shopping" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/golden-tulip.jpg" alt="Golden Tulip" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/san-marino.jpg" alt="Hotel San Marino" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/newinc.jpg" alt="Newinc" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/mega-moda.png" alt="Mega Moda Park" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/dream-park.png" alt="Dream Park" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/mega-polo.png" alt="Mega Polo" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/adress-west-side.jpg" alt="Adress West Side" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/sun-pharma.jpg" alt="Sun Pharma" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/jose-alves.jpg" alt="Grupo José Alves" loading="lazy"></div>
+          <div class="marquee-slide"><img src="/img/clientes/refrescos-bandeirantes.jpg" alt="Refrescos Bandeirantes" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
 
     <!-- ═══ CTA FINAL ═════════════════════════════════════════ -->
     <section class="home-cta">
