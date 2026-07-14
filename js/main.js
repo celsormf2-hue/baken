@@ -164,9 +164,9 @@
         const p = (progress - midFade) / (rampFade - midFade);
         opacity = 0.28 + p * 0.12; // De 28% a 40%
       } else {
-        // Transição final escalando até 100% branco sólido
+        // Transição final escalando até 95% de branco
         const p = (progress - rampFade) / (1.0 - rampFade);
-        opacity = 0.40 + p * 0.60;
+        opacity = 0.40 + p * 0.55;
       }
 
       overlay.style.opacity = Math.max(0, Math.min(1, opacity)).toFixed(3);
