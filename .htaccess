@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Redirecionar URLs com .html para versao sem extensao (SEO)
+RewriteCond %{THE_REQUEST} \s/([^.]+)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Servir o arquivo .html quando acessado sem extensao
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]

@@ -439,8 +439,8 @@
       link.classList.remove('active');
       const href = link.getAttribute('href');
       if (
-        (path === '/' && (href === '/' || href === '/index.html')) ||
-        (path !== '/' && href !== '/' && path.includes(href.replace('.html', '')))
+        (path === '/' && (href === '/' || href === '/index')) ||
+        (path !== '/' && href !== '/' && path.includes(href.split('#')[0]))
       ) {
         link.classList.add('active');
       }
