@@ -419,8 +419,8 @@
         requestAnimationFrame(tick);
       } else {
         // Final value with prefix
-        if (target === 85000) {
-          el.textContent = '85k';
+        if (target === 1000000) {
+          el.textContent = '+1M';
         } else {
           el.textContent = '+' + target.toLocaleString('pt-BR');
         }
@@ -459,4 +459,113 @@
     });
   });
 
+  /* ── 9. FORM SUBMISSION (CONTATO) ──────────────────── */
+  const contatoForm = document.getElementById('contato-form');
+  const formAlert = document.getElementById('form-alert');
+  const formSuccess = document.getElementById('form-success');
+  const submitBtn = document.getElementById('form-submit-btn');
+
+  if (contatoForm) {
+    contatoForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      if (formAlert) {
+        formAlert.style.display = 'none';
+        formAlert.className = 'form-alert';
+        formAlert.textContent = '';
+      }
+
+      const nome = document.getElementById('nome') ? document.getElementById('nome').value.trim() : '';
+      const email = document.getElementById('email') ? document.getElementById('email').value.trim() : '';
+      const telefone = document.getElementById('telefone') ? document.getElementById('telefone').value.trim() : '';
+      const servico = document.getElementById('servico') ? document.getElementById('servico').value : '';
+
+      if (!nome || !email || !telefone || !servico) {
+        showFormError('Por favor, preencha todos os campos obrigatórios (*).');
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        showFormError('Por favor, insira um endereço de e-mail válido.');
+        return;
+      }
+
+      const formData = new FormData(contatoForm);
+      setSubmittingState(true);
+
+      const siteKey = '6LfYzFwtAAAAAL992gvIk1OasKih9LqYolz7-Opn';
+
+      function submitFormWithData(dataToSend) {
+        fetch('/send-mail.php', {
+          method: 'POST',
+          body: dataToSend
+        })
+        .then(function (response) {
+          return response.json().then(function (data) {
+            return { status: response.status, ok: response.ok, data: data };
+          });
+        })
+        .then(function (res) {
+          setSubmittingState(false);
+          if (res.ok && res.data && res.data.success) {
+            contatoForm.style.display = 'none';
+            if (formSuccess) {
+              const successText = document.getElementById('form-success-text');
+              if (successText && res.data.message) {
+                successText.textContent = res.data.message;
+              }
+              formSuccess.style.display = 'block';
+            }
+          } else {
+            const errMsg = (res.data && res.data.message) ? res.data.message : 'Ocorreu um erro ao enviar a mensagem. Tente novamente.';
+            showFormError(errMsg);
+          }
+        })
+        .catch(function () {
+          setSubmittingState(false);
+          showFormError('Falha ao conectar ao servidor de e-mail. Por favor, tente novamente ou entre em contato via WhatsApp.');
+        });
+      }
+
+      if (typeof grecaptcha !== 'undefined' && siteKey && siteKey !== 'SUA_SITE_KEY_AQUI') {
+        grecaptcha.ready(function () {
+          grecaptcha.execute(siteKey, { action: 'submit_contato' }).then(function (token) {
+            formData.append('g-recaptcha-response', token);
+            submitFormWithData(formData);
+          }).catch(function () {
+            submitFormWithData(formData);
+          });
+        });
+      } else {
+        submitFormWithData(formData);
+      }
+    });
+  }
+
+  function showFormError(msg) {
+    if (!formAlert) return;
+    formAlert.textContent = msg;
+    formAlert.className = 'form-alert form-alert--error';
+    formAlert.style.display = 'block';
+    formAlert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function setSubmittingState(isSubmitting) {
+    if (!submitBtn) return;
+    if (isSubmitting) {
+      submitBtn.disabled = true;
+      submitBtn.dataset.originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Enviando...';
+      submitBtn.style.opacity = '0.7';
+      submitBtn.style.cursor = 'not-allowed';
+    } else {
+      submitBtn.disabled = false;
+      submitBtn.textContent = submitBtn.dataset.originalText || 'Enviar mensagem';
+      submitBtn.style.opacity = '1';
+      submitBtn.style.cursor = 'pointer';
+    }
+  }
+
 })();
+

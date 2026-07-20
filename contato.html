@@ -16,22 +16,40 @@
       background: #0F0F0F;
       padding: 10rem 0 5rem;
     }
+
     .page-hero__line {
-      position: absolute; bottom: 0; left: 0; right: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
       height: 1px;
       background: linear-gradient(to right, transparent, #C8102E 40%, transparent);
     }
-    .page-hero__content { position: relative; z-index: 1; }
-    .kicker {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.6875rem; font-weight: 600;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: rgba(255,255,255,0.4); margin-bottom: 1.25rem;
+
+    .page-hero__content {
+      position: relative;
+      z-index: 1;
     }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 1.25rem;
+    }
+
     .kicker::before {
-      content: ''; width: 24px; height: 1px;
-      background: #C8102E; display: block;
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: #C8102E;
+      display: block;
     }
 
     /* CONTATO LAYOUT */
@@ -117,7 +135,9 @@
       transition: color 0.2s ease;
     }
 
-    .contato-item__value a:hover { color: #C8102E; }
+    .contato-item__value a:hover {
+      color: #C8102E;
+    }
 
     .contato-divider {
       width: 100%;
@@ -207,7 +227,7 @@
     .form-textarea:focus,
     .form-select:focus {
       border-color: #C8102E;
-      box-shadow: 0 0 0 3px rgba(200,16,46,0.08);
+      box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.08);
     }
 
     .form-textarea {
@@ -243,7 +263,7 @@
     .form-submit:hover {
       background: #8B0A1E;
       transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(200,16,46,0.3);
+      box-shadow: 0 6px 20px rgba(200, 16, 46, 0.3);
     }
 
     .form-privacy {
@@ -253,6 +273,23 @@
       text-align: center;
       margin-top: 1rem;
       line-height: 1.5;
+    }
+
+    .form-alert {
+      display: none;
+      padding: 0.875rem 1rem;
+      border-radius: 4px;
+      font-size: 0.875rem;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 1.25rem;
+      line-height: 1.5;
+    }
+
+    .form-alert--error {
+      display: block;
+      background-color: #FEE2E2;
+      color: #991B1B;
+      border: 1px solid #FCA5A5;
     }
 
     /* SUCCESS STATE */
@@ -309,12 +346,20 @@
     }
 
     @media (max-width: 1024px) {
-      .contato-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .contato-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
     }
 
     @media (max-width: 600px) {
-      .form-row { grid-template-columns: 1fr; }
-      .contato-form { padding: 1.75rem 1.25rem; }
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .contato-form {
+        padding: 1.75rem 1.25rem;
+      }
     }
   </style>
 </head>
@@ -385,7 +430,9 @@
             <div class="contato-items">
               <div class="contato-item">
                 <div class="contato-item__icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.61 5.61l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 5.61 5.61l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
                 </div>
                 <div>
                   <div class="contato-item__label">Telefone / WhatsApp</div>
@@ -397,7 +444,10 @@
 
               <div class="contato-item">
                 <div class="contato-item__icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
                 </div>
                 <div>
                   <div class="contato-item__label">E-mail</div>
@@ -409,7 +459,10 @@
 
               <div class="contato-item">
                 <div class="contato-item__icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
                 </div>
                 <div>
                   <div class="contato-item__label">Endereço</div>
@@ -437,7 +490,9 @@
               <h3 class="contato-form__title">Solicite um orçamento</h3>
               <p class="contato-form__subtitle">Preencha o formulário e entraremos em contato em até 24 horas úteis.</p>
 
-              <form id="contato-form" action="mailto:contato@baken.com.br" method="post" enctype="text/plain" novalidate>
+              <form id="contato-form" action="/send-mail.php" method="POST" novalidate>
+                <div id="form-alert" class="form-alert" role="alert"></div>
+
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label" for="nome">Nome *</label>
@@ -477,9 +532,19 @@
                   <textarea class="form-textarea" id="mensagem" name="mensagem" placeholder="Descreva brevemente seu projeto: tipo de edificação, metragem, localização..."></textarea>
                 </div>
 
-                <button type="submit" class="form-submit">Enviar mensagem</button>
+                <button type="submit" class="form-submit" id="form-submit-btn">Enviar mensagem</button>
                 <p class="form-privacy">Seus dados são usados apenas para responder sua solicitação.</p>
               </form>
+
+              <div id="form-success" class="form-success">
+                <div class="form-success__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <h4 class="form-success__title">Mensagem enviada com sucesso!</h4>
+                <p class="form-success__text" id="form-success-text">Preencha o formulário e entraremos em contato em até 24 horas úteis.</p>
+              </div>
 
             </div>
           </div>
@@ -490,12 +555,7 @@
 
     <!-- MAPA -->
     <div class="contato-mapa">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3822.8!2d-49.2808!3d-16.6869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDQxJzEyLjgiUyA0OcKwMTYnNTAuOSJX!5e0!3m2!1spt!2sbr!4v1234567890"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Localização Baken Construtora — Goiânia"
-      ></iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3822.8!2d-49.2808!3d-16.6869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDQxJzEyLjgiUyA0OcKwMTYnNTAuOSJX!5e0!3m2!1spt!2sbr!4v1234567890" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Localização Baken Construtora — Goiânia"></iframe>
     </div>
 
   </main>
@@ -513,6 +573,26 @@
     </div>
   </footer>
 
+  <script src="https://www.google.com/recaptcha/api.js?render=6LfYzFwtAAAAAL992gvIk1OasKih9LqYolz7-Opn" async defer></script>
   <script src="/js/main.js"></script>
+  <script>
+    document.getElementById('contato-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const form = this;
+      grecaptcha.ready(function () {
+        grecaptcha.execute('6LfYzFwtAAAAAL992gvIk1OasKih9LqYolz7-Opn', { action: 'submit' }).then(function (token) {
+          let input = form.querySelector('input[name="g-recaptcha-response"]');
+          if (!input) {
+            input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'g-recaptcha-response';
+            form.appendChild(input);
+          }
+          input.value = token;
+          form.submit();
+        });
+      });
+    });
+  </script>
 </body>
 </html>

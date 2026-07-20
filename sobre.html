@@ -140,10 +140,14 @@
       align-items: flex-start;
       padding: 2rem;
       border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 6px;
-      transition: border-color 0.3s ease;
+      border-radius: 10px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
     }
-    .diff-item:hover { border-color: rgba(200,16,46,0.4); }
+    .diff-item:hover {
+      border-color: rgba(200,16,46,0.7);
+      box-shadow: 0 0 18px rgba(200,16,46,0.25), inset 0 0 12px rgba(200,16,46,0.05);
+      transform: translateY(-2px);
+    }
     .diff-item__num {
       font-family: 'Playfair Display', serif;
       font-size: 1.75rem;
@@ -151,6 +155,11 @@
       line-height: 1;
       flex-shrink: 0;
       width: 36px;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+    .diff-item:hover .diff-item__num {
+      color: rgba(200,16,46,0.9);
+      text-shadow: 0 0 10px rgba(200,16,46,0.4);
     }
     .diff-item__title {
       font-family: 'Inter', sans-serif;
