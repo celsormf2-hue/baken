@@ -17,35 +17,58 @@
       padding: 10rem 0 5rem;
       overflow: hidden;
     }
+
     .page-hero__img {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      object-fit: cover; opacity: 0.18;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.18;
     }
+
     .page-hero__line {
-      position: absolute; bottom: 0; left: 0; right: 0;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
       height: 1px;
       background: linear-gradient(to right, transparent, #C8102E 40%, transparent);
     }
-    .page-hero__content { position: relative; z-index: 1; }
-    .kicker {
-      display: inline-flex; align-items: center; gap: 10px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.6875rem; font-weight: 600;
-      letter-spacing: 0.18em; text-transform: uppercase;
-      color: rgba(255,255,255,0.4); margin-bottom: 1.25rem;
+
+    .page-hero__content {
+      position: relative;
+      z-index: 1;
     }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 1.25rem;
+    }
+
     .kicker::before {
-      content: ''; width: 24px; height: 1px;
-      background: #C8102E; display: block;
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: #C8102E;
+      display: block;
     }
 
     /* STATS BAR */
     .obras-stats {
       background: #F7F7F5;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
       padding: 1.5rem 0;
     }
+
     .obras-stats__inner {
       display: flex;
       align-items: center;
@@ -53,22 +76,32 @@
       gap: 2.5rem;
       flex-wrap: wrap;
     }
+
     .obras-stat {
-      display: flex; align-items: baseline; gap: 0.5rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
     }
+
     .obras-stat__number {
       font-family: 'Playfair Display', serif;
-      font-size: 1.75rem; font-weight: 700;
+      font-size: 1.75rem;
+      font-weight: 700;
       color: #C8102E;
     }
+
     .obras-stat__label {
       font-family: 'Inter', sans-serif;
-      font-size: 0.8125rem; font-weight: 400;
+      font-size: 0.8125rem;
+      font-weight: 400;
       color: #737373;
     }
 
     /* TABS */
-    .obras-section { padding: 4rem 0 5rem; background: #fff; }
+    .obras-section {
+      padding: 4rem 0 5rem;
+      background: #fff;
+    }
 
     .obras-tabs {
       display: flex;
@@ -76,7 +109,7 @@
       justify-content: center;
       gap: 0;
       margin-bottom: 2rem;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     }
 
     .tab-btn {
@@ -93,7 +126,9 @@
       position: relative;
     }
 
-    .tab-btn:hover { color: #0F0F0F; }
+    .tab-btn:hover {
+      color: #0F0F0F;
+    }
 
     .tab-btn.active {
       color: #C8102E;
@@ -105,8 +140,9 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 20px; height: 20px;
-      background: rgba(200,16,46,0.1);
+      min-width: 20px;
+      height: 20px;
+      background: rgba(200, 16, 46, 0.1);
       color: #C8102E;
       font-size: 0.6875rem;
       font-weight: 700;
@@ -151,8 +187,13 @@
     }
 
     /* TAB PANELS */
-    .tab-panel { display: none; }
-    .tab-panel.active { display: block; }
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
 
     /* GRID */
     .obras-grid {
@@ -173,15 +214,18 @@
 
     .obra-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
     }
 
-    .obra-card.hidden { display: none; }
+    .obra-card.hidden {
+      display: none;
+    }
 
     .obra-card__img {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      transition: transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.4s ease;
+      transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease;
     }
 
     .obra-card:hover .obra-card__img {
@@ -190,16 +234,19 @@
     }
 
     .obra-card__overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.3) 40%, transparent 60%);
-      display: flex; flex-direction: column;
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10, 10, 10, 0.92) 0%, rgba(10, 10, 10, 0.3) 40%, transparent 60%);
+      display: flex;
+      flex-direction: column;
       justify-content: flex-end;
       padding: 1.25rem;
     }
 
     .obra-card__status {
       position: absolute;
-      top: 0.75rem; left: 0.75rem;
+      top: 0.75rem;
+      left: 0.75rem;
       font-family: 'Inter', sans-serif;
       font-size: 0.625rem;
       font-weight: 700;
@@ -211,21 +258,21 @@
     }
 
     .obra-card__status--andamento {
-      background: rgba(255,165,0,0.2);
+      background: rgba(255, 165, 0, 0.2);
       color: #FFB347;
-      border: 1px solid rgba(255,165,0,0.3);
+      border: 1px solid rgba(255, 165, 0, 0.3);
     }
 
     .obra-card__status--entregue {
-      background: rgba(76,175,80,0.2);
+      background: rgba(76, 175, 80, 0.2);
       color: #81C784;
-      border: 1px solid rgba(76,175,80,0.3);
+      border: 1px solid rgba(76, 175, 80, 0.3);
     }
 
     .obra-card__status--comercial {
-      background: rgba(100,181,246,0.2);
+      background: rgba(100, 181, 246, 0.2);
       color: #90CAF9;
-      border: 1px solid rgba(100,181,246,0.3);
+      border: 1px solid rgba(100, 181, 246, 0.3);
     }
 
     .obra-card__tags {
@@ -242,7 +289,7 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: #C8102E;
-      background: rgba(200,16,46,0.15);
+      background: rgba(200, 16, 46, 0.15);
       backdrop-filter: blur(4px);
       padding: 2px 8px;
       border-radius: 12px;
@@ -260,16 +307,20 @@
     .obra-card__meta {
       font-size: 0.75rem;
       font-weight: 300;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255, 255, 255, 0.45);
     }
 
     .obra-card__arrow {
       position: absolute;
-      top: 0.75rem; right: 0.75rem;
-      width: 32px; height: 32px;
-      background: rgba(255,255,255,0.9);
+      top: 0.75rem;
+      right: 0.75rem;
+      width: 32px;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.9);
       border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       opacity: 0;
       transform: scale(0.7) rotate(-45deg);
       transition: all 0.3s ease;
@@ -281,7 +332,8 @@
     }
 
     .obra-card__arrow svg {
-      width: 14px; height: 14px;
+      width: 14px;
+      height: 14px;
       color: #C8102E;
     }
 
@@ -310,12 +362,15 @@
       color: #fff;
     }
 
-    .load-more-btn.hidden { display: none; }
+    .load-more-btn.hidden {
+      display: none;
+    }
 
     /* LIGHTBOX */
     .lightbox {
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.92);
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
       z-index: 500;
       display: none;
       align-items: center;
@@ -323,7 +378,9 @@
       padding: 2rem;
     }
 
-    .lightbox.open { display: flex; }
+    .lightbox.open {
+      display: flex;
+    }
 
     .lightbox__img {
       max-width: 900px;
@@ -334,18 +391,24 @@
 
     .lightbox__close {
       position: absolute;
-      top: 2rem; right: 2rem;
-      width: 44px; height: 44px;
-      background: rgba(255,255,255,0.1);
+      top: 2rem;
+      right: 2rem;
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: #fff;
       cursor: pointer;
       border: none;
       transition: background 0.2s ease;
     }
 
-    .lightbox__close:hover { background: rgba(255,255,255,0.2); }
+    .lightbox__close:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
 
     /* CTA */
     .obras-cta {
@@ -356,17 +419,40 @@
 
     /* RESPONSIVE */
     @media (max-width: 1024px) {
-      .obras-grid { grid-template-columns: repeat(3, 1fr); }
-      .tab-btn { padding: 0.75rem 1.25rem; font-size: 0.8125rem; }
+      .obras-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .tab-btn {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.8125rem;
+      }
     }
+
     @media (max-width: 768px) {
-      .obras-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-      .obras-stats__inner { gap: 1.5rem; }
-      .tab-btn { padding: 0.625rem 1rem; font-size: 0.75rem; }
+      .obras-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .obras-stats__inner {
+        gap: 1.5rem;
+      }
+
+      .tab-btn {
+        padding: 0.625rem 1rem;
+        font-size: 0.75rem;
+      }
     }
+
     @media (max-width: 480px) {
-      .obras-grid { grid-template-columns: 1fr; }
-      .obra-card { aspect-ratio: 4/3; }
+      .obras-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .obra-card {
+        aspect-ratio: 4/3;
+      }
     }
   </style>
 </head>
@@ -455,87 +541,90 @@
         <div class="obras-tabs">
           <button class="tab-btn" data-tab="andamento">Em Andamento<span class="tab-btn__count">20</span></button>
           <button class="tab-btn active" data-tab="entregues">Entregues<span class="tab-btn__count">16</span></button>
-          <button class="tab-btn" data-tab="comercial">Comercial<span class="tab-btn__count">11</span></button>
-        </div>
-
-        <!-- Filtros -->
-        <div class="obras-filters">
-          <button class="filter-btn active" data-filter="all">Todos</button>
-          <button class="filter-btn" data-filter="eletrica">Elétrica</button>
-          <button class="filter-btn" data-filter="hidraulica">Hidráulica</button>
-          <button class="filter-btn" data-filter="incendio">Incêndio</button>
-          <button class="filter-btn" data-filter="completo">Completo</button>
+          <button class="tab-btn" data-tab="comercial">Comercial<span class="tab-btn__count">10</span></button>
         </div>
 
         <!-- TAB: Em Andamento -->
         <div class="tab-panel" id="panel-andamento">
           <div class="obras-grid" id="grid-andamento">
 
-            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/opus-sense.png">
-              <img class="obra-card__img" src="/img/obras/opus-sense.png" alt="Opus Sense" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/em%20andamento/OPUS%20SENSE/opus-sense.jpg">
+              <img class="obra-card__img" src="/img/obras/em%20andamento/OPUS%20SENSE/opus-sense.jpg" alt="Sense Ricardo Paranhos" loading="lazy">
               <span class="obra-card__status obra-card__status--andamento">Em Construção</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Elétrica</span>
                   <span class="obra-card__tag">Hidráulica</span>
                 </div>
-                <div class="obra-card__name">Opus Sense</div>
+                <div class="obra-card__name">Sense</div>
                 <div class="obra-card__meta">Setor Marista · Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/casa-opus-marista.jpg">
-              <img class="obra-card__img" src="/img/obras/casa-opus-marista.jpg" alt="Casa Opus Marista" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/em%20andamento/CASA%20OPUS%20MARISTA/casa-opus-marista.jpg">
+              <img class="obra-card__img" src="/img/obras/em%20andamento/CASA%20OPUS%20MARISTA/casa-opus-marista.jpg" alt="Casa Marista" loading="lazy">
               <span class="obra-card__status obra-card__status--andamento">Em Construção</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Elétrica</span>
                   <span class="obra-card__tag">Hidráulica</span>
                 </div>
-                <div class="obra-card__name">Casa Opus Marista</div>
+                <div class="obra-card__name">Casa Marista</div>
                 <div class="obra-card__meta">Setor Marista · Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up" data-category="eletrica hidraulica incendio" data-img="/img/obras/opus-gyro-praca-do-sol.png">
-              <img class="obra-card__img" src="/img/obras/opus-gyro-praca-do-sol.png" alt="Opus Gyro Praça do Sol" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica hidraulica incendio" data-img="/img/obras/em%20andamento/OPUS%20GYRO%20PRA%C3%87A%20DO%20SOL/opus-gyro-praca-sol.jpg">
+              <img class="obra-card__img" src="/img/obras/em%20andamento/OPUS%20GYRO%20PRA%C3%87A%20DO%20SOL/opus-gyro-praca-sol.jpg" alt="Gyro Praça do Sol" loading="lazy">
               <span class="obra-card__status obra-card__status--andamento">Em Construção</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Completo</span>
                 </div>
-                <div class="obra-card__name">Opus Gyro Praça do Sol</div>
+                <div class="obra-card__name">Gyro Praça do Sol</div>
                 <div class="obra-card__meta">Praça do Sol · Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/opus-ace-tennis-club.png">
-              <img class="obra-card__img" src="/img/obras/opus-ace-tennis-club.png" alt="Opus Ace Tennis Club Vaca Brava" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/em%20andamento/OPUS%20ACE%20TENNIS%20CLUB%20VACA%20BRAVA/opus-ace-tennis-club-vaca-brava.jpg">
+              <img class="obra-card__img" src="/img/obras/em%20andamento/OPUS%20ACE%20TENNIS%20CLUB%20VACA%20BRAVA/opus-ace-tennis-club-vaca-brava.jpg" alt="Ace Tennis Club Vaca Brava" loading="lazy">
               <span class="obra-card__status obra-card__status--andamento">Em Construção</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Elétrica</span>
                   <span class="obra-card__tag">Hidráulica</span>
                 </div>
-                <div class="obra-card__name">Opus Ace Tennis Club Vaca Brava</div>
+                <div class="obra-card__name">Ace Tennis Club Vaca Brava</div>
                 <div class="obra-card__meta">Vaca Brava · Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/cidade-ybiti-home.jpg">
-              <img class="obra-card__img" src="/img/obras/cidade-ybiti-home.jpg" alt="Ybiti Home by Opus" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/em%20andamento/YBITI%20HOME%20BY%20OPUS/ybit-by-opus.jpg">
+              <img class="obra-card__img" src="/img/obras/em%20andamento/YBITI%20HOME%20BY%20OPUS/ybit-by-opus.jpg" alt="Ybiti Home by Opus" loading="lazy">
               <span class="obra-card__status obra-card__status--andamento">Em Construção</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
@@ -546,43 +635,52 @@
                 <div class="obra-card__meta">Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up" data-category="eletrica" data-img="/img/obras/cidade-ybiti-offices.jpg">
-              <img class="obra-card__img" src="/img/obras/cidade-ybiti-offices.jpg" alt="Ybiti Offices by Opus" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica" data-img="/img/obras/em%20andamento/YBITI%20OFFICES%20BY%20OPUS/ybiti-offices-by-opus.jpg">
+              <img class="obra-card__img" src="/img/obras/em%20andamento/YBITI%20OFFICES%20BY%20OPUS/ybiti-offices-by-opus.jpg" alt="Ybiti Offices by Opus" loading="lazy">
               <span class="obra-card__status obra-card__status--andamento">Em Construção</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Elétrica</span>
                 </div>
-                <div class="obra-card__name">Ybiti Offices by Opus</div>
+                <div class="obra-card__name">Ybiti Offices</div>
                 <div class="obra-card__meta">Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/opus-ybate.jpg">
-              <img class="obra-card__img" src="/img/obras/opus-ybate.jpg" alt="Opus Ybaté" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/em%20andamento/OPUS%20YBAT%C3%89/opus-ybate.jpg">
+              <img class="obra-card__img" src="/img/obras/em%20andamento/OPUS%20YBAT%C3%89/opus-ybate.jpg" alt="Ybaté" loading="lazy">
               <span class="obra-card__status obra-card__status--andamento">Em Construção</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Elétrica</span>
                   <span class="obra-card__tag">Hidráulica</span>
                 </div>
-                <div class="obra-card__name">Opus Ybaté</div>
+                <div class="obra-card__name">Ybaté</div>
                 <div class="obra-card__meta">Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/atelier-opus.png">
-              <img class="obra-card__img" src="/img/obras/atelier-opus.png" alt="Atelier Opus" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/em%20andamento/ATELIER%20OPUS/atelier-opus.jpg">
+              <img class="obra-card__img" src="/img/obras/em%20andamento/ATELIER%20OPUS/atelier-opus.jpg" alt="Atelier Opus" loading="lazy">
               <span class="obra-card__status obra-card__status--andamento">Em Construção</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
@@ -593,27 +691,33 @@
                 <div class="obra-card__meta">Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up" data-category="eletrica hidraulica incendio" data-img="/img/obras/opus-sync.png">
-              <img class="obra-card__img" src="/img/obras/opus-sync.png" alt="Opus Sync" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica hidraulica incendio" data-img="/img/obras/em%20andamento/OPUS%20SYNC/opus-sync.jpg">
+              <img class="obra-card__img" src="/img/obras/em%20andamento/OPUS%20SYNC/opus-sync.jpg" alt="Sync" loading="lazy">
               <span class="obra-card__status obra-card__status--andamento">Em Construção</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Completo</span>
                 </div>
-                <div class="obra-card__name">Opus Sync</div>
+                <div class="obra-card__name">Sync</div>
                 <div class="obra-card__meta">Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/arq-opus.png">
-              <img class="obra-card__img" src="/img/obras/arq-opus.png" alt="Arq Opus" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/em%20andamento/ARQ%20OPUS/arq-opus.jpg">
+              <img class="obra-card__img" src="/img/obras/em%20andamento/ARQ%20OPUS/arq-opus.jpg" alt="Arq Opus" loading="lazy">
               <span class="obra-card__status obra-card__status--andamento">Em Construção</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
@@ -624,44 +728,53 @@
                 <div class="obra-card__meta">Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/opus-nido.png">
-              <img class="obra-card__img" src="/img/obras/opus-nido.png" alt="Opus Nido" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/em%20andamento/OPUS%20NIDO/opus-nido.jpg">
+              <img class="obra-card__img" src="/img/obras/em%20andamento/OPUS%20NIDO/opus-nido.jpg" alt="Nido" loading="lazy">
               <span class="obra-card__status obra-card__status--andamento">Em Construção</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Elétrica</span>
                   <span class="obra-card__tag">Hidráulica</span>
                 </div>
-                <div class="obra-card__name">Opus Nido</div>
+                <div class="obra-card__name">Nido</div>
                 <div class="obra-card__meta">Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up" data-category="eletrica hidraulica incendio" data-img="/img/obras/cidade-opus.jpg">
-              <img class="obra-card__img" src="/img/obras/cidade-opus.jpg" alt="Cidade Opus" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica hidraulica incendio" data-img="/img/obras/em%20andamento/CIDADE%20OPUS%20CORPORATE/cidade-opus-corporate.jpg">
+              <img class="obra-card__img" src="/img/obras/em%20andamento/CIDADE%20OPUS%20CORPORATE/cidade-opus-corporate.jpg" alt="Cidade Opus" loading="lazy">
               <span class="obra-card__status obra-card__status--andamento">Em Construção</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Completo</span>
                 </div>
-                <div class="obra-card__name">Cidade Opus Corporate</div>
+                <div class="obra-card__name">Cidade Corporate</div>
                 <div class="obra-card__meta">Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
             <!-- Items initially hidden (load more) -->
-            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica incendio" data-img="/img/obras/gyro-cidade-opus.jpg">
-              <img class="obra-card__img" src="/img/obras/gyro-cidade-opus.jpg" alt="Gyro Cidade Opus" loading="lazy">
+            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica incendio" data-img="/img/obras/em%20andamento/GYRO%20CIDADE%20OPUS/gyro-cidade-opus.jpg">
+              <img class="obra-card__img" src="/img/obras/em%20andamento/GYRO%20CIDADE%20OPUS/gyro-cidade-opus.jpg" alt="Gyro Cidade Opus" loading="lazy">
               <span class="obra-card__status obra-card__status--andamento">Em Construção</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
@@ -671,89 +784,107 @@
                 <div class="obra-card__meta">Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up extra-item" data-category="eletrica" data-img="/img/obras/passeo-opus-offices.png">
-              <img class="obra-card__img" src="/img/obras/passeo-opus-offices.png" alt="Passeo Opus Offices" loading="lazy">
+            <div class="obra-card fade-up extra-item" data-category="eletrica" data-img="/img/obras/em%20andamento/PASSEO%20OPUS%20OFFICES/passeo-opus.jpeg">
+              <img class="obra-card__img" src="/img/obras/em%20andamento/PASSEO%20OPUS%20OFFICES/passeo-opus.jpeg" alt="Passeo Offices" loading="lazy">
               <span class="obra-card__status obra-card__status--andamento">Em Construção</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Elétrica</span>
                 </div>
-                <div class="obra-card__name">Passeo Opus Offices</div>
+                <div class="obra-card__name">Passeo Offices</div>
                 <div class="obra-card__meta">Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica" data-img="/img/obras/opus-geo-home-136.png">
-              <img class="obra-card__img" src="/img/obras/opus-geo-home-136.png" alt="Opus Geo Home 136" loading="lazy">
+            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica" data-img="/img/obras/em%20andamento/OPUS%20GEO%20HOME%20136/opus-geo-home-136.png">
+              <img class="obra-card__img" src="/img/obras/em%20andamento/OPUS%20GEO%20HOME%20136/opus-geo-home-136.png" alt="Geo Home 136" loading="lazy">
               <span class="obra-card__status obra-card__status--andamento">Em Construção</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Elétrica</span>
                   <span class="obra-card__tag">Hidráulica</span>
                 </div>
-                <div class="obra-card__name">Opus Geo Home 136</div>
+                <div class="obra-card__name">Geo Home 136</div>
                 <div class="obra-card__meta">Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up extra-item" data-category="eletrica" data-img="/img/obras/opus-geo-work-136.png">
-              <img class="obra-card__img" src="/img/obras/opus-geo-work-136.png" alt="Opus Geo Work 136" loading="lazy">
+            <div class="obra-card fade-up extra-item" data-category="eletrica" data-img="/img/obras/em%20andamento/OPUS%20GEO%20WORK%20136/opus-geo-work-136.png">
+              <img class="obra-card__img" src="/img/obras/em%20andamento/OPUS%20GEO%20WORK%20136/opus-geo-work-136.png" alt="Geo Work 136" loading="lazy">
               <span class="obra-card__status obra-card__status--andamento">Em Construção</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Elétrica</span>
                 </div>
-                <div class="obra-card__name">Opus Geo Work 136</div>
+                <div class="obra-card__name">Geo Work 136</div>
                 <div class="obra-card__meta">Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica" data-img="/img/obras/opus-gyro-o2.png">
-              <img class="obra-card__img" src="/img/obras/opus-gyro-o2.png" alt="Opus Gyro O2 Reserva Ybiti" loading="lazy">
+            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica" data-img="/img/obras/em%20andamento/OPUS%20GYRO%20O2%20RESERVA%20YBITI/opus-gyro-02-reserva-ybiti.jpg">
+              <img class="obra-card__img" src="/img/obras/em%20andamento/OPUS%20GYRO%20O2%20RESERVA%20YBITI/opus-gyro-02-reserva-ybiti.jpg" alt="Gyro O2 Reserva Ybiti" loading="lazy">
               <span class="obra-card__status obra-card__status--andamento">Em Construção</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Elétrica</span>
                   <span class="obra-card__tag">Hidráulica</span>
                 </div>
-                <div class="obra-card__name">Opus Gyro O2 Reserva Ybiti</div>
+                <div class="obra-card__name">Gyro O2 Reserva Ybiti</div>
                 <div class="obra-card__meta">Reserva Ybiti · Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica incendio" data-img="/img/obras/opus-tellure.png">
-              <img class="obra-card__img" src="/img/obras/opus-tellure.png" alt="Opus Tellure - Torre B" loading="lazy">
+            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica incendio" data-img="/img/obras/em%20andamento/OPUS%20TELLURE%20-%20TORRE%20B/opus-tellure-torre-b.jpg">
+              <img class="obra-card__img" src="/img/obras/em%20andamento/OPUS%20TELLURE%20-%20TORRE%20B/opus-tellure-torre-b.jpg" alt="Tellure - Torre B" loading="lazy">
               <span class="obra-card__status obra-card__status--andamento">Em Construção</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Completo</span>
                 </div>
-                <div class="obra-card__name">Opus Tellure - Torre B</div>
+                <div class="obra-card__name">Tellure - Torre B</div>
                 <div class="obra-card__meta">Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica" data-img="/img/obras/marista-prime-residence.jpg">
-              <img class="obra-card__img" src="/img/obras/marista-prime-residence.jpg" alt="Marista Prime Residence" loading="lazy">
+            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica" data-img="/img/obras/em%20andamento/MARISTA%20PRIME%20RESIDENCE/marista-prime-residence.jpg">
+              <img class="obra-card__img" src="/img/obras/em%20andamento/MARISTA%20PRIME%20RESIDENCE/marista-prime-residence.jpg" alt="Marista Prime Residence" loading="lazy">
               <span class="obra-card__status obra-card__status--andamento">Em Construção</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
@@ -764,12 +895,15 @@
                 <div class="obra-card__meta">Queiroz Silveira · Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica" data-img="/img/obras/vivere-bela-vista.jpg">
-              <img class="obra-card__img" src="/img/obras/vivere-bela-vista.jpg" alt="Vivere Bela Vista" loading="lazy">
+            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica" data-img="/img/obras/em%20andamento/VIVERE%20BELA%20VISTA/vivere-bela-vista.jpg">
+              <img class="obra-card__img" src="/img/obras/em%20andamento/VIVERE%20BELA%20VISTA/vivere-bela-vista.jpg" alt="Vivere Bela Vista" loading="lazy">
               <span class="obra-card__status obra-card__status--andamento">Em Construção</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
@@ -780,7 +914,10 @@
                 <div class="obra-card__meta">Queiroz Silveira · Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
@@ -798,24 +935,27 @@
         <div class="tab-panel active" id="panel-entregues">
           <div class="obras-grid" id="grid-entregues">
 
-            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/opus-brava-design.png">
-              <img class="obra-card__img" src="/img/obras/opus-brava-design.png" alt="Opus Brava Design" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/entregue/OPUS%20BRAVA%20DESIGN/opus-brava-design.jpg">
+              <img class="obra-card__img" src="/img/obras/entregue/OPUS%20BRAVA%20DESIGN/opus-brava-design.jpg" alt="Brava Design" loading="lazy">
               <span class="obra-card__status obra-card__status--entregue">Entregue</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Elétrica</span>
                   <span class="obra-card__tag">Hidráulica</span>
                 </div>
-                <div class="obra-card__name">Opus Brava Design</div>
+                <div class="obra-card__name">Brava Design</div>
                 <div class="obra-card__meta">Setor Bueno · Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/selena-by-opus.png">
-              <img class="obra-card__img" src="/img/obras/selena-by-opus.png" alt="Selena by Opus" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/entregue/SELENA%20BY%20OPUS/selena-by-opus.jpg">
+              <img class="obra-card__img" src="/img/obras/entregue/SELENA%20BY%20OPUS/selena-by-opus.jpg" alt="Selena by Opus" loading="lazy">
               <span class="obra-card__status obra-card__status--entregue">Entregue</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
@@ -826,12 +966,15 @@
                 <div class="obra-card__meta">Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/sunna-by-opus.png">
-              <img class="obra-card__img" src="/img/obras/sunna-by-opus.png" alt="Sunna by Opus" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/entregue/SUNNA%20BY%20OPUS/sunna-by-opus.jpg">
+              <img class="obra-card__img" src="/img/obras/entregue/SUNNA%20BY%20OPUS/sunna-by-opus.jpg" alt="Sunna by Opus" loading="lazy">
               <span class="obra-card__status obra-card__status--entregue">Entregue</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
@@ -842,12 +985,15 @@
                 <div class="obra-card__meta">Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up" data-category="eletrica hidraulica incendio" data-img="/img/obras/pateo-136-opus.png">
-              <img class="obra-card__img" src="/img/obras/pateo-136-opus.png" alt="Pateo 136 Opus" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica hidraulica incendio" data-img="/img/obras/entregue/PATEO%20136%20OPUS/pateo-136-opus.jpg">
+              <img class="obra-card__img" src="/img/obras/entregue/PATEO%20136%20OPUS/pateo-136-opus.jpg" alt="Pateo 136 Opus" loading="lazy">
               <span class="obra-card__status obra-card__status--entregue">Entregue</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
@@ -857,59 +1003,71 @@
                 <div class="obra-card__meta">Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/opus-gyro-ricardo-paranhos.png">
-              <img class="obra-card__img" src="/img/obras/opus-gyro-ricardo-paranhos.png" alt="Opus Gyro Ricardo Paranhos" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/entregue/OPUS%20GYRO%20RICARDO%20PARANHOS/opus-gyro-ricardo-paranhos.jpg">
+              <img class="obra-card__img" src="/img/obras/entregue/OPUS%20GYRO%20RICARDO%20PARANHOS/opus-gyro-ricardo-paranhos.jpg" alt="Gyro Ricardo Paranhos" loading="lazy">
               <span class="obra-card__status obra-card__status--entregue">Entregue</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Elétrica</span>
                   <span class="obra-card__tag">Hidráulica</span>
                 </div>
-                <div class="obra-card__name">Opus Gyro Ricardo Paranhos</div>
+                <div class="obra-card__name">Gyro Ricardo Paranhos</div>
                 <div class="obra-card__meta">Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/opus-penthouses-marista.png">
-              <img class="obra-card__img" src="/img/obras/opus-penthouses-marista.png" alt="Opus Penthouses Marista 146" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/entregue/OPUS%20PENTHOUSES%20MARISTA%20146/opus-penthouses-martisa-146.jpg">
+              <img class="obra-card__img" src="/img/obras/entregue/OPUS%20PENTHOUSES%20MARISTA%20146/opus-penthouses-martisa-146.jpg" alt="Penthouses Marista 146" loading="lazy">
               <span class="obra-card__status obra-card__status--entregue">Entregue</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Elétrica</span>
                   <span class="obra-card__tag">Hidráulica</span>
                 </div>
-                <div class="obra-card__name">Opus Penthouses Marista 146</div>
+                <div class="obra-card__name">Penthouses Marista 146</div>
                 <div class="obra-card__meta">Setor Marista · Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up" data-category="eletrica hidraulica incendio" data-img="/img/obras/opus-gyro-rooftop.png">
-              <img class="obra-card__img" src="/img/obras/opus-gyro-rooftop.png" alt="Opus Gyro Rooftop" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica hidraulica incendio" data-img="/img/obras/entregue/OPUS%20GYRO%20ROOFTOP/opus-gyro-rooftop.jpg">
+              <img class="obra-card__img" src="/img/obras/entregue/OPUS%20GYRO%20ROOFTOP/opus-gyro-rooftop.jpg" alt="Gyro Rooftop" loading="lazy">
               <span class="obra-card__status obra-card__status--entregue">Entregue</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Completo</span>
                 </div>
-                <div class="obra-card__name">Opus Gyro Rooftop</div>
+                <div class="obra-card__name">Gyro Rooftop</div>
                 <div class="obra-card__meta">Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/deck-23.png">
-              <img class="obra-card__img" src="/img/obras/deck-23.png" alt="Deck 23 by Opus" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/entregue/DECK%2023%20BY%20OPUS/deck-23-by-opus.jpg">
+              <img class="obra-card__img" src="/img/obras/entregue/DECK%2023%20BY%20OPUS/deck-23-by-opus.jpg" alt="Deck 23 by Opus" loading="lazy">
               <span class="obra-card__status obra-card__status--entregue">Entregue</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
@@ -920,90 +1078,108 @@
                 <div class="obra-card__meta">Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica" data-img="/img/obras/opus-gyro-vaca-brava.png">
-              <img class="obra-card__img" src="/img/obras/opus-gyro-vaca-brava.png" alt="Opus Gyro Vaca Brava Design" loading="lazy">
+            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica" data-img="/img/obras/entregue/OPUS%20GYRO%20VACA%20BRAVA%20DESIGN/opus-gyro-vaca-brava-design.jpg">
+              <img class="obra-card__img" src="/img/obras/entregue/OPUS%20GYRO%20VACA%20BRAVA%20DESIGN/opus-gyro-vaca-brava-design.jpg" alt="Gyro Vaca Brava Design" loading="lazy">
               <span class="obra-card__status obra-card__status--entregue">Entregue</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Elétrica</span>
                   <span class="obra-card__tag">Hidráulica</span>
                 </div>
-                <div class="obra-card__name">Opus Gyro Vaca Brava Design</div>
+                <div class="obra-card__name">Gyro Vaca Brava Design</div>
                 <div class="obra-card__meta">Vaca Brava · Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up extra-item" data-category="hidraulica incendio" data-img="/img/obras/opus-acqua.png">
-              <img class="obra-card__img" src="/img/obras/opus-acqua.png" alt="Opus Acqua" loading="lazy">
+            <div class="obra-card fade-up extra-item" data-category="hidraulica incendio" data-img="/img/obras/entregue/OPUS%20ACQUA/opus-acqua.jpg">
+              <img class="obra-card__img" src="/img/obras/entregue/OPUS%20ACQUA/opus-acqua.jpg" alt="Acqua" loading="lazy">
               <span class="obra-card__status obra-card__status--entregue">Entregue</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Hidráulica</span>
                   <span class="obra-card__tag">Incêndio</span>
                 </div>
-                <div class="obra-card__name">Opus Acqua</div>
+                <div class="obra-card__name">Acqua</div>
                 <div class="obra-card__meta">Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica" data-img="/img/obras/opus-araguaya.png">
-              <img class="obra-card__img" src="/img/obras/opus-araguaya.png" alt="Opus Araguaya" loading="lazy">
+            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica" data-img="/img/obras/entregue/OPUS%20ARAGUAYA/opus-araguaya.jpg">
+              <img class="obra-card__img" src="/img/obras/entregue/OPUS%20ARAGUAYA/opus-araguaya.jpg" alt="Araguaya" loading="lazy">
               <span class="obra-card__status obra-card__status--entregue">Entregue</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Elétrica</span>
                   <span class="obra-card__tag">Hidráulica</span>
                 </div>
-                <div class="obra-card__name">Opus Araguaya</div>
+                <div class="obra-card__name">Araguaya</div>
                 <div class="obra-card__meta">Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up extra-item" data-category="eletrica" data-img="/img/obras/opus-verti.png">
-              <img class="obra-card__img" src="/img/obras/opus-verti.png" alt="Opus Verti" loading="lazy">
+            <div class="obra-card fade-up extra-item" data-category="eletrica" data-img="/img/obras/entregue/OPUS%20VERTI/opus-verti.jpg">
+              <img class="obra-card__img" src="/img/obras/entregue/OPUS%20VERTI/opus-verti.jpg" alt="Verti" loading="lazy">
               <span class="obra-card__status obra-card__status--entregue">Entregue</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Elétrica</span>
                 </div>
-                <div class="obra-card__name">Opus Verti</div>
+                <div class="obra-card__name">Verti</div>
                 <div class="obra-card__meta">Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica incendio" data-img="/img/obras/vivere-bela-vista.jpg">
-              <img class="obra-card__img" src="/img/obras/vivere-bela-vista.jpg" alt="Gran Lest" loading="lazy">
+            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica incendio" data-img="/img/obras/entregue/GRAN%20LEST/gran-lest.png">
+              <img class="obra-card__img" src="/img/obras/entregue/GRAN%20LEST/gran-lest.png" alt="Gran Lest" loading="lazy">
               <span class="obra-card__status obra-card__status--entregue">Entregue</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Completo</span>
                 </div>
                 <div class="obra-card__name">Gran Lest</div>
-                <div class="obra-card__meta">Queiroz Silveira · Goiânia, GO</div>
+                <div class="obra-card__meta">Setor Leste Universitário · Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica" data-img="/img/obras/marista-prime-residence.jpg">
-              <img class="obra-card__img" src="/img/obras/marista-prime-residence.jpg" alt="Lozandes Corporate Design" loading="lazy">
+            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica" data-img="/img/obras/entregue/LOZANDES%20CORPORATE%20DESIGN/lozandes.jpg">
+              <img class="obra-card__img" src="/img/obras/entregue/LOZANDES%20CORPORATE%20DESIGN/lozandes.jpg" alt="Lozandes Corporate Design" loading="lazy">
               <span class="obra-card__status obra-card__status--entregue">Entregue</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
@@ -1011,15 +1187,18 @@
                   <span class="obra-card__tag">Hidráulica</span>
                 </div>
                 <div class="obra-card__name">Lozandes Corporate Design</div>
-                <div class="obra-card__meta">Queiroz Silveira · Goiânia, GO</div>
+                <div class="obra-card__meta">Park Lozandes · Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica" data-img="/img/obras/vivere-bela-vista.jpg">
-              <img class="obra-card__img" src="/img/obras/vivere-bela-vista.jpg" alt="Leblon Marista" loading="lazy">
+            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica" data-img="/img/obras/entregue/LEBLON%20MARISTA/leblon-marista-1.jpg">
+              <img class="obra-card__img" src="/img/obras/entregue/LEBLON%20MARISTA/leblon-marista-1.jpg" alt="Leblon Marista" loading="lazy">
               <span class="obra-card__status obra-card__status--entregue">Entregue</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
@@ -1027,25 +1206,31 @@
                   <span class="obra-card__tag">Hidráulica</span>
                 </div>
                 <div class="obra-card__name">Leblon Marista</div>
-                <div class="obra-card__meta">Queiroz Silveira · Goiânia, GO</div>
+                <div class="obra-card__meta">Setor Marista · Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica incendio" data-img="/img/obras/qs-life.jpg">
-              <img class="obra-card__img" src="/img/obras/qs-life.jpg" alt="QS Life Home Clinical" loading="lazy">
+            <div class="obra-card fade-up extra-item" data-category="eletrica hidraulica incendio" data-img="/img/obras/entregue/QS%20LIFE%20HOME%20%26%20CLINICAL/qs-life-1.jpg">
+              <img class="obra-card__img" src="/img/obras/entregue/QS%20LIFE%20HOME%20%26%20CLINICAL/qs-life-1.jpg" alt="QS Life Home &amp; Clinical" loading="lazy">
               <span class="obra-card__status obra-card__status--entregue">Entregue</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Completo</span>
                 </div>
-                <div class="obra-card__name">QS Life Home Clinical</div>
+                <div class="obra-card__name">QS Life Home &amp; Clinical</div>
                 <div class="obra-card__meta">Queiroz Silveira · Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
@@ -1072,7 +1257,10 @@
                 <div class="obra-card__meta">Obra de Shopping · Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
@@ -1087,12 +1275,15 @@
                 <div class="obra-card__meta">Sistema de Incêndio · Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up" data-category="incendio" data-img="/img/obras/megapolo-moda.jpg">
-              <img class="obra-card__img" src="/img/obras/megapolo-moda.jpg" alt="Megapolo Moda" loading="lazy">
+            <div class="obra-card fade-up" data-category="incendio" data-img="/img/obras/megapolo-moda.webp">
+              <img class="obra-card__img" src="/img/obras/megapolo-moda.webp" alt="Megapolo Moda" loading="lazy">
               <span class="obra-card__status obra-card__status--comercial">Comercial</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
@@ -1102,7 +1293,10 @@
                 <div class="obra-card__meta">Sistema de Incêndio · Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
@@ -1118,12 +1312,15 @@
                 <div class="obra-card__meta">Lojas Médio e Pequeno Porte · Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/mega-moda.jpg">
-              <img class="obra-card__img" src="/img/obras/mega-moda.jpg" alt="Goiânia Shopping" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica hidraulica" data-img="/img/obras/goiania_shopping.jpg">
+              <img class="obra-card__img" src="/img/obras/goiania_shopping.jpg" alt="Goiânia Shopping" loading="lazy">
               <span class="obra-card__status obra-card__status--comercial">Comercial</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
@@ -1134,12 +1331,15 @@
                 <div class="obra-card__meta">Lojas Médio e Pequeno Porte · Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up" data-category="eletrica hidraulica incendio" data-img="/img/obras/gran-life-anapolis.webp">
-              <img class="obra-card__img" src="/img/obras/gran-life-anapolis.webp" alt="Gran Life Anápolis" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica hidraulica incendio" data-img="/img/obras/granlife.jpg">
+              <img class="obra-card__img" src="/img/obras/granlife.jpg" alt="Gran Life Anápolis" loading="lazy">
               <span class="obra-card__status obra-card__status--comercial">Comercial</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
@@ -1149,7 +1349,10 @@
                 <div class="obra-card__meta">Obra Executada · Anápolis, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
@@ -1164,7 +1367,10 @@
                 <div class="obra-card__meta">City Inc · Setor Bueno · Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
@@ -1180,27 +1386,33 @@
                 <div class="obra-card__meta">Incêndio e Elétrica · Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
             <div class="obra-card fade-up" data-category="eletrica hidraulica incendio" data-img="/img/obras/epic-city-home.jpg">
-              <img class="obra-card__img" src="/img/obras/epic-city-home.jpg" alt="Clínica Vitta Goiânia" loading="lazy">
+              <img class="obra-card__img" src="/img/obras/clinica-vitta-goiania.jpg" alt="Clínica Vittá Goiânia" loading="lazy">
               <span class="obra-card__status obra-card__status--comercial">Comercial</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
                   <span class="obra-card__tag">Completo</span>
                 </div>
-                <div class="obra-card__name">Clínica Vitta Goiânia</div>
+                <div class="obra-card__name">Clínica Vittá Goiânia</div>
                 <div class="obra-card__meta">Todas as Unidades · Goiânia, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
-            <div class="obra-card fade-up" data-category="eletrica hidraulica incendio" data-img="/img/obras/gran-life-anapolis.webp">
-              <img class="obra-card__img" src="/img/obras/gran-life-anapolis.webp" alt="BlueFit Anápolis" loading="lazy">
+            <div class="obra-card fade-up" data-category="eletrica hidraulica incendio" data-img="/img/obras/bluefit-anapolis.webp">
+              <img class="obra-card__img" src="/img/obras/bluefit-anapolis.webp" alt="BlueFit Anápolis" loading="lazy">
               <span class="obra-card__status obra-card__status--comercial">Comercial</span>
               <div class="obra-card__overlay">
                 <div class="obra-card__tags">
@@ -1210,22 +1422,10 @@
                 <div class="obra-card__meta">Academia · Anápolis, GO</div>
               </div>
               <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-              </div>
-            </div>
-
-            <div class="obra-card fade-up" data-category="eletrica hidraulica incendio" data-img="/img/obras/gran-life-anapolis.webp">
-              <img class="obra-card__img" src="/img/obras/gran-life-anapolis.webp" alt="SmartFit Goiânia" loading="lazy">
-              <span class="obra-card__status obra-card__status--comercial">Comercial</span>
-              <div class="obra-card__overlay">
-                <div class="obra-card__tags">
-                  <span class="obra-card__tag">Completo</span>
-                </div>
-                <div class="obra-card__name">SmartFit Goiânia</div>
-                <div class="obra-card__meta">Academia · Goiânia, GO</div>
-              </div>
-              <div class="obra-card__arrow">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
               </div>
             </div>
 
@@ -1244,7 +1444,10 @@
         </h2>
         <a href="/contato" class="btn btn--primary" style="margin:0 auto;">
           Fale com nossa equipe
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7" />
+            <polyline points="7 7 17 7 17 17" />
+          </svg>
         </a>
       </div>
     </section>
@@ -1253,7 +1456,10 @@
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
     <button class="lightbox__close" id="lightbox-close">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
     </button>
     <img class="lightbox__img" id="lightbox-img" src="" alt="">
   </div>
@@ -1277,41 +1483,18 @@
     var tabBtns = document.querySelectorAll('.tab-btn');
     var tabPanels = document.querySelectorAll('.tab-panel');
 
-    tabBtns.forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        tabBtns.forEach(function(b){ b.classList.remove('active'); });
+    tabBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        tabBtns.forEach(function (b) { b.classList.remove('active'); });
         btn.classList.add('active');
         var tab = btn.dataset.tab;
-        tabPanels.forEach(function(panel) {
+        tabPanels.forEach(function (panel) {
           panel.classList.remove('active');
         });
         document.getElementById('panel-' + tab).classList.add('active');
-        // Reset filters when switching tabs
-        document.querySelectorAll('.filter-btn').forEach(function(f){ f.classList.remove('active'); });
-        document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
         var activePanel = document.getElementById('panel-' + tab);
-        activePanel.querySelectorAll('.obra-card').forEach(function(card) {
+        activePanel.querySelectorAll('.obra-card').forEach(function (card) {
           card.classList.remove('hidden');
-        });
-      });
-    });
-
-    // FILTERS
-    var filterBtns = document.querySelectorAll('.filter-btn');
-
-    filterBtns.forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        filterBtns.forEach(function(b){ b.classList.remove('active'); });
-        btn.classList.add('active');
-        var filter = btn.dataset.filter;
-        var activePanel = document.querySelector('.tab-panel.active');
-        var cards = activePanel.querySelectorAll('.obra-card');
-        cards.forEach(function(card) {
-          if (filter === 'all' || card.dataset.category.includes(filter)) {
-            card.classList.remove('hidden');
-          } else {
-            card.classList.add('hidden');
-          }
         });
       });
     });
@@ -1319,10 +1502,10 @@
     // LOAD MORE
     var INITIAL_SHOW = 12;
     // Hide extra items on page load
-    document.querySelectorAll('.tab-panel').forEach(function(panel) {
+    document.querySelectorAll('.tab-panel').forEach(function (panel) {
       var cards = panel.querySelectorAll('.obra-card');
       var loadBtn = panel.querySelector('.load-more-btn');
-      cards.forEach(function(card, i) {
+      cards.forEach(function (card, i) {
         if (card.classList.contains('extra-item')) {
           card.style.display = 'none';
         }
@@ -1335,12 +1518,12 @@
       }
     });
 
-    document.querySelectorAll('.load-more-btn').forEach(function(btn) {
-      btn.addEventListener('click', function() {
+    document.querySelectorAll('.load-more-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
         var panelId = 'panel-' + btn.dataset.panel;
         var panel = document.getElementById(panelId);
         var extras = panel.querySelectorAll('.extra-item');
-        extras.forEach(function(card) {
+        extras.forEach(function (card) {
           card.style.display = '';
           card.classList.remove('extra-item');
         });
@@ -1352,7 +1535,7 @@
     var lightbox = document.getElementById('lightbox');
     var lightboxImg = document.getElementById('lightbox-img');
 
-    document.addEventListener('click', function(e) {
+    document.addEventListener('click', function (e) {
       var card = e.target.closest('.obra-card');
       if (card) {
         lightboxImg.src = card.dataset.img || card.querySelector('img').src;
@@ -1361,15 +1544,15 @@
       }
     });
 
-    document.getElementById('lightbox-close').addEventListener('click', function() {
+    document.getElementById('lightbox-close').addEventListener('click', function () {
       lightbox.classList.remove('open');
     });
 
-    lightbox.addEventListener('click', function(e) {
+    lightbox.addEventListener('click', function (e) {
       if (e.target === lightbox) lightbox.classList.remove('open');
     });
 
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') lightbox.classList.remove('open');
     });
   </script>
