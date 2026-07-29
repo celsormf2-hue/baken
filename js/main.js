@@ -5,6 +5,44 @@
 (function () {
   'use strict';
 
+  /* ── LOCAL CLEAN-URL COMPATIBILITY ─────────────────────── */
+  const isLocalPreview = ['localhost', '127.0.0.1'].includes(window.location.hostname);
+  const localPages = ['/sobre', '/servicos', '/obras', '/contato', '/cliente'];
+
+  if (isLocalPreview && localPages.includes(window.location.pathname)) {
+    window.location.replace(window.location.pathname + '.html' + window.location.search + window.location.hash);
+    return;
+  }
+
+  /* ── FLOATING WHATSAPP CONTACT ─────────────────────────── */
+  function createWhatsappFloat() {
+    const phone = '5562623302711';
+    const message = encodeURIComponent('Olá! Gostaria de falar com a Baken.');
+    const isMobile = /Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const destination = isMobile
+      ? `https://wa.me/${phone}?text=${message}`
+      : `https://web.whatsapp.com/send?phone=${phone}&text=${message}`;
+
+    const link = document.createElement('a');
+    link.className = 'whatsapp-float';
+    link.href = destination;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.setAttribute('aria-label', 'Fale com a Baken pelo WhatsApp');
+    link.innerHTML = '<svg class="whatsapp-float__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 11.7a8.2 8.2 0 0 1-11.9 7.3L3.8 20.2l1.2-4.3A8.2 8.2 0 1 1 20.2 11.7z"/><path d="M9.1 7.8c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 1.8c.1.3.1.5-.1.7l-.5.6c-.1.1-.2.3-.1.5.4.8 1.1 1.5 1.9 1.9.2.1.4.1.5-.1l.6-.6c.2-.2.4-.2.7-.1l1.8.8c.3.1.4.3.4.5v.5c0 .3 0 .5-.4.7-.4.2-1 .3-1.6.1-1-.3-2.2-1-3.3-2.1s-1.8-2.3-2.1-3.3c-.2-.6-.1-1.2.1-1.6z"/></svg><span class="whatsapp-float__label">Fale com a Baken!</span>';
+    document.body.appendChild(link);
+  }
+
+  function scheduleWhatsappFloat() {
+    window.setTimeout(createWhatsappFloat, 3000);
+  }
+
+  if (document.readyState === 'complete') {
+    scheduleWhatsappFloat();
+  } else {
+    window.addEventListener('load', scheduleWhatsappFloat, { once: true });
+  }
+
   /* ── 1. HEADER SCROLL BEHAVIOR ─────────────────────────── */
   const header = document.getElementById('site-header');
 
@@ -64,6 +102,26 @@
   const lerpFactor = 0.08; // Suavização (lerp) do tempo do vídeo ao rolar
 
   if (video) {
+    // O servidor local de prévia não oferece range requests para o MP4.
+    // Carregar um Blob local preserva o seek do vídeo durante o scroll.
+    if (isLocalPreview) {
+      const localVideoSource = video.querySelector('source[src]');
+      if (localVideoSource) {
+        fetch(localVideoSource.src)
+          .then(function (response) {
+            if (!response.ok) throw new Error('Não foi possível carregar o vídeo local.');
+            return response.blob();
+          })
+          .then(function (blob) {
+            video.src = URL.createObjectURL(blob);
+            video.load();
+          })
+          .catch(function () {
+            // Mantém o carregamento padrão quando a prévia não estiver disponível.
+          });
+      }
+    }
+
     // Garante que o vídeo não comece tocando sozinho
     video.removeAttribute('autoplay');
     video.removeAttribute('loop');
@@ -76,7 +134,7 @@
 
     video.addEventListener('loadeddata', function () {
       video.currentTime = 0.001; // Força a renderização do primeiro frame
-    });
+    }, { once: true });
 
     if (video.readyState >= 1) {
       videoDuration = video.duration;
@@ -100,6 +158,13 @@
 
     // Mapeia o progresso (0 a 1) para o tempo do vídeo (0 a duration)
     targetTime = progress * videoDuration;
+
+    // Atualiza o frame imediatamente a cada rolagem. Isso mantém o vídeo
+    // sincronizado mesmo quando o navegador reduz a cadência do requestAnimationFrame.
+    if (video.readyState >= 1 && Math.abs(video.currentTime - targetTime) > 0.005) {
+      currentTime = targetTime;
+      video.currentTime = targetTime;
+    }
 
     const block1 = document.querySelector('.hero-video__block--1');
     const block2 = document.querySelector('.hero-video__block--2');
@@ -568,4 +633,3 @@
   }
 
 })();
-
