@@ -24,6 +24,14 @@ function tickets_for_client(string $id): array
     return array_values(array_filter(storage_read('tickets'), fn($ticket) => ($ticket['client_id'] ?? '') === $id));
 }
 
+function ticket_status_label(string $status): string
+{
+    return [
+        'open' => 'Aberto',
+        'completed' => 'Concluído',
+    ][$status] ?? ucfirst($status);
+}
+
 function find_ticket(string $id): ?array
 {
     foreach (storage_read('tickets') as $ticket) if (($ticket['id'] ?? '') === $id) return $ticket;
