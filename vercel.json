@@ -8,7 +8,9 @@
   "routes": [
     { "src": "/", "dest": "/index.html" },
     { "src": "/(sobre|servicos|obras|contato)", "dest": "/$1.html" },
-    { "src": "/(sobre|servicos|obras|contato)\\.html", "status": 301, "headers": { "Location": "/$1" } },
+    { "src": "/(sobre|servicos|obras|contato|portal-cliente)\\.html", "status": 301, "headers": { "Location": "/$1" } },
+    { "src": "/((?:portal-cliente|admin)(?:/.*)?|send-mail\\.php|sair)", "dest": "/api/index.php?route=$1" },
+    { "src": "/(.*\\.php)", "dest": "/api/index.php?route=$1" },
     { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "/api/index.php?route=$1" }
   ]
