@@ -24,6 +24,8 @@ logs/
 node_modules/
 vendor/
 
+.agents
+
 # Build / Cache
 dist/
 build/
