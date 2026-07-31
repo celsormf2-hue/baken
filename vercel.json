@@ -1,3 +1,16 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "functions": {
+    "api/index.php": {
+      "runtime": "vercel-php@0.7.4"
+    }
+  },
+  "rewrites": [
+    { "source": "/portal-cliente", "destination": "/api/index.php" },
+    { "source": "/portal-cliente/:path*", "destination": "/api/index.php" },
+    { "source": "/admin", "destination": "/api/index.php" },
+    { "source": "/admin/:path*", "destination": "/api/index.php" },
+    { "source": "/sair", "destination": "/api/index.php" },
+    { "source": "/(.*\\.php)", "destination": "/api/index.php" }
+  ]
 }

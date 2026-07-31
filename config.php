@@ -52,6 +52,8 @@ define('SMTP_PASSWORD', env_value('SMTP_PASSWORD'));
 define('MAIL_FROM', env_value('MAIL_FROM', SMTP_USERNAME));
 define('MAIL_FROM_NAME', env_value('MAIL_FROM_NAME', 'Baken Construtora'));
 define('MAIL_TRANSPORT', env_value('MAIL_TRANSPORT', 'auto'));
+define('DATABASE_URL', env_value('DATABASE_URL'));
+define('STORAGE_DRIVER', env_value('STORAGE_DRIVER', DATABASE_URL !== '' ? 'postgres' : 'file'));
 define('MS_GRAPH_TENANT_ID', env_value('MS_GRAPH_TENANT_ID'));
 define('MS_GRAPH_CLIENT_ID', env_value('MS_GRAPH_CLIENT_ID'));
 define('MS_GRAPH_CLIENT_SECRET', env_value('MS_GRAPH_CLIENT_SECRET'));
