@@ -6,8 +6,11 @@
     }
   },
   "routes": [
-    { "src": "/portal-cliente(?:/.*)?", "dest": "/api/index.php" },
-    { "src": "/admin(?:/.*)?", "dest": "/api/index.php" },
+    { "src": "/portal-cliente.html", "dest": "/api/index.php" },
+    { "src": "/portal-cliente", "dest": "/api/index.php" },
+    { "src": "/portal-cliente/(.*)", "dest": "/api/index.php" },
+    { "src": "/admin", "dest": "/api/index.php" },
+    { "src": "/admin/(.*)", "dest": "/api/index.php" },
     { "src": "/sair", "dest": "/api/index.php" },
     { "src": "/(.*\\.php)", "dest": "/api/index.php" }
   ]
