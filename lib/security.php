@@ -3,10 +3,12 @@
 declare(strict_types=1);
 
 require_once __DIR__ . '/storage.php';
+require_once __DIR__ . '/postgres-session-handler.php';
 
 function start_secure_session(): void
 {
     if (session_status() === PHP_SESSION_ACTIVE) { return; }
+    configure_persistent_sessions();
     session_name('baken_portal');
     $host = explode(':', $_SERVER['HTTP_HOST'] ?? '')[0];
     session_set_cookie_params([
@@ -37,9 +39,37 @@ function verify_csrf(): void
     start_secure_session();
     $token = $_POST['csrf'] ?? '';
     if (!is_string($token) || empty($_SESSION['csrf']) || !hash_equals($_SESSION['csrf'], $token)) {
-        http_response_code(403);
-        exit('Solicitação de segurança inválida. Atualize a página e tente novamente.');
+        preserve_input_after_csrf_failure();
+        flash('error', 'Sua sessão expirou. Revise os dados e envie o formulário novamente.');
+        redirect(csrf_failure_destination());
     }
+}
+
+function preserve_input_after_csrf_failure(): void
+{
+    $path = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH);
+    if (!in_array($path, ['/portal-cliente/cadastrar', '/registrar.php'], true)) {
+        return;
+    }
+    $_SESSION['old_input'] = [
+        'name' => trim((string) ($_POST['name'] ?? '')),
+        'email' => trim((string) ($_POST['email'] ?? '')),
+        'phone' => trim((string) ($_POST['phone'] ?? '')),
+        'development' => trim((string) ($_POST['development'] ?? '')),
+        'privacy' => !empty($_POST['privacy']),
+    ];
+}
+
+function csrf_failure_destination(): string
+{
+    $path = parse_url($_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH);
+    return match ($path) {
+        '/portal-cliente/cadastrar', '/registrar.php' => '/portal-cliente/cadastro',
+        '/portal-cliente/autenticar', '/autenticar.php' => '/portal-cliente/entrar',
+        '/portal-cliente/solicitar-redefinicao', '/solicitar-redefinicao.php' => '/portal-cliente/recuperar-senha',
+        '/portal-cliente/confirmar-redefinicao', '/confirmar-redefinicao.php' => '/portal-cliente/recuperar-senha',
+        default => str_starts_with((string) $path, '/admin') ? '/admin/entrar' : '/portal-cliente',
+    };
 }
 
 function flash(string $type, string $message): void { start_secure_session(); $_SESSION['flash'][] = [$type, $message]; }
