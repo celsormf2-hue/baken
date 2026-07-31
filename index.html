@@ -874,7 +874,7 @@
       position: absolute;
       inset: 0;
       transform-style: preserve-3d;
-      translate: 0 -32px;
+      transform: translateY(-32px);
     }
 
     .partner-orbit__item {
@@ -923,7 +923,10 @@
     .partner-card:hover img { filter: grayscale(0) contrast(1) opacity(1); }
 
     @media (max-width: 700px) {
-      .home-parceria { padding: 4.5rem 0; }
+      .home-parceria {
+        padding: 4.5rem 0;
+        overflow-x: hidden;
+      }
       .partners-showcase { height: 220px; perspective: 700px; }
       .partner-orbit__item {
         width: 170px;
@@ -1248,7 +1251,7 @@
             <li><a href="/obras" class="nav-link" id="nav-obras">Obras</a></li>
             <li><a href="/contato" class="nav-link" id="nav-contato">Contato</a></li>
           </ul>
-          <a href="/cliente" class="nav-cta">Portal do Cliente</a>
+          <a href="/portal-cliente" class="nav-cta">Portal do Cliente</a>
         </nav>
 
         <!-- Hamburger -->
@@ -1269,7 +1272,7 @@
       <li><a href="/obras" class="mobile-nav-link">Obras</a></li>
       <li><a href="/contato" class="mobile-nav-link">Contato</a></li>
     </ul>
-    <a href="/cliente" class="btn btn--primary" style="width:100%;justify-content:center;">Portal do Cliente</a>
+    <a href="/portal-cliente" class="btn btn--primary" style="width:100%;justify-content:center;">Portal do Cliente</a>
   </nav>
 
   <main>
@@ -1773,7 +1776,7 @@
               <li><a href="/servicos#eletrica" class="footer-link">Instalações Elétricas</a></li>
               <li><a href="/servicos#hidraulica" class="footer-link">Instalações Hidráulicas</a></li>
               <li><a href="/servicos#incendio" class="footer-link">Combate a Incêndio</a></li>
-              <li><a href="/cliente" class="footer-link">Assistência Técnica</a></li>
+              <li><a href="/portal-cliente" class="footer-link">Assistência Técnica</a></li>
             </ul>
           </div>
 
@@ -1825,7 +1828,11 @@
 
       const render = () => {
         const compact = window.innerWidth <= 700;
-        const radiusX = Math.min(compact ? 235 : 580, showcase.clientWidth * (compact ? 0.42 : 0.52));
+        // No celular o raio precisa considerar a largura do card. Assim os
+        // itens continuam circulando sem criar uma barra de rolagem lateral.
+        const radiusX = compact
+          ? Math.max(0, Math.min(235, (showcase.clientWidth - 177) / 2))
+          : Math.min(580, showcase.clientWidth * 0.52);
         const radiusY = compact ? 24 : 36;
 
         slides.forEach((slide, index) => {
@@ -1846,7 +1853,7 @@
         if (!lastFrame) lastFrame = time;
         const elapsed = time - lastFrame;
         lastFrame = time;
-        if (!paused) rotation += elapsed * 0.00012;
+        if (!paused) rotation += elapsed * (window.innerWidth <= 700 ? 0.00024 : 0.00012);
         render();
         frame = window.requestAnimationFrame(animate);
       };
@@ -1854,7 +1861,15 @@
       showcase.addEventListener('mouseenter', () => { paused = true; });
       showcase.addEventListener('mouseleave', () => { paused = reduceMotion.matches; });
       window.addEventListener('resize', render);
-      reduceMotion.addEventListener('change', () => { paused = reduceMotion.matches; });
+
+      // Safari/iOS mais antigos expõem apenas addListener no MediaQueryList.
+      // Sem esse fallback, o script é interrompido antes da animação começar.
+      const syncMotionPreference = () => { paused = reduceMotion.matches; };
+      if (typeof reduceMotion.addEventListener === 'function') {
+        reduceMotion.addEventListener('change', syncMotionPreference);
+      } else if (typeof reduceMotion.addListener === 'function') {
+        reduceMotion.addListener(syncMotionPreference);
+      }
 
       render();
       frame = window.requestAnimationFrame(animate);

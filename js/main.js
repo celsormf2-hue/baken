@@ -7,11 +7,43 @@
 
   /* ── LOCAL CLEAN-URL COMPATIBILITY ─────────────────────── */
   const isLocalPreview = ['localhost', '127.0.0.1'].includes(window.location.hostname);
-  const localPages = ['/sobre', '/servicos', '/obras', '/contato', '/cliente'];
+  const localPortalFallbacks = {
+    '/portal-cliente': '/cliente.php',
+    '/portal-cliente/cadastro': '/cadastro.php',
+    '/portal-cliente/entrar': '/login.php',
+    '/portal-cliente/recuperar-senha': '/recuperar-senha.php',
+    '/portal-cliente/redefinir-senha': '/redefinir-senha.php',
+    // Compatibilidade para links de recuperação emitidos antes do ajuste.
+    '/redefinir-senha': '/redefinir-senha.php',
+    '/sair': '/logout.php',
+    '/admin': '/admin/index.php',
+    '/admin/entrar': '/admin/login.php',
+  };
+
+  // O servidor embutido do PHP, quando iniciado sem router.php, devolve a
+  // página inicial para caminhos amigáveis. Direcionamos para os arquivos PHP
+  // físicos apenas na prévia local; a tela do Portal restaura a URL amigável.
+  if (isLocalPreview && localPortalFallbacks[window.location.pathname]) {
+    window.location.replace(localPortalFallbacks[window.location.pathname] + window.location.search + window.location.hash);
+    return;
+  }
+
+  // As páginas institucionais são arquivos HTML estáticos. O Portal é uma rota
+  // PHP e deve manter a URL amigável também durante a execução local.
+  const localPages = ['/sobre', '/servicos', '/obras', '/contato', '/politica-privacidade'];
 
   if (isLocalPreview && localPages.includes(window.location.pathname)) {
     window.location.replace(window.location.pathname + '.html' + window.location.search + window.location.hash);
     return;
+  }
+
+  // Após carregar o arquivo estático local, restabelece a URL pública sem
+  // extensão. Em hospedagens com Apache/Vercel essa etapa não é necessária.
+  if (isLocalPreview && window.location.pathname.endsWith('.html')) {
+    const cleanPath = window.location.pathname.slice(0, -5);
+    if (localPages.includes(cleanPath)) {
+      window.history.replaceState({}, '', cleanPath + window.location.search + window.location.hash);
+    }
   }
 
   /* ── FLOATING WHATSAPP CONTACT ─────────────────────────── */

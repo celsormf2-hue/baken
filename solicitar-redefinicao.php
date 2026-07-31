@@ -1,0 +1,1 @@
+<?php require_once __DIR__ . '/lib/accounts.php'; verify_csrf(); if ($_SERVER['REQUEST_METHOD'] === 'POST' && rate_limit('password-reset', 3, 3600) && filter_var($_POST['email'] ?? '', FILTER_VALIDATE_EMAIL)) request_password_reset(strtolower(trim($_POST['email']))); flash('success', 'Se houver uma conta para este endereço, enviaremos as instruções.'); redirect('/login.php');

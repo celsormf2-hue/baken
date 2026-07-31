@@ -173,17 +173,11 @@ $body = '
 </html>
 ';
 
-// Cabeçalhos HTTP para e-mail
-$headers = [
-    'MIME-Version: 1.0',
-    'Content-Type: text/html; charset=UTF-8',
-    'From: Baken Site <' . $to . '>',
-    'Reply-To: ' . $nome . ' <' . $email . '>',
-    'X-Mailer: PHP/' . phpversion()
-];
+require_once __DIR__ . '/lib/mailer.php';
 
-// Disparo do e-mail nativo PHP mail()
-$mail_sent = @mail($to, $subject, $body, implode("\r\n", $headers));
+// O destinatário é definido pelo ambiente: durante o desenvolvimento, os
+// testes seguem para MAIL_TEST_DESTINATION, sem alterar o código da página.
+$mail_sent = send_site_mail($to, $subject, $body, $email, $nome);
 
 if ($mail_sent) {
     echo json_encode([

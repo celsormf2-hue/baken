@@ -1,0 +1,2 @@
+<?php require_once __DIR__ . '/lib/layout.php'; page_start('Recuperar senha'); ?>
+<h1>Recuperar senha</h1><div class="card"><form method="post" action="/portal-cliente/solicitar-redefinicao"><input type="hidden" name="csrf" value="<?= htmlspecialchars(csrf_token()) ?>"><div class="field"><label>E-mail cadastrado</label><input type="email" name="email" required autocomplete="email"></div><button class="btn">Enviar instruções</button></form></div><?php page_end(); ?>

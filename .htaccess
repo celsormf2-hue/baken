@@ -1,5 +1,42 @@
 RewriteEngine On
 
+# Nunca exponha implementação, segredos ou dados persistidos pela web.
+RewriteRule ^(?:lib|private-data|vendor|backup_site_antigo)/ - [F,L,NC]
+RewriteRule ^(?:config(?:\.local)?\.php|composer\.(?:json|lock)|\.env)$ - [F,L,NC]
+
+# URLs públicas do portal restrito.
+RewriteCond %{THE_REQUEST} \s/+cliente(?:\.html|\.php)?[\s?] [NC]
+RewriteRule ^cliente(?:\.html|\.php)?$ /portal-cliente [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+cadastro\.php[\s?] [NC]
+RewriteRule ^cadastro\.php$ /portal-cliente/cadastro [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+login\.php[\s?] [NC]
+RewriteRule ^login\.php$ /portal-cliente/entrar [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+recuperar-senha\.php[\s?] [NC]
+RewriteRule ^recuperar-senha\.php$ /portal-cliente/recuperar-senha [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+redefinir-senha\.php[\s?] [NC]
+RewriteRule ^redefinir-senha\.php$ /portal-cliente/redefinir-senha [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+admin(?:/index)?\.php[\s?] [NC]
+RewriteRule ^admin(?:/index)?\.php$ /admin [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+admin/login\.php[\s?] [NC]
+RewriteRule ^admin/login\.php$ /admin/entrar [R=301,L]
+
+RewriteRule ^portal-cliente$ cliente.php [L]
+RewriteRule ^portal-cliente/cadastro$ cadastro.php [L]
+RewriteRule ^portal-cliente/entrar$ login.php [L]
+RewriteRule ^portal-cliente/recuperar-senha$ recuperar-senha.php [L]
+RewriteRule ^portal-cliente/redefinir-senha$ redefinir-senha.php [L]
+RewriteRule ^portal-cliente/cadastrar$ registrar.php [L]
+RewriteRule ^portal-cliente/autenticar$ autenticar.php [L]
+RewriteRule ^portal-cliente/chamados$ abrir-chamado.php [L]
+RewriteRule ^portal-cliente/solicitar-redefinicao$ solicitar-redefinicao.php [L]
+RewriteRule ^portal-cliente/confirmar-redefinicao$ confirmar-redefinicao.php [L]
+RewriteRule ^portal-cliente/descadastro$ solicitar-descadastro.php [L]
+RewriteRule ^admin$ admin/index.php [L]
+RewriteRule ^admin/entrar$ admin/login.php [L]
+RewriteRule ^admin/usuarios$ admin/atualizar-usuario.php [L]
+RewriteRule ^admin/chamados$ admin/atualizar-chamado.php [L]
+RewriteRule ^sair$ logout.php [L]
+
 # Redirecionar URLs com .html para versao sem extensao (SEO)
 RewriteCond %{THE_REQUEST} \s/([^.]+)\.html[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L]
