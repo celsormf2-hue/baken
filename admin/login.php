@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../lib/layout.php';
 if (is_admin()) redirect('/admin/index.php');
 consume_flashes(); // Descarta avisos residuais de tentativas anteriores de acesso administrativo.
-page_start('Administração');
+page_start('Administração', false);
 ?>
 <h1>Administração Baken</h1>
 <div class="card">
