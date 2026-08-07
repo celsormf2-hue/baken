@@ -138,6 +138,39 @@ function send_site_mail(string $to, string $subject, string $html, ?string $repl
     return send_smtp_mail($to, $subject, $html, $replyToEmail, $replyToName);
 }
 
+function administrative_notification_recipients(): array
+{
+    $recipients = preg_split('/[\s,;]+/', ADMIN_NOTIFICATION_EMAILS, -1, PREG_SPLIT_NO_EMPTY) ?: [];
+    $validRecipients = [];
+
+    foreach ($recipients as $recipient) {
+        $recipient = strtolower(trim($recipient));
+        if (filter_var($recipient, FILTER_VALIDATE_EMAIL) !== false) {
+            $validRecipients[$recipient] = $recipient;
+        }
+    }
+
+    return array_values($validRecipients);
+}
+
+function send_administrative_notification(string $subject, string $html, ?string $replyToEmail = null, ?string $replyToName = null): bool
+{
+    $recipients = administrative_notification_recipients();
+    if ($recipients === []) {
+        error_log('Nenhum destinatário administrativo válido configurado.');
+        return false;
+    }
+
+    $sentToAll = true;
+    foreach ($recipients as $recipient) {
+        if (!send_site_mail($recipient, $subject, $html, $replyToEmail, $replyToName)) {
+            $sentToAll = false;
+        }
+    }
+
+    return $sentToAll;
+}
+
 function email_layout(string $title, string $content): string
 {
     return '<!doctype html><html lang="pt-BR"><body style="margin:0;padding:0;background:#f4f4f2;font-family:Arial,sans-serif;color:#222"><div style="max-width:640px;margin:0 auto;padding:28px 14px"><div style="padding:22px 28px;background:#111;color:#fff;border-radius:10px 10px 0 0"><strong style="font-size:22px;letter-spacing:.08em;color:#ed2445">BAKEN</strong><span style="margin-left:8px;font-size:12px;letter-spacing:.12em">CONSTRUTORA</span></div><div style="padding:30px 28px;background:#fff;border:1px solid #e7e7e4;border-top:0;border-radius:0 0 10px 10px"><h1 style="margin:0 0 20px;font-size:24px;font-weight:500;color:#111">' . htmlspecialchars($title, ENT_QUOTES, 'UTF-8') . '</h1><div style="font-size:16px;line-height:1.65;color:#3f3f3f">' . $content . '</div></div><p style="margin:18px 0 0;text-align:center;color:#777;font-size:12px">Baken Construtora · Assistência técnica pós-obra</p></div></body></html>';

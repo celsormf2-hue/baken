@@ -12,7 +12,7 @@
 1. Hospede o projeto em um servidor com PHP 8.2+ e Apache/Nginx. Um host exclusivamente estático não executa este portal.
 2. Execute `composer install --no-dev --optimize-autoloader` no servidor.
 3. Copie `config.local.example.php` para `config.local.php` e preencha os valores reais fora do Git.
-4. Defina `APP_ENV=production`, remova `MAIL_TEST_DESTINATION` e use `DESTINATION_EMAIL=rodrigo@baken.com.br` somente após autorização. Para Microsoft 365, use `smtp.office365.com`, porta `587` e STARTTLS.
+4. Defina `APP_ENV=production`, `APP_TIMEZONE=America/Sao_Paulo`, remova `MAIL_TEST_DESTINATION`, use `DESTINATION_EMAIL=rodrigo@baken.com.br` para o formulário geral e `ADMIN_NOTIFICATION_EMAILS=lindomar.sousa@baken.com.br,rodrigo@baken.com.br` para avisos de novos cadastros e chamados. Para Microsoft 365, use o transporte Microsoft Graph configurado no projeto.
 5. Coloque `PRIVATE_DATA_DIR` fora do document root. Se isso não for possível, mantenha as regras de bloqueio e permissões 0700/0600.
 6. Para Microsoft 365, registre um aplicativo no Entra ID, conceda a permissão de aplicativo `Mail.Send` do Microsoft Graph e dê consentimento administrativo. Preencha `MS_GRAPH_TENANT_ID`, `MS_GRAPH_CLIENT_ID` e `MS_GRAPH_CLIENT_SECRET`.
 7. Confirme o envio Graph com um único teste controlado antes de abrir o portal ao público.

@@ -34,6 +34,14 @@ function env_value(string $key, string $default = ''): string
     return is_string($value) && $value !== '' ? $value : $default;
 }
 
+$appTimezone = env_value('APP_TIMEZONE', 'America/Sao_Paulo');
+if (!in_array($appTimezone, DateTimeZone::listIdentifiers(), true)) {
+    error_log('APP_TIMEZONE inválido; usando America/Sao_Paulo.');
+    $appTimezone = 'America/Sao_Paulo';
+}
+define('APP_TIMEZONE', $appTimezone);
+date_default_timezone_set(APP_TIMEZONE);
+
 define('APP_ENV', env_value('APP_ENV', 'production'));
 define('APP_URL', rtrim(env_value('APP_URL', APP_ENV === 'development' ? 'http://localhost:8000' : 'https://www.baken.com.br'), '/'));
 define('MAIL_TEST_DESTINATION', env_value('MAIL_TEST_DESTINATION'));
@@ -42,6 +50,15 @@ define(
     APP_ENV === 'development' && MAIL_TEST_DESTINATION !== ''
         ? MAIL_TEST_DESTINATION
         : env_value('DESTINATION_EMAIL', 'contato@baken.com.br')
+);
+define(
+    'ADMIN_NOTIFICATION_EMAILS',
+    APP_ENV === 'development' && MAIL_TEST_DESTINATION !== ''
+        ? MAIL_TEST_DESTINATION
+        : env_value(
+            'ADMIN_NOTIFICATION_EMAILS',
+            'lindomar.sousa@baken.com.br,rodrigo@baken.com.br'
+        )
 );
 
 define('SMTP_HOST', env_value('SMTP_HOST'));

@@ -4,7 +4,9 @@
 return [
     'APP_ENV' => 'production',
     'APP_URL' => 'https://www.baken.com.br',
+    'APP_TIMEZONE' => 'America/Sao_Paulo',
     'DESTINATION_EMAIL' => 'rodrigo@baken.com.br',
+    'ADMIN_NOTIFICATION_EMAILS' => 'lindomar.sousa@baken.com.br,rodrigo@baken.com.br',
     'SMTP_HOST' => 'smtp.office365.com',
     'SMTP_PORT' => '587',
     'SMTP_ENCRYPTION' => 'tls',
