@@ -57,7 +57,7 @@ define(
         ? MAIL_TEST_DESTINATION
         : env_value(
             'ADMIN_NOTIFICATION_EMAILS',
-            'lindomar.sousa@baken.com.br,rodrigo@baken.com.br'
+            'leonardo@baken.com.br,rodrigo@baken.com.br'
         )
 );
 
