@@ -15,6 +15,7 @@
 | **Nome Fantasia**      | BAKEN CONSTRUTORA                                                            |
 | **Responsável**        | Rodrigo do Nascimento do Gomes                                              |
 | **Telefone**           | (62) 99950-9148                                                             |
+| **Telefone adicional**  | (62) 99650-9148                                                             |
 | **Site Atual**         | [baken.com.br](https://www.baken.com.br)                                    |
 
 **Endereço:**
