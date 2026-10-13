@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema Redux: O Fim dos Ruídos de Esgoto em Edifícios — Blog Baken</title>
+  <meta name="description" content="Conheça a tecnologia de tubulação mineral e abraçadeiras acústicas do Sistema Redux. Conforto acústico superior e conformidade com a ABNT NBR 15575.">
+  <meta property="og:title" content="Sistema Redux: O Fim dos Ruídos de Esgoto em Edifícios — Blog Baken">
+  <meta property="og:description" content="Tubos reforçados com minerais, abraçadeiras amortecidas e isolamento sonoro para prumadas de esgoto predial.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="/img/blog/sistema-redux-esgoto-silencioso.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+
+  <style>
+    .article-hero { position: relative; background: #0F0F0F; padding: 9.5rem 0 4.5rem; overflow: hidden; }
+    .article-hero__line { position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, #C8102E 40%, transparent); }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8125rem; color: rgba(255,255,255,0.4); margin-bottom: 1.5rem; }
+    .breadcrumb a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s ease; }
+    .breadcrumb a:hover { color: #C8102E; }
+    .article-title { font-family: 'Playfair Display', serif; font-size: clamp(2.25rem, 4.5vw, 3.75rem); color: #FFFFFF; font-weight: 400; line-height: 1.15; margin-bottom: 1.5rem; }
+    .article-meta-bar { display: flex; align-items: center; gap: 1.5rem; font-size: 0.875rem; color: rgba(255,255,255,0.55); flex-wrap: wrap; }
+    .article-meta-bar .badge { background: #C8102E; color: #fff; padding: 0.25rem 0.75rem; border-radius: 4px; font-weight: 600; font-size: 0.6875rem; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    .article-body-section { padding: 4.5rem 0; background: #FFFFFF; }
+    .article-layout { display: grid; grid-template-columns: 1fr 340px; gap: 4.5rem; align-items: start; }
+    .article-content { font-size: 1.0625rem; line-height: 1.85; color: #3D3D3D; font-weight: 300; }
+    .article-content h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: #0F0F0F; margin: 2.75rem 0 1rem; line-height: 1.25; }
+    .article-content p { margin-bottom: 1.5rem; }
+    .article-content ul { margin-bottom: 1.75rem; padding-left: 1.5rem; }
+    .article-content li { margin-bottom: 0.6rem; }
+    .article-featured-img { width: 100%; height: auto; border-radius: 10px; margin-bottom: 2.5rem; border: 1px solid #E8E8E8; }
+
+    .tech-highlight-box { background: #F7F7F5; border-left: 4px solid #C8102E; padding: 1.75rem 2rem; border-radius: 0 8px 8px 0; margin: 2.25rem 0; }
+    .tech-highlight-box h4 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: #0F0F0F; margin-bottom: 0.5rem; }
+    .tech-highlight-box p { font-size: 0.9375rem; color: #555555; margin-bottom: 0; line-height: 1.7; }
+
+    .article-sidebar { position: sticky; top: 100px; }
+    .sidebar-widget { background: #F7F7F5; border: 1px solid #E8E8E8; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; }
+    .widget-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: #0F0F0F; margin-bottom: 1.25rem; position: relative; padding-bottom: 0.75rem; }
+    .widget-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 32px; height: 2px; background: #C8102E; }
+
+    @media (max-width: 1024px) {
+      .article-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .article-sidebar { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header scrolled" id="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="site-logo">
+          <img src="/img/logo-white.svg" alt="Baken Construtora" class="site-logo__img logo-white">
+          <img src="/img/logo.svg" alt="Baken Construtora" class="site-logo__img logo-dark">
+        </a>
+        <nav class="site-nav">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">Início</a></li>
+            <li><a href="/sobre" class="nav-link">Sobre</a></li>
+            <li><a href="/servicos" class="nav-link">Serviços</a></li>
+            <li><a href="/obras" class="nav-link">Obras</a></li>
+            <li><a href="/blog" class="nav-link active">Blog</a></li>
+            <li><a href="/contato" class="nav-link">Contato</a></li>
+          </ul>
+          <a href="/portal-cliente" class="nav-cta">Portal do Cliente</a>
+        </nav>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="article-hero">
+      <div class="article-hero__line"></div>
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="/">Início</a>
+          <span>/</span>
+          <a href="/blog">Blog</a>
+          <span>/</span>
+          <span>Hidráulica Predial</span>
+        </div>
+        <h1 class="article-title">
+          Sistema Redux: O Fim dos Ruídos de Esgoto em Edifícios Residenciais de Alto Padrão
+        </h1>
+        <div class="article-meta-bar">
+          <span class="badge">Hidráulica Silenciosa</span>
+          <span>Por Equipe de Engenharia Baken</span>
+          <span>•</span>
+          <span>05 de Outubro, 2026</span>
+          <span>•</span>
+          <span>4 min de leitura</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="article-body-section">
+      <div class="container">
+        <div class="article-layout">
+
+          <article class="article-content">
+            <img src="/img/blog/sistema-redux-esgoto-silencioso.jpg" alt="Estrutura multicamada e abraçadeiras amortecidas do Sistema Redux" class="article-featured-img">
+
+            <p>
+              Quem mora ou já frequentou apartamentos convencionais certamente já ouviu o característico ruído de água e efluentes caindo com força pela prumada do shaft quando o vizinho do andar superior aciona a descarga ou toma banho. Em empreendimentos de alto padrão, esse barulho é uma das principais queixas de pós-obra e um causador frequente de desvalorização do imóvel.
+            </p>
+
+            <p>
+              Para resolver esse desafio acústico definitivo, a <strong>Baken Construtora</strong> tem aplicado e fornecido em seus projetos o <strong>Sistema Redux</strong> — uma tecnologia avançada de tubulações de esgoto e águas pluviais desenvolvida especificamente para absorver ondas sonoras mecânicas e aéreas.
+            </p>
+
+            <h2>Como Funciona a Tecnologia do Sistema Redux?</h2>
+            <p>
+              Ao contrário do PVC tradicional rígido de parede fina (que atua como uma caixa de ressonância propagando o som para as paredes contíguas), o Sistema Redux combina três fatores determinantes de física acústica:
+            </p>
+
+            <ul>
+              <li><strong>Matéria-Prima de Alta Densidade:</strong> Os tubos são compostos por polímeros reforçados com cargas minerais especiais. Essa densidade molecular elevada bloqueia a propagação do ruído aéreo do fluxo interno.</li>
+              <li><strong>Geometria Otimizada das Conexões:</strong> Curvas e derivações com raios suaves que direcionam os efluentes sem turbulência violenta, reduzindo o som de choque nos pontos de inflexão dos shafts.</li>
+              <li><strong>Abraçadeiras com Amortecimento de Borracha EPDM:</strong> O som mecânico não é transmitido para as vigas ou pilares porque os pontos de fixação utilizam anéis elásticos de isolamento de vibração.</li>
+            </ul>
+
+            <div class="tech-highlight-box">
+              <h4>Conformidade com a Norma de Desempenho ABNT NBR 15575</h4>
+              <p>
+                A NBR 15575 estabelece limites estritos para os níveis de ruído hidrossanitário em dormitórios e salas de estar. Enquanto tubulações comuns operam perto ou acima do limite crítico de 40 dB(A), prumadas executadas com o Sistema Redux mantêm o nível sonoro em faixas imperceptíveis (geralmente abaixo de 15 dB(A)), assegurando a classificação de desempenho superior.
+              </p>
+            </div>
+
+            <h2>Vantagens para Construtoras e Moradores</h2>
+            <p>
+              A instalação do Sistema Redux pela Baken agrega valor tangível para o incorporador:
+            </p>
+            <ul>
+              <li><strong>Zero Chamados de Assistência Técnica por Ruído:</strong> O morador da suíte master não escuta as descargas dos andares acima.</li>
+              <li><strong>Juntas com Anel de Vedação Bilabial:</strong> Montagem rápida, estanque e resistente a variações térmicas e movimentações estruturais do edifício.</li>
+              <li><strong>Compatibilidade com os Kits Hidráulicos Baken:</strong> Entregamos as prumadas acústicas prontas e cortadas sob medida com identificação por pavimento.</li>
+            </ul>
+
+            <!-- BOX FINAL -->
+            <div style="background:#0F0F0F;color:#FFFFFF;border-radius:10px;padding:2.5rem;margin-top:3.5rem;border-left:4px solid #C8102E;">
+              <h3 style="color:#FFFFFF;margin-top:0;">Deseja especificar o Sistema Redux na sua próxima obra?</h3>
+              <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:1.5rem;">
+                Consulte nossa equipe de engenharia para cálculo de desempenho acústico e cotação de fornecimento e instalação para edifícios verticais.
+              </p>
+              <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+                <a href="https://wa.me/5562623302711?text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20t%C3%A9cnicas%20sobre%20o%20Sistema%20Redux%20de%20esgoto%20silencioso." target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                  Falar no WhatsApp
+                </a>
+                <a href="/contato" class="btn btn--outline" style="color:#FFFFFF;border-color:rgba(255,255,255,0.3);">
+                  Solicitar Contato
+                </a>
+              </div>
+            </div>
+
+          </article>
+
+          <!-- SIDEBAR -->
+          <aside class="article-sidebar">
+            <div class="sidebar-widget">
+              <h4 class="widget-title">Engenharia Hidráulica Baken</h4>
+              <p style="font-size:0.875rem;color:#737373;line-height:1.6;margin-bottom:1.25rem;">
+                Projetos e montagens com garantia de estanqueidade e conformidade ABNT.
+              </p>
+              <a href="/servicos#hidraulica" class="btn btn--primary" style="width:100%;justify-content:center;font-size:0.8125rem;">
+                Ver Instalações Hidráulicas
+              </a>
+            </div>
+
+            <div class="sidebar-widget">
+              <h4 class="widget-title">Outros Artigos</h4>
+              <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:1.25rem;">
+                <li>
+                  <a href="/blog/kits-instalacao-hidraulica-incendio" style="text-decoration:none;color:#0F0F0F;display:block;">
+                    <span style="font-size:0.6875rem;color:#C8102E;font-weight:700;text-transform:uppercase;">Kits Baken</span>
+                    <strong style="display:block;font-size:0.9375rem;line-height:1.4;margin-top:0.25rem;font-family:'Playfair Display',serif;">Kits de Instalação: Produtividade em Obras</strong>
+                  </a>
+                </li>
+                <li>
+                  <a href="/blog/sistema-fire-sprinklers-prevencao-incendio" style="text-decoration:none;color:#0F0F0F;display:block;">
+                    <span style="font-size:0.6875rem;color:#C8102E;font-weight:700;text-transform:uppercase;">Incêndio</span>
+                    <strong style="display:block;font-size:0.9375rem;line-height:1.4;margin-top:0.25rem;font-family:'Playfair Display',serif;">Sistemas Fire & Sprinklers</strong>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" style="background:#080808;border-top:1px solid rgba(255,255,255,0.04);padding:4rem 0 2rem;">
+    <div class="container">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:2rem;">
+        <a href="/" class="site-logo">
+          <img src="/img/logo-white.svg" alt="Baken Construtora" class="site-logo__img">
+        </a>
+        <div style="display:flex;gap:1.5rem;font-size:0.875rem;">
+          <a href="/" style="color:rgba(255,255,255,0.6);text-decoration:none;">Início</a>
+          <a href="/servicos" style="color:rgba(255,255,255,0.6);text-decoration:none;">Serviços</a>
+          <a href="/blog" style="color:#C8102E;text-decoration:none;font-weight:600;">Blog</a>
+          <a href="/contato" style="color:rgba(255,255,255,0.6);text-decoration:none;">Contato</a>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,0.05);padding-top:1.5rem;display:flex;justify-content:space-between;font-size:0.75rem;color:rgba(255,255,255,0.3);">
+        <span>© 2026 Baken Construtora LTDA — CNPJ 01.763.579/0001-07</span>
+        <a href="/politica-privacidade" style="color:rgba(255,255,255,0.3);text-decoration:none;">Privacidade</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

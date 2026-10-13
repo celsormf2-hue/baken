@@ -82,4 +82,10 @@ if ($path !== '/' && is_file($staticPage)) {
 }
 
 http_response_code(404);
+$errorPage = __DIR__ . '/404.html';
+if (is_file($errorPage)) {
+    header('Content-Type: text/html; charset=utf-8');
+    readfile($errorPage);
+    exit;
+}
 exit('Not Found');

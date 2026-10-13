@@ -18,8 +18,11 @@
       "continue": true
     },
     { "src": "/", "dest": "/index.html" },
+    { "src": "/blog", "dest": "/blog.html" },
+    { "src": "/blog/([^/]+)", "dest": "/blog/$1.html" },
     { "src": "/(sobre|servicos|obras|contato|politica-privacidade)", "dest": "/$1.html" },
-    { "src": "/(sobre|servicos|obras|contato|politica-privacidade|portal-cliente)\\.html", "status": 301, "headers": { "Location": "/$1" } },
+    { "src": "/(sobre|servicos|obras|contato|politica-privacidade|portal-cliente|blog)\\.html", "status": 301, "headers": { "Location": "/$1" } },
+    { "src": "/blog/(.+)\\.html", "status": 301, "headers": { "Location": "/blog/$1" } },
     { "src": "/((?:portal-cliente|admin)(?:/.*)?|send-mail\\.php|sair)", "dest": "/api/index.php?route=$1" },
     { "src": "/(.*\\.php)", "dest": "/api/index.php?route=$1" },
     { "handle": "filesystem" },

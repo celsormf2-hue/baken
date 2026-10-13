@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog de Engenharia & Instalações Prediais — Baken Construtora</title>
+  <meta name="description" content="Artigos técnicos, inovações em kits de instalação hidráulica e combate a incêndio, arquitetura 3D e tecnologia predial de alta performance.">
+  <meta property="og:title" content="Blog de Engenharia & Instalações Prediais — Baken Construtora">
+  <meta property="og:description" content="Artigos técnicos sobre kits industrializados de hidráulica e incêndio, barramento blindado, sistema redux e engenharia predial vertical.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/img/blog/kits-instalacao-hidraulica-incendio.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+
+  <style>
+    /* HERO DO BLOG */
+    .blog-hero {
+      position: relative;
+      background: #0F0F0F;
+      padding: 10rem 0 5rem;
+      overflow: hidden;
+    }
+    .blog-hero__line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #C8102E 40%, transparent);
+    }
+    .blog-hero__content { position: relative; z-index: 1; }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 1.25rem;
+    }
+    .kicker::before {
+      content: '';
+      width: 24px;
+      height: 1.5px;
+      background: #C8102E;
+      display: block;
+    }
+
+    /* FILTROS DE CATEGORIA */
+    .blog-filters-section {
+      background: #FFFFFF;
+      border-bottom: 1px solid #E8E8E8;
+      position: sticky;
+      top: 72px;
+      z-index: 40;
+      transition: box-shadow 0.25s ease;
+    }
+    .blog-filters {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1.25rem 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .blog-filters::-webkit-scrollbar { display: none; }
+    .filter-btn {
+      background: transparent;
+      border: 1px solid #D4D4D4;
+      color: #3D3D3D;
+      padding: 0.5rem 1.15rem;
+      border-radius: 999px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .filter-btn:hover {
+      border-color: #C8102E;
+      color: #C8102E;
+    }
+    .filter-btn.active {
+      background: #C8102E;
+      border-color: #C8102E;
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(200, 16, 46, 0.25);
+    }
+
+    /* ARTIGO EM DESTAQUE */
+    .featured-article {
+      padding: 5rem 0 3rem;
+      background: #FFFFFF;
+    }
+    .featured-card {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3.5rem;
+      background: #F7F7F5;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #E8E8E8;
+      align-items: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .featured-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.07);
+    }
+    .featured-card__media {
+      position: relative;
+      height: 100%;
+      min-height: 420px;
+    }
+    .featured-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .featured-card__badge {
+      position: absolute;
+      top: 1.5rem;
+      left: 1.5rem;
+      background: #C8102E;
+      color: #FFFFFF;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(200,16,46,0.4);
+    }
+    .featured-card__body {
+      padding: 3rem 3rem 3rem 0;
+    }
+    .featured-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.8125rem;
+      color: #737373;
+      margin-bottom: 1rem;
+    }
+    .featured-meta .tag {
+      color: #C8102E;
+      font-weight: 600;
+    }
+    .featured-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.875rem, 3vw, 2.5rem);
+      line-height: 1.2;
+      color: #0F0F0F;
+      margin-bottom: 1.25rem;
+      transition: color 0.2s ease;
+    }
+    .featured-card:hover .featured-title {
+      color: #C8102E;
+    }
+    .featured-excerpt {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: #737373;
+      margin-bottom: 2rem;
+    }
+
+    /* GRID DE POSTS */
+    .blog-feed {
+      padding: 3rem 0 6rem;
+      background: #FFFFFF;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+    .blog-card {
+      background: #FFFFFF;
+      border: 1px solid #E8E8E8;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.06);
+      border-color: rgba(200, 16, 46, 0.3);
+    }
+    .blog-card__thumb {
+      position: relative;
+      height: 240px;
+      overflow: hidden;
+      background: #0F0F0F;
+    }
+    .blog-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .blog-card:hover .blog-card__img {
+      transform: scale(1.05);
+    }
+    .blog-card__badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(15, 15, 15, 0.85);
+      backdrop-filter: blur(6px);
+      color: #FFFFFF;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: 4px;
+      border-left: 2px solid #C8102E;
+    }
+    .blog-card__content {
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .blog-card__meta {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-size: 0.75rem;
+      color: #A3A3A3;
+      margin-bottom: 0.75rem;
+    }
+    .blog-card__title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      line-height: 1.3;
+      color: #0F0F0F;
+      margin-bottom: 0.75rem;
+      transition: color 0.2s ease;
+    }
+    .blog-card:hover .blog-card__title {
+      color: #C8102E;
+    }
+    .blog-card__summary {
+      font-size: 0.9375rem;
+      font-weight: 300;
+      line-height: 1.65;
+      color: #737373;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    .blog-card__footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #F0F0F0;
+      padding-top: 1rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: #C8102E;
+    }
+    .blog-card__footer svg {
+      transition: transform 0.2s ease;
+    }
+    .blog-card:hover .blog-card__footer svg {
+      transform: translateX(4px);
+    }
+
+    /* BANNER CTA KITS */
+    .blog-cta-banner {
+      background: linear-gradient(135deg, #0F0F0F 0%, #1A1A1A 100%);
+      padding: 5rem 0;
+      position: relative;
+      overflow: hidden;
+      border-top: 2px solid #C8102E;
+    }
+    .cta-box {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .cta-badge {
+      display: inline-block;
+      background: rgba(200,16,46,0.15);
+      border: 1px solid rgba(200,16,46,0.3);
+      color: #C8102E;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 4px;
+      margin-bottom: 1.25rem;
+    }
+    .cta-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 1024px) {
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-card__body { padding: 2.5rem; }
+      .featured-card__media { min-height: 320px; }
+      .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 1.75rem; }
+      .cta-box { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      .blog-grid { grid-template-columns: 1fr; }
+      .featured-card__body { padding: 1.75rem; }
+      .blog-filters { gap: 0.5rem; }
+      .filter-btn { font-size: 0.75rem; padding: 0.4rem 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header scrolled" id="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="site-logo">
+          <img src="/img/logo-white.svg" alt="Baken Construtora" class="site-logo__img logo-white">
+          <img src="/img/logo.svg" alt="Baken Construtora" class="site-logo__img logo-dark">
+        </a>
+        <nav class="site-nav">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">Início</a></li>
+            <li><a href="/sobre" class="nav-link">Sobre</a></li>
+            <li><a href="/servicos" class="nav-link">Serviços</a></li>
+            <li><a href="/obras" class="nav-link">Obras</a></li>
+            <li><a href="/blog" class="nav-link active">Blog</a></li>
+            <li><a href="/contato" class="nav-link">Contato</a></li>
+          </ul>
+          <a href="/portal-cliente" class="nav-cta">Portal do Cliente</a>
+        </nav>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <ul class="mobile-nav-links">
+      <li><a href="/" class="mobile-nav-link">Início</a></li>
+      <li><a href="/sobre" class="mobile-nav-link">Sobre</a></li>
+      <li><a href="/servicos" class="mobile-nav-link">Serviços</a></li>
+      <li><a href="/obras" class="mobile-nav-link">Obras</a></li>
+      <li><a href="/blog" class="mobile-nav-link">Blog</a></li>
+      <li><a href="/contato" class="mobile-nav-link">Contato</a></li>
+    </ul>
+    <a href="/portal-cliente" class="btn btn--primary" style="width:100%;justify-content:center;">Portal do Cliente</a>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="blog-hero">
+      <div class="blog-hero__line"></div>
+      <div class="container">
+        <div class="blog-hero__content">
+          <div class="kicker">Engenharia & Conhecimento Técnico</div>
+          <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem, 5vw, 4.25rem);color:#FFFFFF;font-weight:400;line-height:1.15;margin-bottom:1.25rem;">
+            Construindo o futuro com <br><em style="font-style:italic;color:#C8102E;">precisão e engenharia de ponta</em>
+          </h1>
+          <p style="font-size:1.125rem;font-weight:300;color:rgba(255,255,255,0.7);max-width:680px;line-height:1.8;">
+            Acompanhe nossas análises técnicas sobre industrialização na construção civil, kits prediais, prumadas verticais, normas ABNT e sistemas de alto desempenho.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BARRA DE FILTROS -->
+    <section class="blog-filters-section">
+      <div class="container">
+        <div class="blog-filters">
+          <button class="filter-btn active" data-filter="all">Todos os Artigos (1)</button>
+          <button class="filter-btn" data-filter="kits">Kits de Instalação</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARTIGO EM DESTAQUE (FEATURED) -->
+    <section class="featured-article">
+      <div class="container">
+        <a href="/blog/kits-instalacao-hidraulica-incendio" style="text-decoration:none;" class="featured-card" data-category="kits">
+          <div class="featured-card__media">
+            <img src="/img/blog/kits-instalacao-hidraulica-incendio.jpg" alt="Kits de Instalação Hidráulica e Incêndio Baken" class="featured-card__img">
+            <span class="featured-card__badge">Destaque Comercial</span>
+          </div>
+          <div class="featured-card__body">
+            <div class="featured-meta">
+              <span class="tag">KITS DE INSTALAÇÃO</span>
+              <span>•</span>
+              <span>06 de Outubro, 2026</span>
+              <span>•</span>
+              <span>5 min de leitura</span>
+            </div>
+            <h2 class="featured-title">Kits Hidráulicos e de Incêndio Baken: Como a Industrialização Acelera Edifícios Verticais</h2>
+            <p class="featured-excerpt">
+              Descubra por que as maiores construtoras do Centro-Oeste estão migrando da montagem artesanal em canteiro para kits modulares pré-testados em bancada, reduzindo em até 70% o tempo de instalação de prumadas e garantindo estanqueidade total.
+            </p>
+            <span class="btn btn--primary">Ler Artigo Completo</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- FEED DE ARTIGOS -->
+    <section class="blog-feed" style="padding: 2rem 0 5rem;">
+      <div class="container">
+        <!-- Aviso de Próximas Matérias / Cronograma Semanal -->
+        <div style="background: #F7F7F5; border: 1px dashed #D4D4D4; border-radius: 10px; padding: 2.5rem; text-align: center; max-width: 800px; margin: 0 auto;">
+          <div style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #0F0F0F; margin-bottom: 0.75rem;">
+            Novas matérias semanais em produção
+          </div>
+          <p style="font-size: 0.9375rem; color: #737373; font-weight: 300; line-height: 1.7; max-width: 600px; margin: 0 auto 1.5rem;">
+            Nosso time de engenharia publica conteúdos técnicos e análises de sistemas prediais periodicamente. Acompanhe nossas novidades e veja nosso primeiro lançamento em destaque acima.
+          </p>
+          <a href="https://wa.me/5562623302711?text=Ol%C3%A1!%20Gostaria%20de%20receber%20informa%C3%A7%C3%B5es%20t%C3%A9cnicas%20sobre%20as%20solu%C3%A7%C3%B5es%20da%20Baken." target="_blank" rel="noopener noreferrer" class="btn btn--outline" style="font-size: 0.8125rem;">
+            Falar com a Engenharia no WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANNER COMERCIAL: KITS BAKEN -->
+    <section class="blog-cta-banner">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <span class="cta-badge">Kits Prontos para Obra</span>
+            <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem, 3.5vw, 2.75rem);color:#FFFFFF;font-weight:400;margin-bottom:1rem;line-height:1.2;">
+              Agregue os Kits Baken ao seu cronograma de obra
+            </h2>
+            <p style="font-size:1.0625rem;font-weight:300;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:1.5rem;">
+              Fornecemos kits completos para instalações hidráulicas e combate a incêndio com medidas exatas do seu projeto executivo. Elimine o desperdício e acelere a entrega do seu empreendimento.
+            </p>
+            <div class="cta-actions">
+              <a href="https://wa.me/5562623302711?text=Ol%C3%A1,%20gostaria%20de%20receber%20informa%C3%A7%C3%B5es%20e%20cota%C3%A7%C3%A3o%20sobre%20os%20Kits%20de%20Instala%C3%A7%C3%A3o%20da%20Baken" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                Falar com Engenheiro de Vendas
+              </a>
+              <a href="/contato" class="btn btn--outline" style="color:#fff;border-color:rgba(255,255,255,0.3);">
+                Solicitar Cotação
+              </a>
+            </div>
+          </div>
+          <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:2.5rem;text-align:left;">
+            <div style="font-family:'Playfair Display',serif;font-size:1.25rem;color:#fff;margin-bottom:1rem;">Diferenciais dos Kits Baken</div>
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem;font-size:0.875rem;color:rgba(255,255,255,0.65);">
+              <li style="display:flex;align-items:center;gap:0.5rem;"><span style="color:#C8102E;font-weight:bold;">✓</span> Teste hidrostático de estanqueidade em bancada</li>
+              <li style="display:flex;align-items:center;gap:0.5rem;"><span style="color:#C8102E;font-weight:bold;">✓</span> Identificação por prumada, pavimento e apartamento</li>
+              <li style="display:flex;align-items:center;gap:0.5rem;"><span style="color:#C8102E;font-weight:bold;">✓</span> Redução de entulho e sobras no canteiro</li>
+              <li style="display:flex;align-items:center;gap:0.5rem;"><span style="color:#C8102E;font-weight:bold;">✓</span> Compatibilização prévia com arquitetura e estrutura</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" style="background:#080808;border-top:1px solid rgba(255,255,255,0.04);padding:4rem 0 2rem;">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:3rem;margin-bottom:3rem;" class="footer-grid-responsive">
+        <div>
+          <a href="/" class="site-logo" style="margin-bottom:1.25rem;display:inline-block;">
+            <img src="/img/logo-white.svg" alt="Baken Construtora" class="site-logo__img">
+          </a>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.5);line-height:1.7;max-width:320px;">
+            Especialistas em engenharia de instalações elétricas, hidráulicas e combate a incêndio para empreendimentos de alta complexidade.
+          </p>
+        </div>
+        <div>
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.25rem;">Navegação</div>
+          <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.6rem;font-size:0.875rem;">
+            <li><a href="/" style="color:rgba(255,255,255,0.6);text-decoration:none;">Início</a></li>
+            <li><a href="/sobre" style="color:rgba(255,255,255,0.6);text-decoration:none;">Sobre</a></li>
+            <li><a href="/servicos" style="color:rgba(255,255,255,0.6);text-decoration:none;">Serviços</a></li>
+            <li><a href="/obras" style="color:rgba(255,255,255,0.6);text-decoration:none;">Obras</a></li>
+            <li><a href="/blog" style="color:#C8102E;text-decoration:none;font-weight:600;">Blog Técnico</a></li>
+            <li><a href="/contato" style="color:rgba(255,255,255,0.6);text-decoration:none;">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.25rem;">Serviços & Kits</div>
+          <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.6rem;font-size:0.875rem;">
+            <li><a href="/blog/kits-instalacao-hidraulica-incendio" style="color:rgba(255,255,255,0.6);text-decoration:none;">Kits de Instalação</a></li>
+            <li><a href="/servicos#hidraulica" style="color:rgba(255,255,255,0.6);text-decoration:none;">Instalações Hidráulicas</a></li>
+            <li><a href="/servicos#incendio" style="color:rgba(255,255,255,0.6);text-decoration:none;">Combate a Incêndio</a></li>
+            <li><a href="/servicos#eletrica" style="color:rgba(255,255,255,0.6);text-decoration:none;">Instalações Elétricas</a></li>
+            <li><a href="/portal-cliente" style="color:rgba(255,255,255,0.6);text-decoration:none;">Portal do Cliente</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.25rem;">Contato</div>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:0.75rem;">
+            Av. Ville, 2891 — Moinho dos Ventos<br>Goiânia, GO · CEP 74.371-580
+          </p>
+          <a href="https://wa.me/5562623302711" target="_blank" rel="noopener noreferrer" style="color:#C8102E;font-size:0.875rem;text-decoration:none;font-weight:500;">
+            WhatsApp: (62) 3300-2711
+          </a>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,0.05);padding-top:2rem;">
+        <span style="font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.25);">© 2026 Baken Construtora LTDA — CNPJ 01.763.579/0001-07</span>
+        <div style="display:flex;gap:1.5rem;">
+          <a href="/politica-privacidade" style="font-size:0.8125rem;color:rgba(255,255,255,0.4);text-decoration:none;">Privacidade</a>
+          <a href="/portal-cliente" style="font-size:0.8125rem;color:rgba(255,255,255,0.4);text-decoration:none;">Portal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOTÃO FLUTUANTE DO WHATSAPP -->
+  <a class="whatsapp-float" href="https://wa.me/5562623302711?text=Ol%C3%A1!%20Acessei%20o%20Blog%20da%20Baken%20e%20gostaria%20de%20falar%20com%20a%20engenharia." target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
+    <svg class="whatsapp-float__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 6.46 17.5 2 12.04 2Z" fill="#25D366" />
+      <path d="M17.52 14.33C17.22 14.18 15.76 13.46 15.49 13.36C15.22 13.26 15.02 13.21 14.83 13.51C14.63 13.81 14.07 14.47 13.89 14.67C13.72 14.87 13.55 14.9 13.25 14.75C12.95 14.6 11.99 14.29 10.86 13.28C9.97 12.49 9.38 11.51 9.21 11.21C9.03 10.91 9.19 10.75 9.34 10.6C9.48 10.47 9.64 10.25 9.79 10.08C9.94 9.9 9.99 9.78 10.09 9.58C10.19 9.38 10.14 9.21 10.07 9.06C9.99 8.91 9.42 7.51 9.19 6.93C8.96 6.37 8.72 6.44 8.55 6.44C8.38 6.43 8.19 6.43 7.99 6.43C7.79 6.43 7.47 6.51 7.2 6.8C6.93 7.1 6.16 7.82 6.16 9.3C6.16 10.78 7.24 12.21 7.39 12.41C7.54 12.61 9.51 15.65 12.53 16.96C13.25 17.27 13.81 17.46 14.25 17.6C14.97 17.83 15.63 17.8 16.15 17.72C16.73 17.63 17.94 16.99 18.19 16.28C18.44 15.58 18.44 14.98 18.36 14.85C18.29 14.73 18.12 14.65 17.82 14.5" fill="#FFFFFF" />
+    </svg>
+    <span class="whatsapp-float__label">WhatsApp</span>
+  </a>
+
+  <script src="/js/main.js"></script>
+  <script>
+    // Filtros de Categoria
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const blogCards = document.querySelectorAll('.blog-card');
+    const featuredCard = document.querySelector('.featured-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+
+        // Filtrar cards
+        blogCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        // Filtrar featured
+        if (featuredCard) {
+          const featCat = featuredCard.getAttribute('data-category');
+          if (filter === 'all' || featCat === filter) {
+            featuredCard.closest('.featured-article').style.display = 'block';
+          } else {
+            featuredCard.closest('.featured-article').style.display = 'none';
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

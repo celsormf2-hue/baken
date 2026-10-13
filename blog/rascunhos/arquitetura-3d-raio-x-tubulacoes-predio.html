@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raio-X da Estrutura: A Arquitetura 3D das Tubulações em Edifícios — Blog Baken</title>
+  <meta name="description" content="Entenda como a modelagem 3D e o conceito de 'engenharia invisível' revelam as prumadas hidráulicas, shafts elétricos e sistemas de combate a incêndio em edifícios de alto padrão.">
+  <meta property="og:title" content="Raio-X da Estrutura: A Arquitetura 3D das Tubulações em Edifícios — Blog Baken">
+  <meta property="og:description" content="Visualização em corte 3D: compatibilização de prumadas, barramentos e sprinklers com a estrutura de concreto armado.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="/img/blog/raio-x-predio-3d-tubulacoes.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+
+  <style>
+    .article-hero {
+      position: relative;
+      background: #0F0F0F;
+      padding: 9.5rem 0 4.5rem;
+      overflow: hidden;
+    }
+    .article-hero__line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #C8102E 40%, transparent);
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 1.5rem;
+    }
+    .breadcrumb a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .breadcrumb a:hover { color: #C8102E; }
+    .article-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+      color: #FFFFFF;
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    .article-meta-bar {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.55);
+      flex-wrap: wrap;
+    }
+    .article-meta-bar .badge {
+      background: #C8102E;
+      color: #fff;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.6875rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .article-body-section {
+      padding: 4.5rem 0;
+      background: #FFFFFF;
+    }
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 4.5rem;
+      align-items: start;
+    }
+    .article-content {
+      font-size: 1.0625rem;
+      line-height: 1.85;
+      color: #3D3D3D;
+      font-weight: 300;
+    }
+    .article-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #0F0F0F;
+      margin: 2.75rem 0 1rem;
+      line-height: 1.25;
+    }
+    .article-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #0F0F0F;
+      margin: 2rem 0 0.75rem;
+    }
+    .article-content p {
+      margin-bottom: 1.5rem;
+    }
+    .article-content ul, .article-content ol {
+      margin-bottom: 1.75rem;
+      padding-left: 1.5rem;
+    }
+    .article-content li {
+      margin-bottom: 0.6rem;
+    }
+    .article-featured-img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 2.5rem;
+      border: 1px solid #E8E8E8;
+    }
+    .tech-highlight-box {
+      background: #F7F7F5;
+      border-left: 4px solid #C8102E;
+      padding: 1.75rem 2rem;
+      border-radius: 0 8px 8px 0;
+      margin: 2.25rem 0;
+    }
+    .tech-highlight-box h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: #0F0F0F;
+      margin-bottom: 0.5rem;
+    }
+    .tech-highlight-box p {
+      font-size: 0.9375rem;
+      color: #555555;
+      margin-bottom: 0;
+      line-height: 1.7;
+    }
+
+    .article-sidebar {
+      position: sticky;
+      top: 100px;
+    }
+    .sidebar-widget {
+      background: #F7F7F5;
+      border: 1px solid #E8E8E8;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    .widget-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: #0F0F0F;
+      margin-bottom: 1.25rem;
+      position: relative;
+      padding-bottom: 0.75rem;
+    }
+    .widget-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 32px;
+      height: 2px;
+      background: #C8102E;
+    }
+
+    @media (max-width: 1024px) {
+      .article-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .article-sidebar { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header scrolled" id="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="site-logo">
+          <img src="/img/logo-white.svg" alt="Baken Construtora" class="site-logo__img logo-white">
+          <img src="/img/logo.svg" alt="Baken Construtora" class="site-logo__img logo-dark">
+        </a>
+        <nav class="site-nav">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">Início</a></li>
+            <li><a href="/sobre" class="nav-link">Sobre</a></li>
+            <li><a href="/servicos" class="nav-link">Serviços</a></li>
+            <li><a href="/obras" class="nav-link">Obras</a></li>
+            <li><a href="/blog" class="nav-link active">Blog</a></li>
+            <li><a href="/contato" class="nav-link">Contato</a></li>
+          </ul>
+          <a href="/portal-cliente" class="nav-cta">Portal do Cliente</a>
+        </nav>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="article-hero">
+      <div class="article-hero__line"></div>
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="/">Início</a>
+          <span>/</span>
+          <a href="/blog">Blog</a>
+          <span>/</span>
+          <span>Projetos & 3D</span>
+        </div>
+        <h1 class="article-title">
+          Raio-X da Estrutura: A Arquitetura 3D das Tubulações em Edifícios de Alto Padrão
+        </h1>
+        <div class="article-meta-bar">
+          <span class="badge">Inovação & BIM</span>
+          <span>Por Equipe de Projetos Baken</span>
+          <span>•</span>
+          <span>06 de Outubro, 2026</span>
+          <span>•</span>
+          <span>6 min de leitura</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="article-body-section">
+      <div class="container">
+        <div class="article-layout">
+
+          <article class="article-content">
+            <img src="/img/blog/raio-x-predio-3d-tubulacoes.jpg" alt="Render 3D corte raio-x de tubulações hidráulicas e de incêndio em edifício" class="article-featured-img">
+
+            <p>
+              Quando apreciamos a silhueta imponente de um arranha-céu residencial ou corporativo com fachadas de vidro e acabamentos refinados, raramente nos atentamos ao complexo ecossistema que pulsa silenciosamente em suas entranhas. 
+            </p>
+
+            <p>
+              São centenas de metros lineares de prumadas de esgoto, barriletes pressurizados, tubulações de combate a incêndio por sprinklers, barramentos elétricos de média e baixa tensão e dutos de climatização. Na <strong>Baken Construtora</strong>, chamamos esse conjunto de <em>"Engenharia Invisível"</em> — a arte de planejar e executar sistemas prediais tão perfeitos que o usuário final só desfruta do conforto, sem jamais ouvir um ruído ou enfrentar uma interrupção.
+            </p>
+
+            <h2>A Revolução da Modelagem BIM e o Raio-X Tridimensional</h2>
+            <p>
+              O tempo em que projetos elétricos, hidráulicos e estruturais eram desenhados em pranchas 2D separadas ficou no passado. Em edifícios de múltiplos pavimentos, a sobreposição simples em papel frequentemente resultava em graves conflitos na obra: vigas perfuradas indevidamente, shafts estrangulados ou tubulações de esgoto cruzando com dutos de ar.
+            </p>
+
+            <p>
+              Ao adotar o conceito de <strong>Raio-X Estrutural em 3D</strong> alimentado por modelos BIM, a Baken realiza a chamada <em>Clash Detection</em> (detecção preventiva de interferências) antes mesmo da concretagem das lajes:
+            </p>
+
+            <ul>
+              <li><strong>Shafts Estratégicos e Racionalizados:</strong> As aberturas na estrutura de concreto são planejadas milimetricamente para acomodar as colunas de água fria, PEX, esgoto e combate a incêndio com folga técnica para manutenção.</li>
+              <li><strong>Passagens Estruturais Predefinidas:</strong> Tubulações que precisam cruzar vigas são dotadas de bainhas e furações calculadas junto ao projetista estrutural, preservando a integridade das armaduras de aço.</li>
+              <li><strong>Setorização por Cores e Padrões Normativos:</strong> Cada fluido e sistema segue um código visual rigoroso: vermelho para sprinklers e hidrantes, branco/cinza reforçado para esgoto acústico, azul para potável e bandejas metálicas para cabos e busways.</li>
+            </ul>
+
+            <div class="tech-highlight-box">
+              <h4>A Ideia do Raio-X Aplicada à Execução</h4>
+              <p>
+                Visualizar o corte do prédio acabado revelando as prumadas em 3D não é apenas um recurso visual inspirador: é a exata representação de como a Baken coordena o canteiro. Cada andar opera como uma linha de montagem industrial sincronizada.
+              </p>
+            </div>
+
+            <h2>Os Principais Sistemas Mapeados no Coração do Edifício</h2>
+            <p>
+              Na representação tridimensional de um empreendimento moderno de 30 a 40 pavimentos, podemos segmentar o raio-x em quatro artérias vitais:
+            </p>
+
+            <ol>
+              <li>
+                <strong>Prumada de Incêndio (Linha Vermelha):</strong> Alimentada por bombas de alta pressão no subsolo, percorre verticalmente toda a edificação alimentando as Válvulas de Governo e Alarme (VGA) por pavimento e bicos de sprinkler estrategicamente distribuídos.
+              </li>
+              <li>
+                <strong>Esgoto e Ventilação Acústica (Sistema Redux):</strong> Tubulações minerais de alta densidade que descem pelos shafts dos banheiros com amortecimento de vibração para impedir que a água em queda livre ecoe nas lajes vizinhas.
+              </li>
+              <li>
+                <strong>Distribuição Hidráulica em PEX / PPR:</strong> Linhas mestras de água fria e aquecimento central que alimentam os cavaletes dos apartamentos com reguladores de pressão para evitar sobrepressão nos andares inferiores.
+              </li>
+              <li>
+                <strong>Coluna Elétrica Blindada (Busway):</strong> O barramento blindado substitui dezenas de cabos pesados de cobre, transmitindo energia com perdas mínimas a partir da subestação de média tensão até os quadros de distribuição de cada andar.
+              </li>
+            </ol>
+
+            <h2>Do Modelo Digital aos Kits Físicos na Obra</h2>
+            <p>
+              O maior benefício de dominar a arquitetura 3D das instalações é viabilizar a industrialização dos kits da Baken. Uma vez validada a geometria digital no computador, os comprimentos e conexões são transferidos diretamente para nossa bancada de montagem dos kits pré-fabricados.
+            </p>
+
+            <p>
+              Quando o kit chega ao andar correspondente, ele encaixa na estrutura como uma peça sob medida, eliminando cortes manuais, poeira de serra no canteiro e desperdício de materiais nobres.
+            </p>
+
+            <!-- BOX FINAL -->
+            <div style="background:#0F0F0F;color:#FFFFFF;border-radius:10px;padding:2.5rem;margin-top:3.5rem;border-left:4px solid #C8102E;">
+              <h3 style="color:#FFFFFF;margin-top:0;">Deseja conhecer a metodologia de engenharia predial da Baken?</h3>
+              <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:1.5rem;">
+                Oferecemos consultoria técnica e execução completa de instalações elétricas, hidráulicas e de combate a incêndio com suporte em modelagem e compatibilização 3D.
+              </p>
+              <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+                <a href="/contato" class="btn btn--primary">Falar com nossos Engenheiros</a>
+                <a href="/obras" class="btn btn--outline" style="color:#FFFFFF;border-color:rgba(255,255,255,0.3);">Ver Portfólio de Obras</a>
+              </div>
+            </div>
+
+          </article>
+
+          <!-- SIDEBAR -->
+          <aside class="article-sidebar">
+            <div class="sidebar-widget">
+              <h4 class="widget-title">Soluções para sua Obra</h4>
+              <p style="font-size:0.875rem;color:#737373;line-height:1.6;margin-bottom:1.25rem;">
+                Elimine interferências entre projetos antes de iniciar as instalações na torre.
+              </p>
+              <a href="/servicos" class="btn btn--primary" style="width:100%;justify-content:center;font-size:0.8125rem;">
+                Conheça nossos Serviços
+              </a>
+            </div>
+
+            <div class="sidebar-widget">
+              <h4 class="widget-title">Leituras Recomendadas</h4>
+              <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:1.25rem;">
+                <li>
+                  <a href="/blog/kits-instalacao-hidraulica-incendio" style="text-decoration:none;color:#0F0F0F;display:block;">
+                    <span style="font-size:0.6875rem;color:#C8102E;font-weight:700;text-transform:uppercase;">Kits Baken</span>
+                    <strong style="display:block;font-size:0.9375rem;line-height:1.4;margin-top:0.25rem;font-family:'Playfair Display',serif;">Kits de Instalação: Redução de até 70% no Canteiro</strong>
+                  </a>
+                </li>
+                <li>
+                  <a href="/blog/sistema-redux-esgoto-silencioso" style="text-decoration:none;color:#0F0F0F;display:block;">
+                    <span style="font-size:0.6875rem;color:#C8102E;font-weight:700;text-transform:uppercase;">Hidráulica</span>
+                    <strong style="display:block;font-size:0.9375rem;line-height:1.4;margin-top:0.25rem;font-family:'Playfair Display',serif;">Sistema Redux: Tubulações Acústicas</strong>
+                  </a>
+                </li>
+                <li>
+                  <a href="/blog/barramento-blindado-subestacao-media-tensao" style="text-decoration:none;color:#0F0F0F;display:block;">
+                    <span style="font-size:0.6875rem;color:#C8102E;font-weight:700;text-transform:uppercase;">Elétrica</span>
+                    <strong style="display:block;font-size:0.9375rem;line-height:1.4;margin-top:0.25rem;font-family:'Playfair Display',serif;">Barramento Blindado & Subestação de Média Tensão</strong>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" style="background:#080808;border-top:1px solid rgba(255,255,255,0.04);padding:4rem 0 2rem;">
+    <div class="container">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:2rem;">
+        <a href="/" class="site-logo">
+          <img src="/img/logo-white.svg" alt="Baken Construtora" class="site-logo__img">
+        </a>
+        <div style="display:flex;gap:1.5rem;font-size:0.875rem;">
+          <a href="/" style="color:rgba(255,255,255,0.6);text-decoration:none;">Início</a>
+          <a href="/servicos" style="color:rgba(255,255,255,0.6);text-decoration:none;">Serviços</a>
+          <a href="/blog" style="color:#C8102E;text-decoration:none;font-weight:600;">Blog</a>
+          <a href="/contato" style="color:rgba(255,255,255,0.6);text-decoration:none;">Contato</a>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,0.05);padding-top:1.5rem;display:flex;justify-content:space-between;font-size:0.75rem;color:rgba(255,255,255,0.3);">
+        <span>© 2026 Baken Construtora LTDA — CNPJ 01.763.579/0001-07</span>
+        <a href="/politica-privacidade" style="color:rgba(255,255,255,0.3);text-decoration:none;">Privacidade</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
