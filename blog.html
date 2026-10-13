@@ -17,14 +17,22 @@
   <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
 
   <style>
-    /* HERO DO BLOG */
-    .blog-hero {
+    /* HERO PADRÃO DAS PÁGINAS (SOBRE, SERVIÇOS, OBRAS) */
+    .page-hero {
       position: relative;
       background: #0F0F0F;
       padding: 10rem 0 5rem;
       overflow: hidden;
     }
-    .blog-hero__line {
+    .page-hero__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.15;
+    }
+    .page-hero__line {
       position: absolute;
       bottom: 0;
       left: 0;
@@ -32,7 +40,7 @@
       height: 1px;
       background: linear-gradient(to right, transparent, #C8102E 40%, transparent);
     }
-    .blog-hero__content { position: relative; z-index: 1; }
+    .page-hero__content { position: relative; z-index: 1; }
 
     .kicker {
       display: inline-flex;
@@ -43,13 +51,13 @@
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.4);
       margin-bottom: 1.25rem;
     }
     .kicker::before {
       content: '';
       width: 24px;
-      height: 1.5px;
+      height: 1px;
       background: #C8102E;
       display: block;
     }
@@ -282,46 +290,12 @@
       transform: translateX(4px);
     }
 
-    /* BANNER CTA KITS */
-    .blog-cta-banner {
-      background: linear-gradient(135deg, #0F0F0F 0%, #1A1A1A 100%);
-      padding: 5rem 0;
-      position: relative;
-      overflow: hidden;
-      border-top: 2px solid #C8102E;
-    }
-    .cta-box {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-    .cta-badge {
-      display: inline-block;
-      background: rgba(200,16,46,0.15);
-      border: 1px solid rgba(200,16,46,0.3);
-      color: #C8102E;
-      font-size: 0.6875rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 0.35rem 0.85rem;
-      border-radius: 4px;
-      margin-bottom: 1.25rem;
-    }
-    .cta-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
     /* RESPONSIVIDADE */
     @media (max-width: 1024px) {
       .featured-card { grid-template-columns: 1fr; }
       .featured-card__body { padding: 2.5rem; }
       .featured-card__media { min-height: 320px; }
       .blog-grid { grid-template-columns: repeat(2, 1fr); gap: 1.75rem; }
-      .cta-box { grid-template-columns: 1fr; }
     }
     @media (max-width: 680px) {
       .blog-grid { grid-template-columns: 1fr; }
@@ -373,21 +347,22 @@
   </nav>
 
   <main>
-    <!-- HERO -->
-    <section class="blog-hero">
-      <div class="blog-hero__line"></div>
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <img class="page-hero__img" src="/img/obra-03.png" alt="">
+      <div class="page-hero__line"></div>
       <div class="container">
-        <div class="blog-hero__content">
-          <div class="kicker">Engenharia & Conhecimento Técnico</div>
-          <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem, 5vw, 4.25rem);color:#FFFFFF;font-weight:400;line-height:1.15;margin-bottom:1.25rem;">
-            Construindo o futuro com <br><em style="font-style:italic;color:#C8102E;">precisão e engenharia de ponta</em>
+        <div class="page-hero__content">
+          <div class="kicker">Blog & Conhecimento</div>
+          <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);color:#fff;font-weight:400;margin-bottom:1.25rem;line-height:1.15;">
+            Engenharia e soluções<br><em style="font-style:italic;color:rgba(255,255,255,0.55);">de ponta</em>
           </h1>
-          <p style="font-size:1.125rem;font-weight:300;color:rgba(255,255,255,0.7);max-width:680px;line-height:1.8;">
-            Acompanhe nossas análises técnicas sobre industrialização na construção civil, kits prediais, prumadas verticais, normas ABNT e sistemas de alto desempenho.
+          <p style="font-size:1.0625rem;font-weight:300;color:rgba(255,255,255,0.55);max-width:540px;line-height:1.7;">
+            Análises técnicas sobre industrialização na construção civil, kits prediais, prumadas verticais e sistemas de alto desempenho.
           </p>
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- BARRA DE FILTROS -->
     <section class="blog-filters-section">
@@ -443,37 +418,16 @@
       </div>
     </section>
 
-    <!-- BANNER COMERCIAL: KITS BAKEN -->
-    <section class="blog-cta-banner">
-      <div class="container">
-        <div class="cta-box">
-          <div>
-            <span class="cta-badge">Kits Prontos para Obra</span>
-            <h2 style="font-family:'Playfair Display',serif;font-size:clamp(2rem, 3.5vw, 2.75rem);color:#FFFFFF;font-weight:400;margin-bottom:1rem;line-height:1.2;">
-              Agregue os Kits Baken ao seu cronograma de obra
-            </h2>
-            <p style="font-size:1.0625rem;font-weight:300;color:rgba(255,255,255,0.7);line-height:1.7;margin-bottom:1.5rem;">
-              Fornecemos kits completos para instalações hidráulicas e combate a incêndio com medidas exatas do seu projeto executivo. Elimine o desperdício e acelere a entrega do seu empreendimento.
-            </p>
-            <div class="cta-actions">
-              <a href="https://wa.me/5562623302711?text=Ol%C3%A1,%20gostaria%20de%20receber%20informa%C3%A7%C3%B5es%20e%20cota%C3%A7%C3%A3o%20sobre%20os%20Kits%20de%20Instala%C3%A7%C3%A3o%20da%20Baken" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
-                Falar com Engenheiro de Vendas
-              </a>
-              <a href="/contato" class="btn btn--outline" style="color:#fff;border-color:rgba(255,255,255,0.3);">
-                Solicitar Cotação
-              </a>
-            </div>
-          </div>
-          <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:2.5rem;text-align:left;">
-            <div style="font-family:'Playfair Display',serif;font-size:1.25rem;color:#fff;margin-bottom:1rem;">Diferenciais dos Kits Baken</div>
-            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.75rem;font-size:0.875rem;color:rgba(255,255,255,0.65);">
-              <li style="display:flex;align-items:center;gap:0.5rem;"><span style="color:#C8102E;font-weight:bold;">✓</span> Teste hidrostático de estanqueidade em bancada</li>
-              <li style="display:flex;align-items:center;gap:0.5rem;"><span style="color:#C8102E;font-weight:bold;">✓</span> Identificação por prumada, pavimento e apartamento</li>
-              <li style="display:flex;align-items:center;gap:0.5rem;"><span style="color:#C8102E;font-weight:bold;">✓</span> Redução de entulho e sobras no canteiro</li>
-              <li style="display:flex;align-items:center;gap:0.5rem;"><span style="color:#C8102E;font-weight:bold;">✓</span> Compatibilização prévia com arquitetura e estrutura</li>
-            </ul>
-          </div>
-        </div>
+    <!-- CTA SERVIÇOS (PADRÃO SOBRE / INSTITUCIONAL) -->
+    <section style="background:#C8102E;padding:4rem 0;">
+      <div class="container" style="text-align:center;">
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.75rem,3vw,2.5rem);color:#fff;font-weight:400;margin-bottom:1.5rem;">
+          Conheça nossos serviços
+        </h2>
+        <a href="/servicos" class="btn btn--outline" style="margin:0 auto;">
+          Ver especialidades
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
     </section>
   </main>
