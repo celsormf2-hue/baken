@@ -48,6 +48,7 @@
 
   /* ── FLOATING WHATSAPP CONTACT ─────────────────────────── */
   function createWhatsappFloat() {
+    if (document.querySelector('.whatsapp-float')) return;
     const phone = '5562623302711';
     const message = encodeURIComponent('Olá! Gostaria de falar com a Baken.');
     const isMobile = /Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -61,7 +62,7 @@
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
     link.setAttribute('aria-label', 'Fale com a Baken pelo WhatsApp');
-    link.innerHTML = '<svg class="whatsapp-float__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.2 11.7a8.2 8.2 0 0 1-11.9 7.3L3.8 20.2l1.2-4.3A8.2 8.2 0 1 1 20.2 11.7z"/><path d="M9.1 7.8c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.8 1.8c.1.3.1.5-.1.7l-.5.6c-.1.1-.2.3-.1.5.4.8 1.1 1.5 1.9 1.9.2.1.4.1.5-.1l.6-.6c.2-.2.4-.2.7-.1l1.8.8c.3.1.4.3.4.5v.5c0 .3 0 .5-.4.7-.4.2-1 .3-1.6.1-1-.3-2.2-1-3.3-2.1s-1.8-2.3-2.1-3.3c-.2-.6-.1-1.2.1-1.6z"/></svg><span class="whatsapp-float__label">Fale com a Baken!</span>';
+    link.innerHTML = '<svg class="whatsapp-float__icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12.031 0C5.399 0 .017 5.382.017 12.014c0 2.121.554 4.189 1.607 6.013L0 24l6.165-1.618a11.966 11.966 0 0 0 5.866 1.528h.005c6.632 0 12.014-5.383 12.014-12.015C24.05 5.382 18.663 0 12.031 0zm0 21.99a9.98 9.98 0 0 1-5.09-1.393l-.365-.217-3.784.992 1.01-3.69-.238-.379a9.96 9.96 0 0 1-1.53-5.29c0-5.518 4.49-10.008 10.012-10.008 2.673 0 5.186 1.042 7.077 2.933a9.964 9.964 0 0 1 2.932 7.075c0 5.52-4.49 10.01-10.014 10.01zm5.485-7.487c-.301-.15-1.78-.878-2.056-.978-.276-.1-.477-.15-.678.15-.2.3-.778.978-.953 1.178-.175.2-.351.226-.652.075-.3-.15-1.267-.467-2.414-1.49-1.147-1.023-1.922-2.287-2.148-2.673-.226-.386-.024-.595.126-.745.136-.135.301-.351.452-.526.15-.176.2-.301.301-.502.1-.2.05-.376-.025-.526-.075-.15-.678-1.635-.928-2.237-.244-.588-.492-.508-.678-.518-.175-.01-.376-.01-.577-.01s-.527.075-.803.376c-.276.3-1.054 1.029-1.054 2.511 0 1.482 1.079 2.912 1.23 3.113.15.201 2.122 3.24 5.14 4.544 3.018 1.304 3.018.869 3.569.819.55-.05 1.78-.727 2.03-1.43.251-.703.251-1.305.176-1.43-.075-.126-.276-.201-.577-.351z"/></svg><span class="whatsapp-float__label">Fale com a Baken!</span>';
     document.body.appendChild(link);
   }
 
