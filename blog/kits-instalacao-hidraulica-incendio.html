@@ -82,12 +82,18 @@
       grid-template-columns: 1fr 340px;
       gap: 4.5rem;
       align-items: start;
+      width: 100%;
+      min-width: 0;
     }
     .article-content {
       font-size: 1.0625rem;
       line-height: 1.85;
       color: #3D3D3D;
       font-weight: 300;
+      min-width: 0;
+      width: 100%;
+      overflow-wrap: break-word;
+      word-break: normal;
     }
     .article-content h2 {
       font-family: 'Playfair Display', serif;
@@ -95,12 +101,14 @@
       color: #0F0F0F;
       margin: 2.75rem 0 1rem;
       line-height: 1.25;
+      overflow-wrap: break-word;
     }
     .article-content h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.5rem;
       color: #0F0F0F;
       margin: 2rem 0 0.75rem;
+      overflow-wrap: break-word;
     }
     .article-content p {
       margin-bottom: 1.5rem;
@@ -114,10 +122,13 @@
     }
     .article-featured-img {
       width: 100%;
+      max-width: 100%;
       height: auto;
       border-radius: 10px;
       margin-bottom: 2.5rem;
       border: 1px solid #E8E8E8;
+      display: block;
+      object-fit: cover;
     }
 
     /* BOX DESTAQUE TÉCNICO */
@@ -127,6 +138,8 @@
       padding: 1.75rem 2rem;
       border-radius: 0 8px 8px 0;
       margin: 2.25rem 0;
+      width: 100%;
+      box-sizing: border-box;
     }
     .tech-highlight-box h4 {
       font-family: 'Playfair Display', serif;
@@ -145,7 +158,7 @@
     .compare-table {
       width: 100%;
       border-collapse: collapse;
-      margin: 2.5rem 0;
+      margin: 0;
       font-size: 0.9375rem;
     }
     .compare-table th, .compare-table td {
@@ -166,6 +179,8 @@
     .article-sidebar {
       position: sticky;
       top: 100px;
+      min-width: 0;
+      width: 100%;
     }
     .sidebar-widget {
       background: #F7F7F5;
@@ -173,6 +188,7 @@
       border-radius: 10px;
       padding: 2rem;
       margin-bottom: 2rem;
+      box-sizing: border-box;
     }
     .widget-title {
       font-family: 'Playfair Display', serif;
@@ -194,27 +210,108 @@
 
     .table-responsive {
       width: 100%;
+      max-width: 100%;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       margin: 2.5rem 0;
+      border-radius: 6px;
+      border: 1px solid #E8E8E8;
     }
     .table-responsive .compare-table {
+      min-width: 520px;
       margin: 0;
-      min-width: 540px;
     }
 
     @media (max-width: 1024px) {
-      .article-layout { grid-template-columns: 1fr; gap: 3rem; }
-      .article-sidebar { position: static; }
+      .article-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        width: 100%;
+      }
+      .article-sidebar {
+        position: static;
+        width: 100%;
+      }
     }
     @media (max-width: 768px) {
-      .article-hero { padding: 7.5rem 0 3.25rem; }
-      .article-title { font-size: 1.75rem; line-height: 1.25; margin-bottom: 1rem; }
-      .article-body-section { padding: 3rem 0; }
-      .article-content h2 { font-size: 1.6rem; margin: 2rem 0 0.85rem; }
-      .tech-highlight-box { padding: 1.25rem 1.25rem; }
-      .article-cta-box { padding: 1.75rem 1.25rem !important; }
-      .article-cta-box .btn { width: 100%; justify-content: center; }
+      .article-hero {
+        padding: 7.5rem 0 3rem;
+      }
+      .article-title {
+        font-size: clamp(1.6rem, 5.5vw, 2.2rem);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+      .article-meta-bar {
+        font-size: 0.8rem;
+        gap: 0.75rem;
+      }
+      .article-body-section {
+        padding: 2.5rem 0 3.5rem;
+      }
+      .article-layout {
+        gap: 2.25rem;
+      }
+      .article-content {
+        font-size: 1rem;
+        line-height: 1.75;
+      }
+      .article-content h2 {
+        font-size: 1.45rem;
+        margin: 2rem 0 0.75rem;
+      }
+      .article-content h3 {
+        font-size: 1.25rem;
+        margin: 1.5rem 0 0.5rem;
+      }
+      .article-content ul, .article-content ol {
+        padding-left: 1.25rem;
+      }
+      .article-featured-img {
+        margin-bottom: 1.75rem;
+        border-radius: 8px;
+      }
+      .tech-highlight-box {
+        padding: 1.25rem 1.25rem;
+        margin: 1.75rem 0;
+      }
+      .sidebar-widget {
+        padding: 1.5rem 1.25rem;
+      }
+      .article-cta-box {
+        padding: 1.75rem 1.25rem !important;
+        margin-top: 2.5rem !important;
+      }
+      .article-cta-actions {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+      }
+      .article-cta-box .btn {
+        width: 100%;
+        justify-content: center;
+        white-space: normal;
+        text-align: center;
+      }
+    }
+    @media (max-width: 480px) {
+      .article-hero {
+        padding: 6.5rem 0 2.5rem;
+      }
+      .breadcrumb {
+        font-size: 0.75rem;
+        margin-bottom: 1rem;
+      }
+      .article-title {
+        font-size: 1.45rem;
+      }
+      .article-body-section {
+        padding: 2rem 0 3rem;
+      }
+      .compare-table th, .compare-table td {
+        padding: 0.75rem 0.85rem;
+        font-size: 0.85rem;
+      }
     }
   </style>
 </head>
@@ -369,7 +466,7 @@
               <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:1.5rem;">
                 A equipe de engenharia comercial da Baken Construtora analisa seus projetos executivos e apresenta uma proposta técnica com cronograma de entregas just-in-time para seu canteiro de obras.
               </p>
-              <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+              <div class="article-cta-actions" style="display:flex;gap:1rem;flex-wrap:wrap;">
                 <a href="https://wa.me/5562623302711?text=Ol%C3%A1!%20Li%20o%20artigo%20sobre%20Kits%20Hidr%C3%A1ulicos%20e%20gostaria%20de%20uma%20apresenta%C3%A7%C3%A3o%20t%C3%A9cnica." target="_blank" rel="noopener noreferrer" class="btn btn--primary">
                   Falar no WhatsApp
                 </a>
