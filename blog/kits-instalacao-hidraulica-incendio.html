@@ -192,9 +192,29 @@
       background: #C8102E;
     }
 
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 2.5rem 0;
+    }
+    .table-responsive .compare-table {
+      margin: 0;
+      min-width: 540px;
+    }
+
     @media (max-width: 1024px) {
       .article-layout { grid-template-columns: 1fr; gap: 3rem; }
       .article-sidebar { position: static; }
+    }
+    @media (max-width: 768px) {
+      .article-hero { padding: 7.5rem 0 3.25rem; }
+      .article-title { font-size: 1.75rem; line-height: 1.25; margin-bottom: 1rem; }
+      .article-body-section { padding: 3rem 0; }
+      .article-content h2 { font-size: 1.6rem; margin: 2rem 0 0.85rem; }
+      .tech-highlight-box { padding: 1.25rem 1.25rem; }
+      .article-cta-box { padding: 1.75rem 1.25rem !important; }
+      .article-cta-box .btn { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -291,37 +311,39 @@
               Abaixo apresentamos o comparativo real observado em obras verticais que adotaram a tecnologia de kits industrializados fornecidos e instalados pela Baken:
             </p>
 
-            <table class="compare-table">
-              <thead>
-                <tr>
-                  <th>Critério</th>
-                  <th>Método Convencional (em Canteiro)</th>
-                  <th>Kits Industrializados Baken</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Tempo de Montagem</strong></td>
-                  <td>Longo; equipe fixa de encanadores por pavimento.</td>
-                  <td><strong>Até 70% mais rápido</strong> com encaixe e fixação direta.</td>
-                </tr>
-                <tr>
-                  <td><strong>Desperdício de Material</strong></td>
-                  <td>8% a 15% em pontas de tubos, conexões e colas.</td>
-                  <td><strong>Zero perda</strong>; peças entregues na medida exata.</td>
-                </tr>
-                <tr>
-                  <td><strong>Espaço no Canteiro</strong></td>
-                  <td>Bancadas de corte, acúmulo de sobras e risco de acidentes.</td>
-                  <td>Canteiro limpo, enxuto e estocagem paletizada.</td>
-                </tr>
-                <tr>
-                  <td><strong>Controle de Qualidade</strong></td>
-                  <td>Inspeção visual pontual e variável.</td>
-                  <td><strong>Rastreabilidade de lote</strong> e ensaio prévio sob pressão.</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="table-responsive">
+              <table class="compare-table">
+                <thead>
+                  <tr>
+                    <th>Critério</th>
+                    <th>Método Convencional (em Canteiro)</th>
+                    <th>Kits Industrializados Baken</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Tempo de Montagem</strong></td>
+                    <td>Longo; equipe fixa de encanadores por pavimento.</td>
+                    <td><strong>Até 70% mais rápido</strong> com encaixe e fixação direta.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Desperdício de Material</strong></td>
+                    <td>8% a 15% em pontas de tubos, conexões e colas.</td>
+                    <td><strong>Zero perda</strong>; peças entregues na medida exata.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Espaço no Canteiro</strong></td>
+                    <td>Bancadas de corte, acúmulo de sobras e risco de acidentes.</td>
+                    <td>Canteiro limpo, enxuto e estocagem paletizada.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Controle de Qualidade</strong></td>
+                    <td>Inspeção visual pontual e variável.</td>
+                    <td><strong>Rastreabilidade de lote</strong> e ensaio prévio sob pressão.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
             <h2>Aplicações em Hidráulica e Sistemas de Incêndio</h2>
             <p>
@@ -342,7 +364,7 @@
             </p>
 
             <!-- BOX COMERCIAL FINAL -->
-            <div style="background:#0F0F0F;color:#FFFFFF;border-radius:10px;padding:2.5rem;margin-top:3.5rem;border-left:4px solid #C8102E;">
+            <div class="article-cta-box" style="background:#0F0F0F;color:#FFFFFF;border-radius:10px;padding:2.5rem;margin-top:3.5rem;border-left:4px solid #C8102E;">
               <h3 style="color:#FFFFFF;margin-top:0;">Deseja cotar os Kits de Instalação para seu empreendimento?</h3>
               <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:1.5rem;">
                 A equipe de engenharia comercial da Baken Construtora analisa seus projetos executivos e apresenta uma proposta técnica com cronograma de entregas just-in-time para seu canteiro de obras.
