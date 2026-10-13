@@ -293,6 +293,10 @@
         white-space: normal;
         text-align: center;
       }
+      .footer-grid-responsive {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
     }
     @media (max-width: 480px) {
       .article-hero {
@@ -342,6 +346,19 @@
       </div>
     </div>
   </header>
+
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <ul class="mobile-nav-links">
+      <li><a href="/" class="mobile-nav-link">Início</a></li>
+      <li><a href="/sobre" class="mobile-nav-link">Sobre</a></li>
+      <li><a href="/servicos" class="mobile-nav-link">Serviços</a></li>
+      <li><a href="/obras" class="mobile-nav-link">Obras</a></li>
+      <li><a href="/blog" class="mobile-nav-link">Blog</a></li>
+      <li><a href="/contato" class="mobile-nav-link">Contato</a></li>
+    </ul>
+    <a href="/portal-cliente" class="btn btn--primary" style="width:100%;justify-content:center;">Portal do Cliente</a>
+  </nav>
 
   <main>
     <!-- HERO ARTIGO -->
@@ -527,20 +544,52 @@
   <!-- FOOTER -->
   <footer class="site-footer" style="background:#080808;border-top:1px solid rgba(255,255,255,0.04);padding:4rem 0 2rem;">
     <div class="container">
-      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:2rem;">
-        <a href="/" class="site-logo">
-          <img src="/img/logo-white.svg" alt="Baken Construtora" class="site-logo__img">
-        </a>
-        <div style="display:flex;gap:1.5rem;font-size:0.875rem;">
-          <a href="/" style="color:rgba(255,255,255,0.6);text-decoration:none;">Início</a>
-          <a href="/servicos" style="color:rgba(255,255,255,0.6);text-decoration:none;">Serviços</a>
-          <a href="/blog" style="color:#C8102E;text-decoration:none;font-weight:600;">Blog</a>
-          <a href="/contato" style="color:rgba(255,255,255,0.6);text-decoration:none;">Contato</a>
+      <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:3rem;margin-bottom:3rem;" class="footer-grid-responsive">
+        <div>
+          <a href="/" class="site-logo" style="margin-bottom:1.25rem;display:inline-block;">
+            <img src="/img/logo-white.svg" alt="Baken Construtora" class="site-logo__img">
+          </a>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.5);line-height:1.7;max-width:320px;">
+            Especialistas em engenharia de instalações elétricas, hidráulicas e combate a incêndio para empreendimentos de alta complexidade.
+          </p>
+        </div>
+        <div>
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.25rem;">Navegação</div>
+          <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.6rem;font-size:0.875rem;">
+            <li><a href="/" style="color:rgba(255,255,255,0.6);text-decoration:none;">Início</a></li>
+            <li><a href="/sobre" style="color:rgba(255,255,255,0.6);text-decoration:none;">Sobre</a></li>
+            <li><a href="/servicos" style="color:rgba(255,255,255,0.6);text-decoration:none;">Serviços</a></li>
+            <li><a href="/obras" style="color:rgba(255,255,255,0.6);text-decoration:none;">Obras</a></li>
+            <li><a href="/blog" style="color:#C8102E;text-decoration:none;font-weight:600;">Blog Técnico</a></li>
+            <li><a href="/contato" style="color:rgba(255,255,255,0.6);text-decoration:none;">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.25rem;">Serviços & Kits</div>
+          <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.6rem;font-size:0.875rem;">
+            <li><a href="/blog/kits-instalacao-hidraulica-incendio" style="color:rgba(255,255,255,0.6);text-decoration:none;">Kits de Instalação</a></li>
+            <li><a href="/servicos#hidraulica" style="color:rgba(255,255,255,0.6);text-decoration:none;">Instalações Hidráulicas</a></li>
+            <li><a href="/servicos#incendio" style="color:rgba(255,255,255,0.6);text-decoration:none;">Combate a Incêndio</a></li>
+            <li><a href="/servicos#eletrica" style="color:rgba(255,255,255,0.6);text-decoration:none;">Instalações Elétricas</a></li>
+            <li><a href="/portal-cliente" style="color:rgba(255,255,255,0.6);text-decoration:none;">Portal do Cliente</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.25rem;">Contato</div>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:0.75rem;">
+            Av. Ville, 2891 — Moinho dos Ventos<br>Goiânia, GO · CEP 74.371-580
+          </p>
+          <a href="https://wa.me/5562623302711" target="_blank" rel="noopener noreferrer" style="color:#C8102E;font-size:0.875rem;text-decoration:none;font-weight:500;">
+            WhatsApp: (62) 3300-2711
+          </a>
         </div>
       </div>
-      <div style="border-top:1px solid rgba(255,255,255,0.05);padding-top:1.5rem;display:flex;justify-content:space-between;font-size:0.75rem;color:rgba(255,255,255,0.3);">
-        <span>© 2026 Baken Construtora LTDA — CNPJ 01.763.579/0001-07</span>
-        <a href="/politica-privacidade" style="color:rgba(255,255,255,0.3);text-decoration:none;">Privacidade</a>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,0.05);padding-top:2rem;">
+        <span style="font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.25);">© 2026 Baken Construtora LTDA — CNPJ 01.763.579/0001-07</span>
+        <div style="display:flex;gap:1.5rem;">
+          <a href="/politica-privacidade" style="font-size:0.8125rem;color:rgba(255,255,255,0.4);text-decoration:none;">Privacidade</a>
+          <a href="/portal-cliente" style="font-size:0.8125rem;color:rgba(255,255,255,0.4);text-decoration:none;">Portal</a>
+        </div>
       </div>
     </div>
   </footer>
