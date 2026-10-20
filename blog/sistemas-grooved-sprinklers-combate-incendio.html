@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistemas Grooved e Sprinklers em Edifícios Verticais: Produtividade e Segurança Contra Incêndio — Blog Baken</title>
+  <meta name="description" content="Análise técnica de sistemas de combate a incêndio em edifícios verticais: acoplamentos ranhurados (Grooved), redes de sprinklers, Válvula de Governo e Alarme (VGA) e conformidade NBR 10897.">
+  <meta property="og:title" content="Sistemas Grooved e Sprinklers em Edifícios Verticais: Produtividade e Segurança Contra Incêndio">
+  <meta property="og:description" content="Como a tecnologia de acoplamento mecânico ranhurado (Grooved) e ramais pré-fabricados de sprinklers aceleram a entrega de obras e reduzem riscos de sinistros em prédios altos.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="/img/blog/sistema-fire-sprinklers.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+
+  <style>
+    .article-hero {
+      position: relative;
+      background: #0F0F0F;
+      padding: 9.5rem 0 4.5rem;
+      overflow: hidden;
+    }
+    .article-hero__line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #C8102E 40%, transparent);
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 1.5rem;
+    }
+    .breadcrumb a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .breadcrumb a:hover { color: #C8102E; }
+    .article-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+      color: #FFFFFF;
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    .article-meta-bar {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.55);
+      flex-wrap: wrap;
+    }
+    .article-meta-bar .badge {
+      background: #C8102E;
+      color: #fff;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.6875rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* CONTEÚDO PRINCIPAL DO ARTIGO */
+    .article-body-section {
+      padding: 4.5rem 0;
+      background: #FFFFFF;
+    }
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 4.5rem;
+      align-items: start;
+      width: 100%;
+      min-width: 0;
+    }
+    .article-content {
+      font-size: 1.0625rem;
+      line-height: 1.85;
+      color: #3D3D3D;
+      font-weight: 300;
+      min-width: 0;
+      width: 100%;
+      overflow-wrap: break-word;
+      word-break: normal;
+    }
+    .article-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #0F0F0F;
+      margin: 2.75rem 0 1rem;
+      line-height: 1.25;
+      overflow-wrap: break-word;
+    }
+    .article-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #0F0F0F;
+      margin: 2rem 0 0.75rem;
+      overflow-wrap: break-word;
+    }
+    .article-content p {
+      margin-bottom: 1.5rem;
+    }
+    .article-content ul, .article-content ol {
+      margin-bottom: 1.75rem;
+      padding-left: 1.5rem;
+    }
+    .article-content li {
+      margin-bottom: 0.6rem;
+    }
+    .article-featured-img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 2.5rem;
+      border: 1px solid #E8E8E8;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* BOX DESTAQUE TÉCNICO */
+    .tech-highlight-box {
+      background: #F7F7F5;
+      border-left: 4px solid #C8102E;
+      padding: 1.75rem 2rem;
+      border-radius: 0 8px 8px 0;
+      margin: 2.25rem 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .tech-highlight-box h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: #0F0F0F;
+      margin-bottom: 0.5rem;
+    }
+    .tech-highlight-box p {
+      font-size: 0.9375rem;
+      color: #555555;
+      margin-bottom: 0;
+      line-height: 1.7;
+    }
+
+    /* COMPARATIVO */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0;
+      font-size: 0.9375rem;
+    }
+    .compare-table th, .compare-table td {
+      padding: 1rem 1.25rem;
+      border: 1px solid #E8E8E8;
+      text-align: left;
+    }
+    .compare-table th {
+      background: #0F0F0F;
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+    .compare-table tr:nth-child(even) {
+      background: #FAFAFA;
+    }
+
+    /* SIDEBAR */
+    .article-sidebar {
+      position: sticky;
+      top: 100px;
+      min-width: 0;
+      width: 100%;
+    }
+    .sidebar-widget {
+      background: #F7F7F5;
+      border: 1px solid #E8E8E8;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-sizing: border-box;
+    }
+    .widget-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: #0F0F0F;
+      margin-bottom: 1.25rem;
+      position: relative;
+      padding-bottom: 0.75rem;
+    }
+    .widget-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 32px;
+      height: 2px;
+      background: #C8102E;
+    }
+
+    .table-responsive {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 2.5rem 0;
+      border-radius: 6px;
+      border: 1px solid #E8E8E8;
+    }
+    .table-responsive .compare-table {
+      min-width: 520px;
+      margin: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .article-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        width: 100%;
+      }
+      .article-sidebar {
+        position: static;
+        width: 100%;
+      }
+    }
+    @media (max-width: 768px) {
+      .article-hero {
+        padding: 7.5rem 0 3rem;
+      }
+      .article-title {
+        font-size: clamp(1.6rem, 5.5vw, 2.2rem);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+      .article-meta-bar {
+        font-size: 0.8rem;
+        gap: 0.75rem;
+      }
+      .article-body-section {
+        padding: 2.5rem 0 3.5rem;
+      }
+      .article-layout {
+        gap: 2.25rem;
+      }
+      .article-content {
+        font-size: 1rem;
+        line-height: 1.75;
+      }
+      .article-content h2 {
+        font-size: 1.45rem;
+        margin: 2rem 0 0.75rem;
+      }
+      .article-content h3 {
+        font-size: 1.25rem;
+        margin: 1.5rem 0 0.5rem;
+      }
+      .article-content ul, .article-content ol {
+        padding-left: 1.25rem;
+      }
+      .article-featured-img {
+        margin-bottom: 1.75rem;
+        border-radius: 8px;
+      }
+      .tech-highlight-box {
+        padding: 1.25rem 1.25rem;
+        margin: 1.75rem 0;
+      }
+      .sidebar-widget {
+        padding: 1.5rem 1.25rem;
+      }
+      .article-cta-box {
+        padding: 1.75rem 1.25rem !important;
+        margin-top: 2.5rem !important;
+      }
+      .article-cta-actions {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+      }
+      .article-cta-box .btn {
+        width: 100%;
+        justify-content: center;
+        white-space: normal;
+        text-align: center;
+      }
+      .footer-grid-responsive {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+    }
+    @media (max-width: 480px) {
+      .article-hero {
+        padding: 6.5rem 0 2.5rem;
+      }
+      .breadcrumb {
+        font-size: 0.75rem;
+        margin-bottom: 1rem;
+      }
+      .article-title {
+        font-size: 1.45rem;
+      }
+      .article-body-section {
+        padding: 2rem 0 3rem;
+      }
+      .compare-table th, .compare-table td {
+        padding: 0.75rem 0.85rem;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header scrolled" id="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="site-logo">
+          <img src="/img/logo-white.svg" alt="Baken Construtora" class="site-logo__img logo-white">
+          <img src="/img/logo.svg" alt="Baken Construtora" class="site-logo__img logo-dark">
+        </a>
+        <nav class="site-nav">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">Início</a></li>
+            <li><a href="/sobre" class="nav-link">Sobre</a></li>
+            <li><a href="/servicos" class="nav-link">Serviços</a></li>
+            <li><a href="/obras" class="nav-link">Obras</a></li>
+            <li><a href="/blog" class="nav-link active">Blog</a></li>
+            <li><a href="/contato" class="nav-link">Contato</a></li>
+          </ul>
+          <a href="/portal-cliente" class="nav-cta">Portal do Cliente</a>
+        </nav>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <ul class="mobile-nav-links">
+      <li><a href="/" class="mobile-nav-link">Início</a></li>
+      <li><a href="/sobre" class="mobile-nav-link">Sobre</a></li>
+      <li><a href="/servicos" class="mobile-nav-link">Serviços</a></li>
+      <li><a href="/obras" class="mobile-nav-link">Obras</a></li>
+      <li><a href="/blog" class="mobile-nav-link">Blog</a></li>
+      <li><a href="/contato" class="mobile-nav-link">Contato</a></li>
+    </ul>
+    <a href="/portal-cliente" class="btn btn--primary" style="width:100%;justify-content:center;">Portal do Cliente</a>
+  </nav>
+
+  <main>
+    <!-- HERO ARTIGO -->
+    <section class="article-hero">
+      <div class="article-hero__line"></div>
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="/">Início</a>
+          <span>/</span>
+          <a href="/blog">Blog</a>
+          <span>/</span>
+          <span>Combate a Incêndio</span>
+        </div>
+        <h1 class="article-title">
+          Sistemas Grooved e Sprinklers em Edifícios Verticais: Produtividade e Segurança Contra Incêndio
+        </h1>
+        <div class="article-meta-bar">
+          <span class="badge">Combate a Incêndio</span>
+          <span>Por Equipe de Engenharia Baken</span>
+          <span>•</span>
+          <span>20 de Outubro, 2026</span>
+          <span>•</span>
+          <span>6 min de leitura</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORPO DO ARTIGO -->
+    <section class="article-body-section">
+      <div class="container">
+        <div class="article-layout">
+
+          <!-- ARTIGO PRINCIPAL -->
+          <article class="article-content">
+            <img src="/img/blog/sistema-fire-sprinklers.jpg" alt="Válvula de Governo e Alarme (VGA), Barrilete de Incêndio e Tubulações Ranhuradas Grooved em Canteiro de Obras Vertical" class="article-featured-img">
+
+            <p>
+              Em edifícios residenciais e corporativos de grande porte, o sistema de proteção ativa contra incêndio é um dos componentes mais críticos de todo o escopo de engenharia. Trata-se de uma infraestrutura que opera silenciosa por décadas, sob pressão permanente, mas que precisa responder com 100% de confiabilidade no primeiro segundo de elevação térmica ou queda brusca de pressão.
+            </p>
+
+            <p>
+              Historicamente, a montagem das redes de combate a incêndio baseava-se em tubos de aço carbono soldados no local ou rosqueados manualmente em bancadas improvisadas de obra. Esse método artesanal impõe severos gargalos: riscos elevados de trabalho a quente (faíscas e chamas em ambientes confinados), fumaça tóxica, perda expressiva de espessura de parede nas roscas e ritmo moroso de avanço por pavimento.
+            </p>
+
+            <p>
+              Para assegurar prazos enxutos e estanqueidade irrestrita, a <strong>Baken Construtora</strong> adota em suas obras e soluções modulares a integração entre <strong>acoplamentos mecânicos ranhurados (Grooved)</strong>, prumadas em aço schedule e <strong>Válvulas de Governo e Alarme (VGA)</strong> certificadas internacionalmente.
+            </p>
+
+            <h2>O Princípio da Tecnologia Ranhurada (Grooved)</h2>
+            <p>
+              O sistema Grooved substitui soldas in loco e roscas por uma ranhura circular laminada ou usinada nas extremidades dos tubos. Dois segmentos de tubo são unidos por uma abraçadeira metálica de ferro fundido nodular com junta elastomérica resiliente em EPDM e parafusos de alta resistência.
+            </p>
+
+            <div class="tech-highlight-box">
+              <h4>Vantagens do Ranhuramento por Laminação (Roll Groove)</h4>
+              <p>
+                Ao contrário da rosca ou da usinagem convencional por corte — que reduzem a espessura da parede do tubo em até 40% —, o processo de laminação a frio desloca radialmente o material do tubo de aço carbono sem remover massa, preservando integralmente a espessura nominal e a integridade contra corrosão galvânica.
+              </p>
+            </div>
+
+            <p>
+              Além de dispensar completamente maçaricos e permissões de trabalho a quente no canteiro, os acoplamentos ranhurados absorvem vibrações oriundas dos grupos motobombas e acomodam variações térmicas axiais sem transferir esforços destrutivos aos pilares e lajes de concreto.
+            </p>
+
+            <h2>Válvula de Governo e Alarme (VGA): O Coração da Proteção Ativa</h2>
+            <p>
+              Em qualquer rede de chuveiros automáticos (sprinklers) operando em conformidade com a <strong>ABNT NBR 10897</strong> e as diretrizes do Corpo de Bombeiros Militar, a Válvula de Governo e Alarme desempenha três papéis fundamentais:
+            </p>
+            <ul>
+              <li><strong>Controle de Fluxo e Retenção:</strong> Mantém a rede predial pressurizada e impede o retorno de água estagnada para o reservatório de consumo ou cisterna técnica.</li>
+              <li><strong>Sinalização Mecânica e Elétrica Instantânea:</strong> Ao disparar qualquer bico de sprinkler, a abertura da portinhola da VGA aciona o motor de alarme hidráulico (gongo) e uma chave de fluxo elétrica conectada à Central de Detecção e Alarme de Incêndio (CDAI).</li>
+              <li><strong>Dreno e Teste Setorial de Inspeção:</strong> Permite testes hidrostáticos periódicos de cada zona de alarme sem inundar pavimentos ou despressurizar o edifício inteiro.</li>
+            </ul>
+
+            <h2>Comparativo: Solda/Rosca Convencional vs. Sistema Grooved Baken</h2>
+            <p>
+              Abaixo apresentamos a comparação de desempenho de campo observada em obras de múltiplos pavimentos gerenciadas pela equipe de engenharia da Baken:
+            </p>
+
+            <div class="table-responsive">
+              <table class="compare-table">
+                <thead>
+                  <tr>
+                    <th>Parâmetro de Engenharia</th>
+                    <th>Método Tradicional (Solda / Rosca)</th>
+                    <th>Sistema Ranhurado Grooved Baken</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Trabalho a Quente no Canteiro</strong></td>
+                    <td>Obrigatório; elevado risco de princípios de incêndio.</td>
+                    <td><strong>Zero trabalho a quente</strong>; montagem 100% mecânica a frio.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Velocidade de Instalação</strong></td>
+                    <td>Lenta; alinhamento manual e tempo de resfriamento.</td>
+                    <td><strong>Até 65% mais rápida</strong> por junta e acoplamento.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Dilatação Térmica e Vibração</strong></td>
+                    <td>Juntas rígidas exigem juntas de expansão caras.</td>
+                    <td>Absorção inerente de movimentos axiais e deflexão angular.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Acessibilidade para Manutenção</strong></td>
+                    <td>Corte de tubulação e paralisação prolongada do sistema.</td>
+                    <td>Desmontagem rápida por soltura de apenas dois parafusos.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Conformidade e Certificações</strong></td>
+                    <td>Depende da habilidade de soldadores individuais.</td>
+                    <td>Componentes com certificação internacional <strong>UL / FM</strong> e NBR 10897.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2>Integração BIM e Pré-Fabricação Modular em Fábrica</h2>
+            <p>
+              A eficácia do sistema atinge seu ápice quando associada ao modelo de <strong>Kits de Instalação Baken</strong>: os barriletes de incêndio, ramais de sprinklers e manifolds de pressurização são pré-cortados, ranhurados, pintados em vermelho de segurança e montados em gabaritos controlados a partir do modelo BIM 3D.
+            </p>
+            <p>
+              O kit chega ao canteiro acompanhado de laudo de ensaio hidrostático de bancada a 1,5 vezes a pressão de projeto, garantindo que o fechamento dos forros e shafts aconteça com garantia total de estanqueidade e aprovação sumária nas vistorias de habite-se e AVCB.
+            </p>
+
+            <!-- BOX COMERCIAL FINAL -->
+            <div class="article-cta-box" style="background:#0F0F0F;color:#FFFFFF;border-radius:10px;padding:2.5rem;margin-top:3.5rem;border-left:4px solid #C8102E;">
+              <h3 style="color:#FFFFFF;margin-top:0;">Precisa de consultoria técnica ou kits de incêndio para sua obra?</h3>
+              <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:1.5rem;">
+                A equipe de engenharia da Baken Construtora projeta, compatibiliza em BIM e fornece sistemas completos de combate a incêndio grooved e sprinklers com rigor normativo.
+              </p>
+              <div class="article-cta-actions" style="display:flex;gap:1rem;flex-wrap:wrap;">
+                <a href="https://wa.me/5562623302711?text=Ol%C3%A1!%20Li%20o%20artigo%20sobre%20Sistemas%20Grooved%20e%20Sprinklers%20e%20gostaria%20de%20uma%20apresenta%C3%A7%C3%A3o%20t%C3%A9cnica." target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                  Falar no WhatsApp
+                </a>
+                <a href="/contato" class="btn btn--outline" style="color:#FFFFFF;border-color:rgba(255,255,255,0.3);">
+                  Solicitar Cotação de Projeto
+                </a>
+              </div>
+            </div>
+
+          </article>
+
+          <!-- SIDEBAR -->
+          <aside class="article-sidebar">
+
+            <!-- WIDGET 1: SOLICITE COTAÇÃO -->
+            <div class="sidebar-widget">
+              <h4 class="widget-title">Engenharia de Incêndio Baken</h4>
+              <p style="font-size:0.875rem;color:#737373;line-height:1.6;margin-bottom:1.25rem;">
+                Soluções completas com tubulações ranhuradas, VGA, bicos automáticos e aprovação de AVCB em Goiás.
+              </p>
+              <a href="https://wa.me/5562623302711" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="width:100%;justify-content:center;font-size:0.8125rem;">
+                Solicitar Apresentação Técnica
+              </a>
+            </div>
+
+            <!-- WIDGET 2: OUTRAS MATÉRIAS -->
+            <div class="sidebar-widget">
+              <h4 class="widget-title">Outras Matérias</h4>
+              <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:1.25rem;">
+                <li>
+                  <a href="/blog/kits-instalacao-hidraulica-incendio" style="text-decoration:none;color:#0F0F0F;display:block;">
+                    <span style="font-size:0.6875rem;color:#C8102E;font-weight:700;text-transform:uppercase;">Kits de Instalação</span>
+                    <strong style="display:block;font-size:0.9375rem;line-height:1.4;margin-top:0.25rem;font-family:'Playfair Display',serif;">Kits Hidráulicos e de Incêndio: Industrialização em Prédios Verticais</strong>
+                  </a>
+                </li>
+                <li>
+                  <a href="/servicos#hidraulica" style="text-decoration:none;color:#0F0F0F;display:block;">
+                    <span style="font-size:0.6875rem;color:#C8102E;font-weight:700;text-transform:uppercase;">Engenharia Hidráulica</span>
+                    <strong style="display:block;font-size:0.9375rem;line-height:1.4;margin-top:0.25rem;font-family:'Playfair Display',serif;">Instalações Hidrossanitárias & Barriletes em PPR</strong>
+                  </a>
+                </li>
+                <li>
+                  <a href="/servicos#eletrica" style="text-decoration:none;color:#0F0F0F;display:block;">
+                    <span style="font-size:0.6875rem;color:#C8102E;font-weight:700;text-transform:uppercase;">Engenharia Elétrica</span>
+                    <strong style="display:block;font-size:0.9375rem;line-height:1.4;margin-top:0.25rem;font-family:'Playfair Display',serif;">Subestações & Barramento Blindado</strong>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </aside>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" style="background:#080808;border-top:1px solid rgba(255,255,255,0.04);padding:4rem 0 2rem;">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:3rem;margin-bottom:3rem;" class="footer-grid-responsive">
+        <div>
+          <a href="/" class="site-logo" style="margin-bottom:1.25rem;display:inline-block;">
+            <img src="/img/logo-white.svg" alt="Baken Construtora" class="site-logo__img">
+          </a>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.5);line-height:1.7;max-width:320px;">
+            Especialistas em engenharia de instalações elétricas, hidráulicas e combate a incêndio para empreendimentos de alta complexidade.
+          </p>
+        </div>
+        <div>
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.25rem;">Navegação</div>
+          <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.6rem;font-size:0.875rem;">
+            <li><a href="/" style="color:rgba(255,255,255,0.6);text-decoration:none;">Início</a></li>
+            <li><a href="/sobre" style="color:rgba(255,255,255,0.6);text-decoration:none;">Sobre</a></li>
+            <li><a href="/servicos" style="color:rgba(255,255,255,0.6);text-decoration:none;">Serviços</a></li>
+            <li><a href="/obras" style="color:rgba(255,255,255,0.6);text-decoration:none;">Obras</a></li>
+            <li><a href="/blog" style="color:#C8102E;text-decoration:none;font-weight:600;">Blog Técnico</a></li>
+            <li><a href="/contato" style="color:rgba(255,255,255,0.6);text-decoration:none;">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.25rem;">Serviços & Kits</div>
+          <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.6rem;font-size:0.875rem;">
+            <li><a href="/blog/kits-instalacao-hidraulica-incendio" style="color:rgba(255,255,255,0.6);text-decoration:none;">Kits de Instalação</a></li>
+            <li><a href="/servicos#hidraulica" style="color:rgba(255,255,255,0.6);text-decoration:none;">Instalações Hidráulicas</a></li>
+            <li><a href="/servicos#incendio" style="color:rgba(255,255,255,0.6);text-decoration:none;">Combate a Incêndio</a></li>
+            <li><a href="/servicos#eletrica" style="color:rgba(255,255,255,0.6);text-decoration:none;">Instalações Elétricas</a></li>
+            <li><a href="/portal-cliente" style="color:rgba(255,255,255,0.6);text-decoration:none;">Portal do Cliente</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.25rem;">Contato</div>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:0.75rem;">
+            Av. Ville, 2891 — Moinho dos Ventos<br>Goiânia, GO · CEP 74.371-580
+          </p>
+          <a href="https://wa.me/5562623302711" target="_blank" rel="noopener noreferrer" style="color:#C8102E;font-size:0.875rem;text-decoration:none;font-weight:500;">
+            WhatsApp: (62) 3300-2711
+          </a>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,0.05);padding-top:2rem;">
+        <span style="font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.25);">© 2026 Baken Construtora LTDA — CNPJ 01.763.579/0001-07</span>
+        <div style="display:flex;gap:1.5rem;">
+          <a href="/politica-privacidade" style="font-size:0.8125rem;color:rgba(255,255,255,0.4);text-decoration:none;">Privacidade</a>
+          <a href="/portal-cliente" style="font-size:0.8125rem;color:rgba(255,255,255,0.4);text-decoration:none;">Portal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
