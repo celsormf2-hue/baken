@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema Redux: O Fim dos Ruídos de Esgoto em Edifícios Residenciais — Blog Baken</title>
+  <meta name="description" content="Conheça a tecnologia de tubulação multicamada com reforço mineral e abraçadeiras acústicas do Sistema Redux. Conforto sonoro e conformidade estrita com a ABNT NBR 15575.">
+  <meta property="og:title" content="Sistema Redux: O Fim dos Ruídos de Esgoto em Edifícios Residenciais — Blog Baken">
+  <meta property="og:description" content="Tubos reforçados com cargas minerais, abraçadeiras amortecidas em EPDM e isolamento acústico superior para prumadas e shafts hidrossanitários verticais.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="/img/blog/sistema-redux-esgoto-silencioso.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+
+  <style>
+    .article-hero {
+      position: relative;
+      background: #0F0F0F;
+      padding: 9.5rem 0 4.5rem;
+      overflow: hidden;
+    }
+    .article-hero__line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #C8102E 40%, transparent);
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 1.5rem;
+    }
+    .breadcrumb a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .breadcrumb a:hover { color: #C8102E; }
+    .article-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+      color: #FFFFFF;
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+    .article-meta-bar {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.55);
+      flex-wrap: wrap;
+    }
+    .article-meta-bar .badge {
+      background: #C8102E;
+      color: #fff;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 0.6875rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* CONTEÚDO PRINCIPAL DO ARTIGO */
+    .article-body-section {
+      padding: 4.5rem 0;
+      background: #FFFFFF;
+    }
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 4.5rem;
+      align-items: start;
+      width: 100%;
+      min-width: 0;
+    }
+    .article-content {
+      font-size: 1.0625rem;
+      line-height: 1.85;
+      color: #3D3D3D;
+      font-weight: 300;
+      min-width: 0;
+      width: 100%;
+      overflow-wrap: break-word;
+      word-break: normal;
+    }
+    .article-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #0F0F0F;
+      margin: 2.75rem 0 1rem;
+      line-height: 1.25;
+      overflow-wrap: break-word;
+    }
+    .article-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: #0F0F0F;
+      margin: 2rem 0 0.75rem;
+      overflow-wrap: break-word;
+    }
+    .article-content p {
+      margin-bottom: 1.5rem;
+    }
+    .article-content ul, .article-content ol {
+      margin-bottom: 1.75rem;
+      padding-left: 1.5rem;
+    }
+    .article-content li {
+      margin-bottom: 0.6rem;
+    }
+    .article-featured-img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 2.5rem;
+      border: 1px solid #E8E8E8;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* BOX DESTAQUE TÉCNICO */
+    .tech-highlight-box {
+      background: #F7F7F5;
+      border-left: 4px solid #C8102E;
+      padding: 1.75rem 2rem;
+      border-radius: 0 8px 8px 0;
+      margin: 2.25rem 0;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .tech-highlight-box h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: #0F0F0F;
+      margin-bottom: 0.5rem;
+    }
+    .tech-highlight-box p {
+      font-size: 0.9375rem;
+      color: #555555;
+      margin-bottom: 0;
+      line-height: 1.7;
+    }
+
+    /* COMPARATIVO */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0;
+      font-size: 0.9375rem;
+    }
+    .compare-table th, .compare-table td {
+      padding: 1rem 1.25rem;
+      border: 1px solid #E8E8E8;
+      text-align: left;
+    }
+    .compare-table th {
+      background: #0F0F0F;
+      color: #FFFFFF;
+      font-weight: 600;
+    }
+    .compare-table tr:nth-child(even) {
+      background: #FAFAFA;
+    }
+
+    /* SIDEBAR */
+    .article-sidebar {
+      position: sticky;
+      top: 100px;
+      min-width: 0;
+      width: 100%;
+    }
+    .sidebar-widget {
+      background: #F7F7F5;
+      border: 1px solid #E8E8E8;
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-sizing: border-box;
+    }
+    .widget-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: #0F0F0F;
+      margin-bottom: 1.25rem;
+      position: relative;
+      padding-bottom: 0.75rem;
+    }
+    .widget-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 32px;
+      height: 2px;
+      background: #C8102E;
+    }
+
+    .table-responsive {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 2.5rem 0;
+      border-radius: 6px;
+      border: 1px solid #E8E8E8;
+    }
+    .table-responsive .compare-table {
+      min-width: 520px;
+      margin: 0;
+    }
+
+    @media (max-width: 1024px) {
+      .article-layout {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        width: 100%;
+      }
+      .article-sidebar {
+        position: static;
+        width: 100%;
+      }
+    }
+    @media (max-width: 768px) {
+      .article-hero {
+        padding: 7.5rem 0 3rem;
+      }
+      .article-title {
+        font-size: clamp(1.6rem, 5.5vw, 2.2rem);
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+      .article-meta-bar {
+        font-size: 0.8rem;
+        gap: 0.75rem;
+      }
+      .article-body-section {
+        padding: 2.5rem 0 3.5rem;
+      }
+      .article-layout {
+        gap: 2.25rem;
+      }
+      .article-content {
+        font-size: 1rem;
+        line-height: 1.75;
+      }
+      .article-content h2 {
+        font-size: 1.45rem;
+        margin: 2rem 0 0.75rem;
+      }
+      .article-content h3 {
+        font-size: 1.25rem;
+        margin: 1.5rem 0 0.5rem;
+      }
+      .article-content ul, .article-content ol {
+        padding-left: 1.25rem;
+      }
+      .article-featured-img {
+        margin-bottom: 1.75rem;
+        border-radius: 8px;
+      }
+      .tech-highlight-box {
+        padding: 1.25rem 1.25rem;
+        margin: 1.75rem 0;
+      }
+      .sidebar-widget {
+        padding: 1.5rem 1.25rem;
+      }
+      .article-cta-box {
+        padding: 1.75rem 1.25rem !important;
+        margin-top: 2.5rem !important;
+      }
+      .article-cta-actions {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+      }
+      .article-cta-box .btn {
+        width: 100%;
+        justify-content: center;
+        white-space: normal;
+        text-align: center;
+      }
+      .footer-grid-responsive {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+    }
+    @media (max-width: 480px) {
+      .article-hero {
+        padding: 6.5rem 0 2.5rem;
+      }
+      .breadcrumb {
+        font-size: 0.75rem;
+        margin-bottom: 1rem;
+      }
+      .article-title {
+        font-size: 1.45rem;
+      }
+      .article-body-section {
+        padding: 2rem 0 3rem;
+      }
+      .compare-table th, .compare-table td {
+        padding: 0.75rem 0.85rem;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header scrolled" id="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="site-logo">
+          <img src="/img/logo-white.svg" alt="Baken Construtora" class="site-logo__img logo-white">
+          <img src="/img/logo.svg" alt="Baken Construtora" class="site-logo__img logo-dark">
+        </a>
+        <nav class="site-nav">
+          <ul class="nav-links">
+            <li><a href="/" class="nav-link">Início</a></li>
+            <li><a href="/sobre" class="nav-link">Sobre</a></li>
+            <li><a href="/servicos" class="nav-link">Serviços</a></li>
+            <li><a href="/obras" class="nav-link">Obras</a></li>
+            <li><a href="/blog" class="nav-link active">Blog</a></li>
+            <li><a href="/contato" class="nav-link">Contato</a></li>
+          </ul>
+          <a href="/portal-cliente" class="nav-cta">Portal do Cliente</a>
+        </nav>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <ul class="mobile-nav-links">
+      <li><a href="/" class="mobile-nav-link">Início</a></li>
+      <li><a href="/sobre" class="mobile-nav-link">Sobre</a></li>
+      <li><a href="/servicos" class="mobile-nav-link">Serviços</a></li>
+      <li><a href="/obras" class="mobile-nav-link">Obras</a></li>
+      <li><a href="/blog" class="mobile-nav-link">Blog</a></li>
+      <li><a href="/contato" class="mobile-nav-link">Contato</a></li>
+    </ul>
+    <a href="/portal-cliente" class="btn btn--primary" style="width:100%;justify-content:center;">Portal do Cliente</a>
+  </nav>
+
+  <main>
+    <!-- HERO ARTIGO -->
+    <section class="article-hero">
+      <div class="article-hero__line"></div>
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="/">Início</a>
+          <span>/</span>
+          <a href="/blog">Blog</a>
+          <span>/</span>
+          <span>Hidráulica Predial</span>
+        </div>
+        <h1 class="article-title">
+          Sistema Redux: O Fim dos Ruídos de Esgoto em Edifícios Residenciais de Alto Padrão
+        </h1>
+        <div class="article-meta-bar">
+          <span class="badge">Hidráulica Silenciosa</span>
+          <span>Por Equipe de Engenharia Baken</span>
+          <span>•</span>
+          <span>26 de Outubro, 2026</span>
+          <span>•</span>
+          <span>5 min de leitura</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORPO DO ARTIGO -->
+    <section class="article-body-section">
+      <div class="container">
+        <div class="article-layout">
+
+          <!-- ARTIGO PRINCIPAL -->
+          <article class="article-content">
+            <img src="/img/blog/sistema-redux-esgoto-silencioso.jpg" alt="Tubulações multicamada com reforço mineral e abraçadeiras com amortecimento EPDM do Sistema Redux em shaft predial" class="article-featured-img">
+
+            <p>
+              Em edifícios residenciais verticais de médio e alto padrão, o conforto acústico tornou-se um dos principais fatores de valorização imobiliária e de avaliação pós-entrega. Entre as queixas mais recorrentes registradas pelas assistências técnicas de construtoras está o ruído característico de descargas sanitárias e vazões pluviais caindo com velocidade pelas prumadas contíguas a dormitórios e salas de estar.
+            </p>
+
+            <p>
+              Historicamente, o canteiro brasileiro dependeu de tubulações de PVC rígido de parede simples. Por possuírem baixa densidade estrutural, esses tubos funcionam como verdadeiras caixas de ressonância: as ondas sonoras do impacto da água contra as paredes internas do tubo propagam-se pelo ar do shaft e, através das abraçadeiras metálicas rígidas, transferem vibrações mecânicas diretamente para a estrutura de concreto armado do edifício.
+            </p>
+
+            <p>
+              Para erradicar esse problema na raiz e garantir conformidade com a <strong>ABNT NBR 15575</strong>, a <strong>Baken Construtora</strong> integra aos seus projetos e kits industrializados o <strong>Sistema Redux</strong> — uma solução avançada de tubulações com reforço mineral e acoplamento acústico projetada para neutralizar ruídos aéreos e vibrações estruturais.
+            </p>
+
+            <h2>A Física Acústica das Tubulações: Ruído Aéreo vs. Ruído Estrutural</h2>
+            <p>
+              A engenharia acústica predial classifica o som gerado pelo escoamento de esgoto e águas pluviais em duas componentes com comportamentos físicos distintos:
+            </p>
+            <ul>
+              <li><strong>Ruído Aéreo (Airborne Noise):</strong> Onda de pressão sonora gerada pela turbulência da mistura de água, sólidos e ar no interior do conduto. Se a parede da tubulação for leve e fina, essa onda atravessa o material e reverbera no interior do shaft.</li>
+              <li><strong>Ruído Estrutural (Structure-borne Noise):</strong> Energia vibratória transmitida mecanicamente quando a tubulação toca elementos rígidos da edificação (lajes, vigas e paredes de vedação). Ao entrar na estrutura de concreto, o som viaja por múltiplos pavimentos e se irradia como som aéreo dentro dos apartamentos vizinhos.</li>
+            </ul>
+
+            <div class="tech-highlight-box">
+              <h4>Conformidade com os Limites Acústicos da ABNT NBR 15575-6</h4>
+              <p>
+                A Norma de Desempenho (NBR 15575) e a NBR 10152 estabelecem limites rigorosos para o nível de pressão sonora contínuo equivalente em dormitórios decorrente do funcionamento de instalações hidrossanitárias: o nível não deve ultrapassar <strong>30 dB(A)</strong> no critério intermediário e <strong>25 dB(A)</strong> no nível superior. Em prumadas convencionais de PVC, o ruído pode facilmente superar <strong>42 dB(A)</strong>. Com o Sistema Redux, as medições em campo situam-se consistentemente entre <strong>12 e 17 dB(A)</strong>.
+              </p>
+            </div>
+
+            <h2>Os Três Pilares Tecnológicos do Sistema Redux</h2>
+            <p>
+              Para alcançar níveis de atenuação acústica que tornam o escoamento praticamente inaudível no ambiente residencial, o Sistema Redux atua em três frentes complementares:
+            </p>
+
+            <h3>1. Composto Polimérico com Aditivação Mineral de Alta Densidade</h3>
+            <p>
+              Ao contrário do PVC padrão (cuja densidade molecular média é de aproximadamente 1,4 g/cm³), os tubos do Sistema Redux utilizam polímeros multicamada aditivados com cargas minerais especiais (como sulfato de bário), elevando a densidade do composto para marcas superiores a <strong>1,75 g/cm³</strong>. Pela Lei da Massa na física acústica, quanto maior a densidade superficial do material, maior a perda por transmissão sonora através de suas paredes.
+            </p>
+
+            <h3>2. Conexões com Geometria de Fluxo Suave</h3>
+            <p>
+              Os maiores picos de pressão sonora ocorrem nas transições de direção — como junções a 45°, curvas de raio longo e desvios de prumada nos pavimentos de transição. As conexões Redux contam com raios internos calculados para conduzir o fluido sem turbulência violenta e sem choque perpendicular contra as paredes do acessório.
+            </p>
+
+            <h3>3. Abraçadeiras Desacopladas com Perfil Elastomérico EPDM</h3>
+            <p>
+              A fixação mecânica da prumada à alvenaria ou concreto é executada exclusivamente com abraçadeiras acústicas que incorporam anéis de borracha EPDM de alta resiliência elástica. Esse desacoplamento mecânico impede que as vibrações de choque hidráulico sejam transmitidas aos pilares e vigas do edifício.
+            </p>
+
+            <h2>Comparativo Técnico: PVC Convencional vs. Sistema Redux Baken</h2>
+            <p>
+              A tabela a seguir resume as principais diferenças técnicas de especificação observadas em ensaios de desempenho predial:
+            </p>
+
+            <div class="table-responsive">
+              <table class="compare-table">
+                <thead>
+                  <tr>
+                    <th>Parâmetro de Engenharia</th>
+                    <th>PVC Série Normal Convencional</th>
+                    <th>Sistema Redux Mineralizado Baken</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Densidade do Composto</strong></td>
+                    <td>Aproximadamente 1,4 g/cm³; baixa inércia de massa.</td>
+                    <td><strong>&ge; 1,75 g/cm³</strong>; barreira mineral de alta inércia acústica.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Nível de Pressão Sonora Típico</strong></td>
+                    <td>38 a 45 dB(A) no shaft (ultrapassa limites da norma).</td>
+                    <td><strong>12 a 17 dB(A)</strong> (nível de desempenho acústico superior).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Fixação e Amortecimento</strong></td>
+                    <td>Abraçadeiras metálicas rígidas sem desacoplamento.</td>
+                    <td><strong>Abraçadeiras acústicas com anel em borracha EPDM</strong>.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Sistema de Vedação</strong></td>
+                    <td>Junta soldável com adesivo plástico ou anel simples.</td>
+                    <td><strong>Junta de encaixe com anel bilabial</strong> resistente a dilatação.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Resistência Térmica e Química</strong></td>
+                    <td>Temperatura contínua até 45 °C (deformação sob calor).</td>
+                    <td>Suporta escoamento contínuo de <strong>até 90 °C</strong> (máquinas lava-louças).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Conformidade NBR 15575</strong></td>
+                    <td>Risco elevado de reprovação em laudos de desempenho.</td>
+                    <td><strong>Aprovação integral</strong> nos critérios acústicos de dormitórios.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2>Integração com os Kits Hidráulicos Industrializados Baken</h2>
+            <p>
+              A eficácia máxima do Sistema Redux é obtida através do fornecimento em <strong>Kits Industrializados Baken</strong>. Em vez de cortar e montar tubulações mineralizadas manualmente em condições desfavoráveis de canteiro, os ramais e módulos de shaft chegam à obra pré-cortados em bancada automatizada, calibrados a laser e etiquetados por apartamento e pavimento.
+            </p>
+            <p>
+              Essa padronização industrial elimina o desperdício de material de alto valor agregado, garante a estanqueidade irrestrita das juntas com anel bilabial e reduz o tempo de montagem de shafts em <strong>até 70%</strong>, liberando as frentes de vedação e gesso acartonado com segurança jurídica e técnica.
+            </p>
+
+            <!-- BOX COMERCIAL FINAL -->
+            <div class="article-cta-box" style="background:#0F0F0F;color:#FFFFFF;border-radius:10px;padding:2.5rem;margin-top:3.5rem;border-left:4px solid #C8102E;">
+              <h3 style="color:#FFFFFF;margin-top:0;">Deseja especificar o Sistema Redux na sua próxima obra?</h3>
+              <p style="color:rgba(255,255,255,0.7);font-size:0.95rem;margin-bottom:1.5rem;">
+                Consulte a equipe de engenharia da Baken Construtora para dimensionamento acústico, compatibilização em BIM e cotação de fornecimento de kits hidrossanitários silenciosos para edifícios verticais.
+              </p>
+              <div class="article-cta-actions" style="display:flex;gap:1rem;flex-wrap:wrap;">
+                <a href="https://wa.me/5562623302711?text=Ol%C3%A1!%20Li%20o%20artigo%20sobre%20o%20Sistema%20Redux%20de%20esgoto%20silencioso%20e%20gostaria%20de%20falar%20com%20a%20engenharia." target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                  Falar no WhatsApp
+                </a>
+                <a href="/contato" class="btn btn--outline" style="color:#FFFFFF;border-color:rgba(255,255,255,0.3);">
+                  Solicitar Cotação Técnica
+                </a>
+              </div>
+            </div>
+
+          </article>
+
+          <!-- SIDEBAR -->
+          <aside class="article-sidebar">
+
+            <!-- WIDGET 1: SOLICITE COTAÇÃO -->
+            <div class="sidebar-widget">
+              <h4 class="widget-title">Engenharia Hidráulica Baken</h4>
+              <p style="font-size:0.875rem;color:#737373;line-height:1.6;margin-bottom:1.25rem;">
+                Projetos hidrossanitários verticais, kits em PPR/PEX e prumadas silenciosas com garantia de conformidade NBR 15575.
+              </p>
+              <a href="https://wa.me/5562623302711" target="_blank" rel="noopener noreferrer" class="btn btn--primary" style="width:100%;justify-content:center;font-size:0.8125rem;">
+                Falar com Especialista
+              </a>
+            </div>
+
+            <!-- WIDGET 2: OUTRAS MATÉRIAS -->
+            <div class="sidebar-widget">
+              <h4 class="widget-title">Outras Matérias</h4>
+              <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:1.25rem;">
+                <li>
+                  <a href="/blog/sistemas-grooved-sprinklers-combate-incendio" style="text-decoration:none;color:#0F0F0F;display:block;">
+                    <span style="font-size:0.6875rem;color:#C8102E;font-weight:700;text-transform:uppercase;">Combate a Incêndio</span>
+                    <strong style="display:block;font-size:0.9375rem;line-height:1.4;margin-top:0.25rem;font-family:'Playfair Display',serif;">Sistemas Grooved e Sprinklers em Edifícios Verticais</strong>
+                  </a>
+                </li>
+                <li>
+                  <a href="/blog/kits-instalacao-hidraulica-incendio" style="text-decoration:none;color:#0F0F0F;display:block;">
+                    <span style="font-size:0.6875rem;color:#C8102E;font-weight:700;text-transform:uppercase;">Kits de Instalação</span>
+                    <strong style="display:block;font-size:0.9375rem;line-height:1.4;margin-top:0.25rem;font-family:'Playfair Display',serif;">Kits Hidráulicos e de Incêndio: Industrialização em Obras</strong>
+                  </a>
+                </li>
+                <li>
+                  <a href="/servicos#hidraulica" style="text-decoration:none;color:#0F0F0F;display:block;">
+                    <span style="font-size:0.6875rem;color:#C8102E;font-weight:700;text-transform:uppercase;">Engenharia Hidráulica</span>
+                    <strong style="display:block;font-size:0.9375rem;line-height:1.4;margin-top:0.25rem;font-family:'Playfair Display',serif;">Instalações Hidrossanitárias & Barriletes em PPR</strong>
+                  </a>
+                </li>
+                <li>
+                  <a href="/servicos#eletrica" style="text-decoration:none;color:#0F0F0F;display:block;">
+                    <span style="font-size:0.6875rem;color:#C8102E;font-weight:700;text-transform:uppercase;">Engenharia Elétrica</span>
+                    <strong style="display:block;font-size:0.9375rem;line-height:1.4;margin-top:0.25rem;font-family:'Playfair Display',serif;">Subestações & Barramento Blindado</strong>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </aside>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" style="background:#080808;border-top:1px solid rgba(255,255,255,0.04);padding:4rem 0 2rem;">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:3rem;margin-bottom:3rem;" class="footer-grid-responsive">
+        <div>
+          <a href="/" class="site-logo" style="margin-bottom:1.25rem;display:inline-block;">
+            <img src="/img/logo-white.svg" alt="Baken Construtora" class="site-logo__img">
+          </a>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.5);line-height:1.7;max-width:320px;">
+            Especialistas em engenharia de instalações elétricas, hidráulicas e combate a incêndio para empreendimentos de alta complexidade.
+          </p>
+        </div>
+        <div>
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.25rem;">Navegação</div>
+          <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.6rem;font-size:0.875rem;">
+            <li><a href="/" style="color:rgba(255,255,255,0.6);text-decoration:none;">Início</a></li>
+            <li><a href="/sobre" style="color:rgba(255,255,255,0.6);text-decoration:none;">Sobre</a></li>
+            <li><a href="/servicos" style="color:rgba(255,255,255,0.6);text-decoration:none;">Serviços</a></li>
+            <li><a href="/obras" style="color:rgba(255,255,255,0.6);text-decoration:none;">Obras</a></li>
+            <li><a href="/blog" style="color:#C8102E;text-decoration:none;font-weight:600;">Blog Técnico</a></li>
+            <li><a href="/contato" style="color:rgba(255,255,255,0.6);text-decoration:none;">Contato</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.25rem;">Serviços & Kits</div>
+          <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.6rem;font-size:0.875rem;">
+            <li><a href="/blog/kits-instalacao-hidraulica-incendio" style="color:rgba(255,255,255,0.6);text-decoration:none;">Kits de Instalação</a></li>
+            <li><a href="/servicos#hidraulica" style="color:rgba(255,255,255,0.6);text-decoration:none;">Instalações Hidráulicas</a></li>
+            <li><a href="/servicos#incendio" style="color:rgba(255,255,255,0.6);text-decoration:none;">Combate a Incêndio</a></li>
+            <li><a href="/servicos#eletrica" style="color:rgba(255,255,255,0.6);text-decoration:none;">Instalações Elétricas</a></li>
+            <li><a href="/portal-cliente" style="color:rgba(255,255,255,0.6);text-decoration:none;">Portal do Cliente</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.25rem;">Contato</div>
+          <p style="font-size:0.875rem;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:0.75rem;">
+            Av. Ville, 2891 — Moinho dos Ventos<br>Goiânia, GO · CEP 74.371-580
+          </p>
+          <a href="https://wa.me/5562623302711" target="_blank" rel="noopener noreferrer" style="color:#C8102E;font-size:0.875rem;text-decoration:none;font-weight:500;">
+            WhatsApp: (62) 3300-2711
+          </a>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,0.05);padding-top:2rem;">
+        <span style="font-size:0.75rem;font-weight:300;color:rgba(255,255,255,0.25);">© 2026 Baken Construtora LTDA — CNPJ 01.763.579/0001-07</span>
+        <div style="display:flex;gap:1.5rem;">
+          <a href="/politica-privacidade" style="font-size:0.8125rem;color:rgba(255,255,255,0.4);text-decoration:none;">Privacidade</a>
+          <a href="/portal-cliente" style="font-size:0.8125rem;color:rgba(255,255,255,0.4);text-decoration:none;">Portal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BOTÃO FLUTUANTE DO WHATSAPP -->
+  <a class="whatsapp-float" href="https://wa.me/5562623302711?text=Ol%C3%A1!%20Acessei%20o%20artigo%20sobre%20o%20Sistema%20Redux%20e%20gostaria%20de%20falar%20com%20a%20engenharia." target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
+    <svg class="whatsapp-float__icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M12.031 0C5.399 0 .017 5.382.017 12.014c0 2.121.554 4.189 1.607 6.013L0 24l6.165-1.618a11.966 11.966 0 0 0 5.866 1.528h.005c6.632 0 12.014-5.383 12.014-12.015C24.05 5.382 18.663 0 12.031 0zm0 21.99a9.98 9.98 0 0 1-5.09-1.393l-.365-.217-3.784.992 1.01-3.69-.238-.379a9.96 9.96 0 0 1-1.53-5.29c0-5.518 4.49-10.008 10.012-10.008 2.673 0 5.186 1.042 7.077 2.933a9.964 9.964 0 0 1 2.932 7.075c0 5.52-4.49 10.01-10.014 10.01zm5.485-7.487c-.301-.15-1.78-.878-2.056-.978-.276-.1-.477-.15-.678.15-.2.3-.778.978-.953 1.178-.175.2-.351.226-.652.075-.3-.15-1.267-.467-2.414-1.49-1.147-1.023-1.922-2.287-2.148-2.673-.226-.386-.024-.595.126-.745.136-.135.301-.351.452-.526.15-.176.2-.301.301-.502.1-.2.05-.376-.025-.526-.075-.15-.678-1.635-.928-2.237-.244-.588-.492-.508-.678-.518-.175-.01-.376-.01-.577-.01s-.527.075-.803.376c-.276.3-1.054 1.029-1.054 2.511 0 1.482 1.079 2.912 1.23 3.113.15.201 2.122 3.24 5.14 4.544 3.018 1.304 3.018.869 3.569.819.55-.05 1.78-.727 2.03-1.43.251-.703.251-1.305.176-1.43-.075-.126-.276-.201-.577-.351z"/>
+    </svg>
+    <span class="whatsapp-float__label">Fale com a Baken!</span>
+  </a>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
