@@ -123,6 +123,15 @@
         navToggle.setAttribute('aria-expanded', 'false');
       }
     });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+        mobileNav.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.focus();
+      }
+    });
   }
 
   /* ── 3. HERO VIDEO SCROLL CONTROL ───────────────────────── */
