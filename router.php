@@ -42,7 +42,8 @@ if (preg_match('#^/(?:api|admin|lib|private-data|vendor|scripts|docs|backup_site
 
 // URLs antigas com .html continuam normalizadas.
 if (preg_match('#^/([a-z0-9-]+)\.html$#i', $path, $match) && is_file(__DIR__ . '/' . $match[1] . '.html')) {
-    header('Location: /' . $match[1], true, 301);
+    $query = $_SERVER['QUERY_STRING'] ?? '';
+    header('Location: /' . $match[1] . ($query !== '' ? '?' . $query : ''), true, 301);
     exit;
 }
 

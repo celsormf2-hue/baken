@@ -3,12 +3,12 @@
 <head>
   <meta name="facebook-domain-verification" content="1aaqudvr6xkbbujduhkqm0nw1ahkdz" />
   <!-- Google Tag Manager -->
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-N9389RBN"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  </script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-N9389RBN');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contato — Baken Construtora</title>
@@ -388,6 +388,10 @@
   </style>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N9389RBN"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
   <!-- HEADER -->
   <header class="site-header scrolled" id="site-header">
@@ -477,7 +481,7 @@
                 <div>
                   <div class="contato-item__label">WhatsApp</div>
                   <div class="contato-item__value">
-                    <a href="https://wa.me/5562996509148" target="_blank" rel="noopener noreferrer">(62) 99650-9148</a>
+                    <a href="/obrigado-whatsapp?origem=contato">(62) 99650-9148</a>
                   </div>
                 </div>
               </div>
@@ -616,24 +620,5 @@
 
   <script src="https://www.google.com/recaptcha/api.js?render=6LfYzFwtAAAAAL992gvIk1OasKih9LqYolz7-Opn" async defer></script>
   <script src="/js/main.js"></script>
-  <script>
-    document.getElementById('contato-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const form = this;
-      grecaptcha.ready(function () {
-        grecaptcha.execute('6LfYzFwtAAAAAL992gvIk1OasKih9LqYolz7-Opn', { action: 'submit' }).then(function (token) {
-          let input = form.querySelector('input[name="g-recaptcha-response"]');
-          if (!input) {
-            input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = 'g-recaptcha-response';
-            form.appendChild(input);
-          }
-          input.value = token;
-          form.submit();
-        });
-      });
-    });
-  </script>
 </body>
 </html>

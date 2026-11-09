@@ -30,9 +30,17 @@
 
   // As páginas institucionais são arquivos HTML estáticos. O Portal é uma rota
   // PHP e deve manter a URL amigável também durante a execução local.
-  const localPages = ['/sobre', '/servicos', '/obras', '/contato', '/politica-privacidade'];
+  const localPages = [
+    '/sobre',
+    '/servicos',
+    '/obras',
+    '/contato',
+    '/politica-privacidade',
+    '/obrigado-whatsapp',
+    '/obrigado-formulario',
+  ];
 
-  if (isLocalPreview && localPages.includes(window.location.pathname)) {
+  if (isLocalPreview && localPages.includes(window.location.pathname) && document.querySelector('.hero-scroll-container')) {
     window.location.replace(window.location.pathname + '.html' + window.location.search + window.location.hash);
     return;
   }
@@ -48,19 +56,13 @@
 
   /* ── FLOATING WHATSAPP CONTACT ─────────────────────────── */
   function createWhatsappFloat() {
+    const cleanPath = window.location.pathname.replace(/\.html$/, '');
+    if (cleanPath === '/obrigado-whatsapp' || cleanPath === '/obrigado-formulario') return;
     if (document.querySelector('.whatsapp-float')) return;
-    const phone = '5562623302711';
-    const message = encodeURIComponent('Olá! Gostaria de falar com a Baken.');
-    const isMobile = /Android|iPhone|iPad|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    const destination = isMobile
-      ? `https://wa.me/${phone}?text=${message}`
-      : `https://web.whatsapp.com/send?phone=${phone}&text=${message}`;
 
     const link = document.createElement('a');
     link.className = 'whatsapp-float';
-    link.href = destination;
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
+    link.href = '/obrigado-whatsapp?origem=flutuante';
     link.setAttribute('aria-label', 'Fale com a Baken pelo WhatsApp');
     link.innerHTML = '<svg class="whatsapp-float__icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12.031 0C5.399 0 .017 5.382.017 12.014c0 2.121.554 4.189 1.607 6.013L0 24l6.165-1.618a11.966 11.966 0 0 0 5.866 1.528h.005c6.632 0 12.014-5.383 12.014-12.015C24.05 5.382 18.663 0 12.031 0zm0 21.99a9.98 9.98 0 0 1-5.09-1.393l-.365-.217-3.784.992 1.01-3.69-.238-.379a9.96 9.96 0 0 1-1.53-5.29c0-5.518 4.49-10.008 10.012-10.008 2.673 0 5.186 1.042 7.077 2.933a9.964 9.964 0 0 1 2.932 7.075c0 5.52-4.49 10.01-10.014 10.01zm5.485-7.487c-.301-.15-1.78-.878-2.056-.978-.276-.1-.477-.15-.678.15-.2.3-.778.978-.953 1.178-.175.2-.351.226-.652.075-.3-.15-1.267-.467-2.414-1.49-1.147-1.023-1.922-2.287-2.148-2.673-.226-.386-.024-.595.126-.745.136-.135.301-.351.452-.526.15-.176.2-.301.301-.502.1-.2.05-.376-.025-.526-.075-.15-.678-1.635-.928-2.237-.244-.588-.492-.508-.678-.518-.175-.01-.376-.01-.577-.01s-.527.075-.803.376c-.276.3-1.054 1.029-1.054 2.511 0 1.482 1.079 2.912 1.23 3.113.15.201 2.122 3.24 5.14 4.544 3.018 1.304 3.018.869 3.569.819.55-.05 1.78-.727 2.03-1.43.251-.703.251-1.305.176-1.43-.075-.126-.276-.201-.577-.351z"/></svg><span class="whatsapp-float__label">Fale com a Baken!</span>';
     document.body.appendChild(link);
@@ -605,20 +607,34 @@
           });
         })
         .then(function (res) {
-          setSubmittingState(false);
           if (res.ok && res.data && res.data.success) {
-            contatoForm.style.display = 'none';
-            if (formSuccess) {
-              const successText = document.getElementById('form-success-text');
-              if (successText && res.data.message) {
-                successText.textContent = res.data.message;
-              }
-              formSuccess.style.display = 'block';
+            const servicoSelect = document.getElementById('servico');
+            const selectedOption = servicoSelect && servicoSelect.selectedIndex >= 0
+              ? servicoSelect.options[servicoSelect.selectedIndex]
+              : null;
+            const servicoLabel = selectedOption && selectedOption.value
+              ? selectedOption.textContent.trim()
+              : '';
+
+            try {
+              window.sessionStorage.setItem(
+                'baken_form_submitted',
+                JSON.stringify({ servico: servicoLabel })
+              );
+            } catch (err) {
+              // Segue com o redirecionamento mesmo sem sessionStorage disponível.
             }
-          } else {
-            const errMsg = (res.data && res.data.message) ? res.data.message : 'Ocorreu um erro ao enviar a mensagem. Tente novamente.';
-            showFormError(errMsg);
+
+            if (submitBtn) {
+              submitBtn.textContent = 'Redirecionando...';
+            }
+            window.location.assign('/obrigado-formulario');
+            return;
           }
+
+          setSubmittingState(false);
+          const errMsg = (res.data && res.data.message) ? res.data.message : 'Ocorreu um erro ao enviar a mensagem. Tente novamente.';
+          showFormError(errMsg);
         })
         .catch(function () {
           setSubmittingState(false);
