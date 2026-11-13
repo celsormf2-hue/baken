@@ -139,7 +139,7 @@
 
     .featured-card {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
+      grid-template-columns: 1.6fr 1fr;
       gap: 3.5rem;
       background: #F7F7F5;
       border-radius: 12px;
@@ -156,8 +156,8 @@
 
     .featured-card__media {
       position: relative;
-      height: 100%;
-      min-height: 420px;
+      width: 100%;
+      aspect-ratio: 16 / 9;
     }
 
     .featured-card__img {
@@ -168,18 +168,7 @@
     }
 
     .featured-card__badge {
-      position: absolute;
-      top: 1.5rem;
-      left: 1.5rem;
-      background: #C8102E;
-      color: #FFFFFF;
-      font-size: 0.6875rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.35rem 0.85rem;
-      border-radius: 4px;
-      box-shadow: 0 4px 12px rgba(200, 16, 46, 0.4);
+      display: none;
     }
 
     .featured-card__body {
@@ -351,8 +340,9 @@
       }
 
       .featured-card__media {
-        height: 340px;
-        min-height: auto;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
       }
 
       .featured-card__body {
@@ -375,8 +365,8 @@
       }
 
       .featured-card__media {
-        height: 250px;
-        min-height: auto;
+        width: 100%;
+        aspect-ratio: 16 / 9;
       }
 
       .featured-card__body {
@@ -416,7 +406,8 @@
       }
 
       .featured-card__media {
-        height: 210px;
+        min-height: auto;
+        aspect-ratio: 16 / 9;
       }
 
       .featured-card__badge {
@@ -512,7 +503,8 @@
     <section class="blog-filters-section">
       <div class="container">
         <div class="blog-filters">
-          <button class="filter-btn active" data-filter="all">Todos os Artigos (4)</button>
+          <button class="filter-btn active" data-filter="all">Todos os Artigos (5)</button>
+          <button class="filter-btn" data-filter="obras">Gestão de Obras</button>
           <button class="filter-btn" data-filter="eletrica">Engenharia Elétrica</button>
           <button class="filter-btn" data-filter="hidraulica">Hidráulica Predial</button>
           <button class="filter-btn" data-filter="incendio">Combate a Incêndio</button>
@@ -524,26 +516,24 @@
     <!-- ARTIGO EM DESTAQUE (FEATURED) -->
     <section class="featured-article">
       <div class="container">
-        <a href="/blog/instalacoes-eletricas-edificios-alto-padrao" style="text-decoration:none;" class="featured-card"
-          data-category="eletrica">
+        <a href="/blog/antes-de-fechar-as-paredes" style="text-decoration:none;" class="featured-card"
+          data-category="obras">
           <div class="featured-card__media">
-            <img src="/img/blog/instalacoes-eletricas-edificios-alto-padrao.jpg"
-              alt="Instalações elétricas em edifícios de alto padrão" class="featured-card__img">
-            <span class="featured-card__badge">Novo Artigo Técnico</span>
+            <img src="/img/blog/antes-de-fechar-as-paredes.jpg"
+              alt="Antes de fechar as paredes: o que conferir nas instalações do seu edifício?" class="featured-card__img">
+            <span class="featured-card__badge">Checklist de Obra</span>
           </div>
           <div class="featured-card__body">
             <div class="featured-meta">
-              <span class="tag">ENGENHARIA ELÉTRICA</span>
+              <span class="tag">GESTÃO DE OBRAS</span>
               <span>•</span>
-              <span>03 de Novembro, 2026</span>
+              <span>13 de Novembro, 2026</span>
               <span>•</span>
-              <span>5-7 min de leitura</span>
+              <span>5 min de leitura</span>
             </div>
-            <h2 class="featured-title">Instalações elétricas em edifícios de alto padrão: infraestrutura segura e
-              preparada para o futuro</h2>
+            <h2 class="featured-title">Antes de fechar as paredes: o que conferir nas instalações do seu edifício?</h2>
             <p class="featured-excerpt">
-              Como o planejamento de prumadas, barramentos blindados, conformidade com a NBR 5410, SPDA e infraestrutura
-              para veículos elétricos definem o padrão tecnológico das edificações modernas.
+              Elétrica, hidráulica e proteção contra incêndio precisam de acompanhamento antes de desaparecerem sob os acabamentos. Veja quais pontos devem entrar nessa conferência.
             </p>
             <span class="btn btn--primary">Ler Artigo Completo</span>
           </div>
@@ -555,6 +545,33 @@
     <section class="blog-feed" style="padding: 0 0 5rem;">
       <div class="container">
         <div class="blog-grid" style="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));">
+
+          <a href="/blog/instalacoes-eletricas-edificios-alto-padrao" class="blog-card" data-category="eletrica">
+            <div class="blog-card__thumb">
+              <img src="/img/blog/instalacoes-eletricas-edificios-alto-padrao.jpg"
+                alt="Instalações Elétricas em Edifícios de Alto Padrão"
+                class="blog-card__img">
+              <span class="blog-card__badge">Engenharia Elétrica</span>
+            </div>
+            <div class="blog-card__content">
+              <div class="blog-card__meta">
+                <span>03 de Novembro, 2026</span>
+                <span>•</span>
+                <span>6 min de leitura</span>
+              </div>
+              <h3 class="blog-card__title">Instalações Elétricas em Edifícios de Alto Padrão</h3>
+              <p class="blog-card__summary">
+                A importância de uma infraestrutura segura, eficiente e preparada para o futuro: barramentos, automação e NBR 5410.
+              </p>
+              <div class="blog-card__footer">
+                <span>Ler Matéria</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </div>
+            </div>
+          </a>
 
           <a href="/blog/sistema-redux-esgoto-silencioso" class="blog-card" data-category="hidraulica">
             <div class="blog-card__thumb">
